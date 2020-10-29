@@ -25,6 +25,7 @@
         android:layout_marginLeft="53dp"
         android:layout_marginTop="83dp"
         android:text="John Smith"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:text="Learning Progress: 5/10"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/ivAvatar"
         app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
 
@@ -45,6 +47,7 @@
         android:layout_marginLeft="7dp"
         android:layout_marginTop="50dp"
         android:text="Coin number"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/tvName"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
@@ -53,6 +56,7 @@
         android:layout_width="293dp"
         android:layout_height="414dp"
         android:layout_marginTop="61dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
