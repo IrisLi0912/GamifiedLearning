@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/ivMarsCondition"
-        android:layout_width="416dp"
-        android:layout_height="265dp"
+        android:layout_width="384dp"
+        android:layout_height="261dp"
         tools:layout_editor_absoluteX="-2dp"
         tools:layout_editor_absoluteY="0dp"
         tools:srcCompat="@tools:sample/avatars" />
@@ -77,8 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Learning"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="430dp" />
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="535dp" />
 
     <TextView
         android:id="@+id/tvWelcomeMsg"
@@ -87,8 +87,8 @@
         android:text="Welcome Back *Name*"
         android:textAllCaps="false"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="332dp" />
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="349dp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -102,6 +102,14 @@
         android:id="@+id/adView"
         android:layout_width="414dp"
         android:layout_height="93dp"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="638dp" />
+        tools:layout_editor_absoluteX="-19dp"
+        tools:layout_editor_absoluteY="684dp" />
+
+    <Button
+        android:id="@+id/btHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="456dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
