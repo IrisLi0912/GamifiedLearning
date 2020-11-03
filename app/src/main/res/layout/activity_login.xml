@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/marsbg"
-    tools:context=".MainActivity">
+    tools:context=".Login">
+
+
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+
+<!--tools:context=".MainActivity">-->
 
     <ImageView
         android:id="@+id/imageView5"
@@ -13,7 +24,10 @@
         android:layout_height="113dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon" />
 
     <TextView
@@ -22,11 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView5"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-41dp"
+        android:layout_marginTop="11dp"
         android:text="App Name"
         android:textColor="#874B01"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/textView5"
@@ -34,26 +51,29 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="178dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="LOGIN"
         android:textColor="#0B0A0A"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="326dp"
         android:layout_height="225dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="343dp"
-        android:orientation="vertical">
+        android:layout_marginTop="54dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <EditText
             android:id="@+id/tv_email"
@@ -83,7 +103,7 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/loginbutton"
             android:text="LOGIN"
-            app:backgroundTint="#0E0E0D" />
+            app:backgroundTint="#FFFFFF" />
 
     </LinearLayout>
 
@@ -93,15 +113,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/signupbutton"
         android:text="Sign Up"
         android:textColor="#F3F2F2"
         android:textColorHighlight="#F6F2F2"
         android:textColorHint="#F8070707"
-        app:backgroundTint="#7E171616" />
+        app:backgroundTint="#7E171616"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
@@ -109,11 +130,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="97dp"
+        android:layout_marginTop="42dp"
         android:text="Not join yet?"
         android:textColor="#0C0C0C"
         android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-</RelativeLayout>
+    <!--</RelativeLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
