@@ -114,7 +114,11 @@
         android:layout_marginRight="16dp"
         android:text="©NASA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivMarsCondition" />
+        app:layout_constraintTop_toBottomOf="@+id/ivMarsCondition"
+        tools:layout_editor_absoluteX="326dp"
+        tools:layout_editor_absoluteY="261dp"/>
+<!--        not sure if the above 2 lines are necessary-->
+
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
