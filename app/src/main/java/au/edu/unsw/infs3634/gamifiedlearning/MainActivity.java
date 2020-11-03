@@ -9,26 +9,38 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mAdapter;
 
+    public EditText emailIn;
+    public EditText passwordIn;
+    public Button login;
+    public Button signUp;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mRecyclerView = findViewById(R.id.rvList);
-        mRecyclerView.setHasFixedSize(true);
-        RecyclerViewAdapter.RecyclerViewClickListener listener = new RecyclerViewAdapter.RecyclerViewClickListener() {
-            @Override
-            public void onClick(View view, String placesName) {
-                launchDetailActivity(placesName);
-            }
-        };
-        mAdapter = new RecyclerViewAdapter(Places.getPlaces(), listener);
-        mRecyclerView.setAdapter(mAdapter);
+        setContentView(R.layout.activity_login);
+        emailIn = findViewById(R.id.tv_email);
+        passwordIn = findViewById(R.id.tv_password);
+        login = findViewById(R.id.btLogin);
+        signUp = findViewById(R.id.bt_signup);
+//        mRecyclerView = findViewById(R.id.rvList);
+//        mRecyclerView.setHasFixedSize(true);
+//        RecyclerViewAdapter.RecyclerViewClickListener listener = new RecyclerViewAdapter.RecyclerViewClickListener() {
+//            @Override
+//            public void onClick(View view, String placesName) {
+//                launchDetailActivity(placesName);
+//            }
+//        };
+//        mAdapter = new RecyclerViewAdapter(Places.getPlaces(), listener);
+//        mRecyclerView.setAdapter(mAdapter);
     }
 
     private void launchDetailActivity(String message) {
@@ -39,24 +51,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                mAdapter.getFilter().filter(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                mAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_main, menu);
+//        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                mAdapter.getFilter().filter(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                mAdapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
         return true;
-    }
+        }
 
     //select the filter
     public boolean onOptionsItemSelected(MenuItem item) {
