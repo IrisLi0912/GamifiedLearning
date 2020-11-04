@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sydney Tourism Guide</string>
+    <string name="app_name" translatable="false">aMAZEing Mars</string>
     <string name="action_search">Search</string>
     <string name="action_sort">Sort</string>
     <string name="sort_popularity">By review popularity</string>
