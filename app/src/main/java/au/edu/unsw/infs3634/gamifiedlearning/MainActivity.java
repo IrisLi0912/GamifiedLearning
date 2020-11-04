@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+<<<<<<< Updated upstream
 import android.view.View;
 import android.widget.SearchView;
+=======
+import android.widget.Button;
+import android.widget.EditText;
+>>>>>>> Stashed changes
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< Updated upstream
         setContentView(R.layout.activity_main);
         mRecyclerView = findViewById(R.id.rvList);
         mRecyclerView.setHasFixedSize(true);
@@ -29,6 +34,23 @@ public class MainActivity extends AppCompatActivity {
         };
         mAdapter = new RecyclerViewAdapter(Places.getPlaces(), listener);
         mRecyclerView.setAdapter(mAdapter);
+=======
+        setContentView(R.layout.activity_login);
+        emailIn = findViewById(R.id.etEmail);
+        passwordIn = findViewById(R.id.tv_password);
+        login = findViewById(R.id.btSignUp);
+        signUp = findViewById(R.id.btGoToLogIn);
+//        mRecyclerView = findViewById(R.id.rvList);
+//        mRecyclerView.setHasFixedSize(true);
+//        RecyclerViewAdapter.RecyclerViewClickListener listener = new RecyclerViewAdapter.RecyclerViewClickListener() {
+//            @Override
+//            public void onClick(View view, String placesName) {
+//                launchDetailActivity(placesName);
+//            }
+//        };
+//        mAdapter = new RecyclerViewAdapter(Places.getPlaces(), listener);
+//        mRecyclerView.setAdapter(mAdapter);
+>>>>>>> Stashed changes
     }
 
     private void launchDetailActivity(String message) {
