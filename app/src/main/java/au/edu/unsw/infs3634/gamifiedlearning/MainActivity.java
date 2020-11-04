@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
         mRecyclerView = findViewById(R.id.rvList);
         mRecyclerView.setHasFixedSize(true);
         RecyclerViewAdapter.RecyclerViewClickListener listener = new RecyclerViewAdapter.RecyclerViewClickListener() {
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         setContentView(R.layout.activity_login);
         emailIn = findViewById(R.id.etEmail);
-        passwordIn = findViewById(R.id.tv_password);
+        //passwordIn = findViewById(R.id.et_password);
         login = findViewById(R.id.btSignUp);
         signUp = findViewById(R.id.btGoToLogIn);
 

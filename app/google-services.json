@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "759328188955",
+    "firebase_url": "https://amazeingmars.firebaseio.com",
+    "project_id": "amazeingmars",
+    "storage_bucket": "amazeingmars.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759328188955:android:ac53f099cbb94c8274e6be",
+        "android_client_info": {
+          "package_name": "au.edu.unsw.infs3634.gamifiedlearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759328188955-rcigt6t8fdu3hif88s28qgo3rcgf6835.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWDq2NWydn5KM53aRApdxXC7n8a5gBtdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759328188955-rcigt6t8fdu3hif88s28qgo3rcgf6835.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
