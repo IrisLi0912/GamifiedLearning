@@ -9,14 +9,14 @@
 
 
 
-<!--    <?xml version="1.0" encoding="utf-8"?>-->
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
+    <!--    <?xml version="1.0" encoding="utf-8"?>-->
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
 
-<!--tools:context=".MainActivity">-->
+    <!--tools:context=".MainActivity">-->
 
     <ImageView
         android:id="@+id/imageView5"
@@ -53,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
-        android:text="LOGIN"
+        android:text="REGISTER"
         android:textColor="#0B0A0A"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -76,7 +76,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <EditText
-            android:id="@+id/etLoginEmail"
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Full Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -84,7 +92,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/etLoginPassword"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -97,13 +105,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@drawable/loginbutton"
-            android:text="LOGIN"
+            android:text="Sign Up"
             app:backgroundTint="#FFFFFF" />
 
     </LinearLayout>
 
     <Button
-
         android:id="@+id/btGoToLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,7 +118,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/signupbutton"
-        android:text="Sign Up"
+        android:text="LOG IN"
         android:textColor="#F3F2F2"
         android:textColorHighlight="#F6F2F2"
         android:textColorHint="#F8070707"
@@ -127,7 +134,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Don't Have an Account?"
+        android:text="Already have an account?"
         android:textColor="#0C0C0C"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -137,4 +144,4 @@
 
     <!--</RelativeLayout>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>>
