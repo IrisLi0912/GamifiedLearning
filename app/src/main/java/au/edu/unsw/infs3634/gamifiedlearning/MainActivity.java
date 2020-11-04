@@ -1,98 +1,84 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SearchView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter mAdapter;
-
-    public EditText emailIn;
-    public EditText passwordIn;
-    public Button login;
-    public Button signUp;
+    EditText mName;
+    EditText mEmail;
+    EditText mPass;
+    Button mSignUp;
+    Button mGoToLogin;
+    FirebaseAuth fAuth;
+    ProgressBar status;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mRecyclerView = findViewById(R.id.rvList);
-        mRecyclerView.setHasFixedSize(true);
-        RecyclerViewAdapter.RecyclerViewClickListener listener = new RecyclerViewAdapter.RecyclerViewClickListener() {
+        setContentView(R.layout.activity_register);
+
+        mName = findViewById(R.id.etName);
+        mEmail = findViewById(R.id.etEmail);
+        mPass = findViewById(R.id.etPassword);
+        mSignUp = findViewById(R.id.btSignUp);
+        mGoToLogin = findViewById(R.id.btGoToLogIn);
+
+        fAuth = FirebaseAuth.getInstance();
+        status = findViewById(R.id.progressBar);
+
+        if(fAuth.getCurrentUser() !=null){
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+
+        mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view, String placesName) {
-                launchDetailActivity(placesName);
+            public void onClick(View v) {
+                String email = mEmail.getText().toString().trim();
+                String pass = mPass.getText().toString().trim();
+
+                if (TextUtils.isEmpty(email)) {
+                    mEmail.setError("Please enter an Email address!");
+                }
+
+                if (TextUtils.isEmpty(pass)) {
+                    mPass.setError("Please enter a valid Password");
+                }
+                // password length restriction can go here
+
+                status.setVisibility(View.VISIBLE);
+
+                fAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        }else{
+
+                            Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
             }
-        };
-        mAdapter = new RecyclerViewAdapter(Places.getPlaces(), listener);
-        mRecyclerView.setAdapter(mAdapter);
-        setContentView(R.layout.activity_login);
-        emailIn = findViewById(R.id.etEmail);
-        passwordIn = findViewById(R.id.tv_password);
-        login = findViewById(R.id.btSignUp);
-        signUp = findViewById(R.id.btGoToLogIn);
 
-//        mRecyclerView = findViewById(R.id.rvList);
-//        mRecyclerView.setHasFixedSize(true);
-//        RecyclerViewAdapter.RecyclerViewClickListener listener = new RecyclerViewAdapter.RecyclerViewClickListener() {
-//            @Override
-//            public void onClick(View view, String placesName) {
-//                launchDetailActivity(placesName);
-//            }
-//        };
-//        mAdapter = new RecyclerViewAdapter(Places.getPlaces(), listener);
-//        mRecyclerView.setAdapter(mAdapter);
+        });
 
-    }
-
-    private void launchDetailActivity(String message) {
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra(DetailActivity.INTENT_MESSAGE, message);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_main, menu);
-//        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                mAdapter.getFilter().filter(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                mAdapter.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
-        return true;
-        }
-
-    //select the filter
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.sort_new:
-                mAdapter.sort(RecyclerViewAdapter.SORT_REVIEW_NUMBER);
-                return true;
-            case R.id.sort_total:
-                mAdapter.sort(RecyclerViewAdapter.SORT_SCORE);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }
