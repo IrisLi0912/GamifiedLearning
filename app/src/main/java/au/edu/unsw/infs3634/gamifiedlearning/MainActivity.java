@@ -36,14 +36,15 @@ public class MainActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.etEmail);
         mPass = findViewById(R.id.etPassword);
         mSignUp = findViewById(R.id.btSignUp);
-        mGoToLogin = findViewById(R.id.btGoToLogIn);
+        mGoToLogin = findViewById(R.id.btGoLogIn);
 
         fAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.progressBar);
 
         if(fAuth.getCurrentUser() !=null){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), Setting.class));
             finish();
+            //Currently redirects to setting screen to test logout functionality
         }
 
         mSignUp.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Registered", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Setting.class));
+                            //Currently redirects to setting screen to test logout functionality
                         }else{
 
                             Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();

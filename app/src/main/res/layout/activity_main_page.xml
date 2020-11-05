@@ -120,16 +120,6 @@
 <!--        not sure if the above 2 lines are necessary-->
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="331dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btStart" />
-
     <Button
         android:id="@+id/btHelp"
         android:layout_width="wrap_content"
