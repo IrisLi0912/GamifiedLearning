@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainPage">
-
+<!--checked-->
+<!--there were 2 main page file in iris's branch. the proper one is saved.-->
+<!--no adview is added-->
 
     <ImageView
         android:id="@+id/ivMarsCondition"

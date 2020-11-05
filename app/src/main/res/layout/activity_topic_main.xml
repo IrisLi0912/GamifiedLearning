@@ -8,6 +8,7 @@
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:context=".TopicMain"
     android:padding="8dp">
+<!--    checked-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tv_topliclist"
         android:layout_width="match_parent"

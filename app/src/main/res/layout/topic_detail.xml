@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+<!--this looks the same as activity_topic_detail. need to decide which to keep-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="69dp">
