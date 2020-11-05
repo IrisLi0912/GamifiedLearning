@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<!--warning!!! same as topic_detail.xml-->
+    <TextView
+        android:id="@+id/tv_topicTitle"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:background="#D5F4D7"
+        android:text="main topic title" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="69dp">
@@ -16,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_topicDes"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:background="#F8CFCF"
@@ -37,13 +43,12 @@
             android:text="Formula" />
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/iv_formulaImage"
+            android:layout_width="284dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/purple_200"
             tools:srcCompat="@tools:sample/avatars" />
-
 
     </LinearLayout>
 
@@ -78,7 +83,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/iv_graph"
+            android:id="@+id/iv_topicImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F3E39C"
@@ -94,43 +99,12 @@
 
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tv_topicTitle1"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="#D5F4D7"
         android:text="sub topic " />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:background="#F8CFCF"
-        android:text="defination of topic" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="114dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_subtopicFdes"
-                android:layout_width="327dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#8EC3CA"
-                android:text="Sub topic formula des" />
-
-            <ImageView
-                android:id="@+id/iv_subFormula"
-                android:layout_width="140dp"
-                android:layout_height="111dp"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-        </LinearLayout>
-    </ScrollView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -142,12 +116,38 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_subTopicDes"
+                android:id="@+id/tv_topicDes1"
                 android:layout_width="match_parent"
                 android:layout_height="95dp"
                 android:background="#9FA6D5"
                 android:text="subtopic description" />
         </LinearLayout>
     </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="132dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_formulaDes1"
+                android:layout_width="327dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#8EC3CA"
+                android:text="Sub topic formula des" />
+
+            <ImageView
+                android:id="@+id/iv_formulaImage1"
+                android:layout_width="106dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>
