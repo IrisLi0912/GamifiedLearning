@@ -9,7 +9,7 @@
     android:layout_margin="8dp"
     tools:context=".Game">
 
-
+<!--checked-->
 <ImageView
     android:id="@+id/ivProgress"
     android:layout_width="395dp"

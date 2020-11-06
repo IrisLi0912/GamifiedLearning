@@ -101,7 +101,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btGoToLogIn"
+        android:id="@+id/btGoLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -112,6 +112,7 @@
         android:textColor="#F3F2F2"
         android:textColorHighlight="#F6F2F2"
         android:textColorHint="#F8070707"
+        android:onClick="goToLogin"
         app:backgroundTint="#7E171616"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

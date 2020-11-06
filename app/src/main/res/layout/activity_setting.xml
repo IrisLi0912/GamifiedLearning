@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Setting">
-
+<!--checked. keeping master-->
     <TextView
         android:id="@+id/tvChangePW"
         android:layout_width="wrap_content"
@@ -71,6 +71,7 @@
         android:layout_marginLeft="84dp"
         android:layout_marginTop="54dp"
         android:text="LogOut"
+        android:onClick="logout"
         app:layout_constraintStart_toStartOf="@+id/tvNewPW"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
@@ -83,4 +84,5 @@
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_nevigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

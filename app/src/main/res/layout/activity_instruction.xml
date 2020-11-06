@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Instruction">
 
+<!--checked-->
     <TextView
         android:id="@+id/tvInstructions"
         android:layout_width="wrap_content"
