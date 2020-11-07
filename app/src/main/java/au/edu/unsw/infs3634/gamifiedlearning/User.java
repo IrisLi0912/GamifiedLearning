@@ -28,7 +28,7 @@ public class User extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.topic:
-                        startActivity(new Intent(getApplicationContext(), TopicMain.class));
+                        startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.about:
