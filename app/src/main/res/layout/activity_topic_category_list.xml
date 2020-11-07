@@ -2,13 +2,15 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cardview="http://schemas.android.com/tools"
-
-    android:layout_width="150dp"
-    android:layout_height="200dp"
     android:id="@+id/tv_cardview"
+    android:layout_width="180dp"
+    android:layout_height="200dp"
     android:layout_margin="16dp"
-    android:background="@drawable/marsbg"
-    cardview:cardCornerRadius="4dp">
+    app:cardBackgroundColor="#00FFFFFF"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="5dp"
+    cardview:outlineAmbientShadowColor="@color/colorAccent"
+    cardview:cardCornerRadius="@drawable/cardview">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,14 +20,19 @@
         <ImageView
             android:id="@+id/iv_topicCategory"
             android:layout_width="match_parent"
-            android:layout_height="173dp" />
+            android:layout_height="164dp" />
 
         <TextView
             android:id="@+id/tv_mtopicTittle"
             android:layout_width="match_parent"
-            android:layout_height="29dp"
+            android:layout_height="36dp"
+            android:fontFamily="casual"
+            android:gravity="center_horizontal"
             android:text="Topic tittle"
-            android:textSize="14sp" />
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

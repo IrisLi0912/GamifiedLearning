@@ -2,7 +2,6 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 
 
         import android.content.Context;
-        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -17,12 +16,12 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 
 
 
-public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder>{
+public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.ViewHolder>{
     ArrayList<MainTopicsCategory> mLists;
     Context context;
     private OnItemClickListener onItemClickListener;
 
-    public TopicAdapter(Context context, ArrayList<MainTopicsCategory> mLists) {
+    public MainTopicAdapter(Context context, ArrayList<MainTopicsCategory> mLists) {
         this.context = context;
         this.mLists = mLists;
     }
@@ -43,18 +42,19 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,SubTopic.class);
+//                Intent intent = new Intent(context,SubTopic.class);
 
                 // passing data to the book activity
 //                intent.putExtra("Title",mLists.get(position).getTitle());
 //                intent.putExtra("Description",mLists.get(position).getDescription());
 //                intent.putExtra("Thumbnail",mLists.get(position).getThumbnail());
                 // start the activity
-                context.startActivity(intent);
+//                context.startActivity(intent);
 
-//                if (onItemClickListener != null) {
-//                    onItemClickListener.onItemClick(position);
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
                 }
+            }
 
         });
     }

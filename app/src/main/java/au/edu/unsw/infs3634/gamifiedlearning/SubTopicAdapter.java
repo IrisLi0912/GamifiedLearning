@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.destinationViewHolder> implements Filterable {
+public class SubTopicAdapter extends RecyclerView.Adapter<SubTopicAdapter.destinationViewHolder> implements Filterable {
     public static final int SORT_REVIEW_NUMBER = 1;
     public static final int SORT_SCORE = 2;
     public ArrayList<Places> mPlacesFiltered;
     private ArrayList<Places> mPlaces;
     private RecyclerViewClickListener mListener;
 
-    public RecyclerViewAdapter(ArrayList<Places> places, RecyclerViewClickListener listener) {
+    public SubTopicAdapter(ArrayList<Places> places, RecyclerViewClickListener listener) {
         mPlaces = places;
         mListener = listener;
         mPlacesFiltered = places;

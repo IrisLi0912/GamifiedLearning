@@ -1,6 +1,5 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
-
 import java.util.ArrayList;
 
 public class MainTopicsCategory {
