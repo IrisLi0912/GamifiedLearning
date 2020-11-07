@@ -64,7 +64,7 @@ public class TopicMain extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.about:
-                        startActivity(new Intent(getApplicationContext(),Setting.class));
+                        startActivity(new Intent(getApplicationContext(),User.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
