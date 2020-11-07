@@ -2,6 +2,7 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 
 
         import android.content.Context;
+        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -9,6 +10,7 @@ package au.edu.unsw.infs3634.gamifiedlearning;
         import android.widget.TextView;
 
         import androidx.annotation.NonNull;
+        import androidx.cardview.widget.CardView;
         import androidx.recyclerview.widget.RecyclerView;
 
         import java.util.ArrayList;
@@ -36,18 +38,24 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         MainTopicsCategory item = mLists.get(position);
-
-        int image = context.getResources().getIdentifier(item.getImageName(),
-                "drawable", "com.example.gamifiedlearning");
-        holder.iv_topicCategory.setImageResource(image);
+        holder.iv_topicCategory.setImageResource(item.getImageName());
         holder.tv_mtopicTittle.setText(item.getTopicCategory());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(position);
+                Intent intent = new Intent(context,SubTopic.class);
+
+                // passing data to the book activity
+//                intent.putExtra("Title",mLists.get(position).getTitle());
+//                intent.putExtra("Description",mLists.get(position).getDescription());
+//                intent.putExtra("Thumbnail",mLists.get(position).getThumbnail());
+                // start the activity
+                context.startActivity(intent);
+
+//                if (onItemClickListener != null) {
+//                    onItemClickListener.onItemClick(position);
                 }
-            }
+
         });
     }
 
@@ -67,11 +75,14 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tv_mtopicTittle;
         ImageView iv_topicCategory;
+        CardView tv_cardView;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             tv_mtopicTittle = itemView.findViewById(R.id.tv_mtopicTittle);
             iv_topicCategory = itemView.findViewById(R.id.iv_topicCategory);
+            tv_cardView = itemView.findViewById(R.id.tv_cardview);
+
 
 
         }

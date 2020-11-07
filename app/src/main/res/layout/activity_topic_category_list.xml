@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cardview="http://schemas.android.com/tools"
 
-    android:layout_width="164dp"
-    android:layout_height="220dp"
-
-    android:layout_margin="5dp"
+    android:layout_width="150dp"
+    android:layout_height="200dp"
+    android:id="@+id/tv_cardview"
+    android:layout_margin="16dp"
     android:background="@drawable/marsbg"
     cardview:cardCornerRadius="4dp">
 
@@ -18,13 +18,12 @@
         <ImageView
             android:id="@+id/iv_topicCategory"
             android:layout_width="match_parent"
-            android:layout_height="178dp"
-            app:srcCompat="@drawable/gk" />
+            android:layout_height="173dp" />
 
         <TextView
             android:id="@+id/tv_mtopicTittle"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="29dp"
             android:text="Topic tittle"
             android:textSize="14sp" />
 

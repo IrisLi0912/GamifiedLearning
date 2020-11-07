@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class MainTopicsCategory {
 
     private String topicCategory;
-    private String imageName;
+    private int imageName;
 
 
-    public MainTopicsCategory(String topicCategory, String imageName) {
+    public MainTopicsCategory(String topicCategory, int imageName) {
         this.topicCategory = topicCategory;
         this.imageName = imageName;
 
@@ -18,15 +18,15 @@ public class MainTopicsCategory {
 
     public static ArrayList<MainTopicsCategory> getMainTopicsCategory() {
         ArrayList<MainTopicsCategory> maintopics = new ArrayList<>();
-        maintopics.add(new MainTopicsCategory("General Knowledge", "gk"));
+        maintopics.add(new MainTopicsCategory("General Knowledge", R.drawable.gk));
 
-        maintopics.add(new MainTopicsCategory("Mars exploration", "marsexploration"));
+        maintopics.add(new MainTopicsCategory("Mars exploration", R.drawable.marsexploration));
 
-        maintopics.add(new MainTopicsCategory("History Observation", "marshistory"));
+        maintopics.add(new MainTopicsCategory("History Observation", R.drawable.marshistory));
 
-        maintopics.add(new MainTopicsCategory("Future Missions", "mission"));
+        maintopics.add(new MainTopicsCategory("Future Missions", R.drawable.mission));
 
-        maintopics.add(new MainTopicsCategory("Fun Facts", "fun_facts"));
+        maintopics.add(new MainTopicsCategory("Fun Facts", R.drawable.fun_facts));
 
         return maintopics;
 
@@ -40,11 +40,11 @@ public class MainTopicsCategory {
         this.topicCategory = topicCategory;
     }
 
-    public String getImageName() {
+    public int getImageName() {
         return imageName;
     }
 
-    public void setImageName(String imageName) {
+    public void setImageName(int imageName) {
         this.imageName = imageName;
     }
 }
