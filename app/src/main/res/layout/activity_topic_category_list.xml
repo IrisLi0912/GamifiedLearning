@@ -9,8 +9,7 @@
     app:cardBackgroundColor="#00FFFFFF"
     app:cardElevation="5dp"
     app:cardMaxElevation="5dp"
-    cardview:outlineAmbientShadowColor="@color/colorAccent"
-    cardview:cardCornerRadius="@drawable/cardview">
+    cardview:outlineAmbientShadowColor="@color/colorAccent">
 
     <LinearLayout
         android:layout_width="match_parent"
