@@ -101,7 +101,7 @@
         android:orientation="vertical">
 
         <com.youth.banner.Banner
-            android:id="@+id/banner"
+            android:id="@+id/iv_topicImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

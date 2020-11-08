@@ -25,7 +25,7 @@ public class MainTopicsCategory {
 
         maintopics.add(new MainTopicsCategory("Future Missions", R.drawable.mission));
 
-        maintopics.add(new MainTopicsCategory("Fun Facts", R.drawable.funfacts));
+        maintopics.add(new MainTopicsCategory("Fun Facts", R.drawable.fun_facts));
 
         return maintopics;
 

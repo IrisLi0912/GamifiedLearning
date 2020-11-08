@@ -6,10 +6,10 @@
     android:layout_width="180dp"
     android:layout_height="200dp"
     android:layout_margin="16dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="32dp"
-    app:cardElevation="3dp"
-    app:cardMaxElevation="3dp">
+    app:cardBackgroundColor="#00FFFFFF"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="5dp"
+    cardview:outlineAmbientShadowColor="@color/colorAccent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,10 +19,7 @@
         <ImageView
             android:id="@+id/iv_topicCategory"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
-            android:adjustViewBounds="true"
-            android:cropToPadding="true"
-            android:scaleType="centerInside" />
+            android:layout_height="164dp" />
 
         <TextView
             android:id="@+id/tv_mtopicTittle"
@@ -33,8 +30,7 @@
             android:text="Topic tittle"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
     </LinearLayout>
