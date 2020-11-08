@@ -10,7 +10,7 @@
     android:layout_margin="8dp">
 <!--new file added from iris-->
     <ImageView
-        android:id="@+id/iv_topicPic"
+        android:id="@+id/iv_topicLogo"
         android:layout_width="80dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -22,7 +22,7 @@
         tools:layout_editor_absoluteY="5dp" />
 
     <TextView
-        android:id="@+id/tv_topicName"
+        android:id="@+id/tv_topicTitle"
         android:layout_width="250dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
@@ -33,8 +33,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/iv_topicPic"
-        app:layout_constraintTop_toTopOf="@+id/iv_topicPic"
+        app:layout_constraintStart_toEndOf="@+id/iv_topicLogo"
+        app:layout_constraintTop_toTopOf="@+id/iv_topicLogo"
         tools:text="Topic name"></TextView>
 
 
@@ -46,7 +46,15 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_topicName"
-        app:layout_constraintTop_toBottomOf="@+id/tv_topicName" />
+        app:layout_constraintStart_toStartOf="@+id/tv_topicTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_topicTitle" />
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#EBEBED"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
