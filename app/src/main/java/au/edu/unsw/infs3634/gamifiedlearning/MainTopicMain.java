@@ -26,7 +26,7 @@ public class MainTopicMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topic_main);
+        setContentView(R.layout.activity_topic_recyclerview);
 
 
         recyclerView = findViewById(R.id.tv_topliclist);
