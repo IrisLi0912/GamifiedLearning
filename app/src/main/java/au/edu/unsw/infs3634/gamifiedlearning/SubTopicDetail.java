@@ -1,10 +1,9 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -33,72 +32,71 @@ public class SubTopicDetail extends AppCompatActivity {
 //        mToolbar.setBackgroundColor(Color.CYAN);
 
 
-        // adding a message
-        // to get the sight data from intent object
         subTopic = (SubTopic) getIntent().getSerializableExtra("data");
 
-        // find all the view that was identified in XML file
-//    Banner iv_topicLogo = findViewById(R.id.iv_topicLogo);
-//    TextView tv_topicTitle = findViewById(R.id.tv_topicTitle);
-//    TextView tv_topicDes = findViewById(R.id.tv_topicDes);
-//    ImageView iv_formulaImage  = findViewById(R.id.iv_formulaImage);
-//    TextView tv_ratingdes = findViewById(R.id.tv_ratingdes);
-//    TextView tv_des = findViewById(R.id.tv_des);
-//    TextView tv_guest1 = findViewById(R.id.tv_guest1);
-//    TextView tv_guest2 = findViewById(R.id.tv_guest2);
-//
-//
-//    // through setText method to retrieve data from Sight.java file
-//    // use id as a identifier , to put relate data into correct place
-//        tv_name.setText(sight.getSightName() + "");
-//        tv_rating.setText(sight.getRating() + "");
-//        tv_ratingdes.setText(sight.getRatingDescription());
-//        tv_des.setText(sight.getSightDescription() + "");
-//        tv_guest1.setText(sight.getGuestReviews1() + "");
-//        tv_guest2.setText(sight.getGuestReviews2() + "");
-//
-//    // set learn more as a clickable text
-//    // redirect to correlated url.(to gain additional information from outside website via google chrome)
-//        tv_learn.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            Uri uri = Uri.parse(sight.getLearnMore());
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            startActivity(intent);
-//        }
-//    });
-//
-//    // use image banner to show the sight picture in the place of 'ivLoge' image view
-//    ImageBanner adapter = new ImageBanner(getImage());
-//        ivLogo.setAdapter(adapter);
-//    //allow the image to play circlely
-//        ivLogo.setIndicator(new CircleIndicator(this));
-//}
-//
-//
-//    // Define an arraylist, then traverse all the pictures in the resource, put them into this list, and then return to the user
-//    public ArrayList<Integer> getImage() {
-//        ArrayList<Integer> images = new ArrayList<>();
-//
-//        for (int i = 0; i < sight.getImageMax(); i++) {
-//            int image;
-//
-//            if (i == 0) {
-//                //Return a resource identifier for the given resource name
-//                image = getResources().getIdentifier(sight.getImageName(),
-//                        "drawable", "com.example.attractions");
-//            } else {
-//                image = getResources().getIdentifier(sight.getImageName() + i,
-//                        "drawable", "com.example.attractions");
-//            }
-//            //add image inside the images arraylist
-//            images.add(image);
-//        }
-//        //show the image
-//        return images;
-//    }
-//}
-//}
+
+        Banner iv_topicLogo = findViewById(R.id.banner); //banner
+        TextView tv_topicTitle = findViewById(R.id.tv_topicTitle);
+        TextView tv_topicDes = findViewById(R.id.tv_topicDes);
+        ImageView iv_formulaImage = findViewById(R.id.iv_formulaImage);
+        TextView tv_formulaDes = findViewById(R.id.tv_formulaDes);
+        TextView tv_topicTitle1 = findViewById(R.id.tv_topicTitle1);
+        TextView tv_topicDes1 = findViewById(R.id.tv_topicDes1);
+        TextView tv_formulaDes1 = findViewById(R.id.tv_formulaDes1);
+        ImageView iv_formulaImage1 = findViewById(R.id.iv_formulaImage1);
+        TextView tv_learnMore = findViewById(R.id.tv_learnMore);
+
+
+        iv_formulaImage.setImageResource(subTopic.getFormulaImage());
+        tv_topicTitle.setText(subTopic.getTopicTitle() + "");
+        tv_topicDes.setText(subTopic.getTopicDes() + "");
+        tv_formulaDes.setText(subTopic.getFormulaDes());
+
+        tv_topicTitle1.setText(subTopic.getTopicTitle1() + "");
+        tv_topicDes1.setText(subTopic.getTopicDes1() + "");
+        tv_formulaDes1.setText(subTopic.getFormulaDes1() + "");
+        iv_formulaImage1.setImageResource(subTopic.getFormulaImage1());
+
+
+        tv_learnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(subTopic.getLearnMore());
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        ImageBanner adapter = new ImageBanner(getImage());
+        iv_topicLogo.setAdapter(adapter);
+
+        iv_topicLogo.setIndicator(new CircleIndicator(this));
+
+
     }
 
+    public ArrayList<Integer> getImage() {
+        ArrayList<Integer> images = new ArrayList<>();
+
+        for (int i = 0; i < subTopic.getImageMax(); i++) {
+            int image;
+
+            if (i == 0) {
+                //Return a resource identifier for the given resource name
+                image = getResources().getIdentifier(subTopic.getTopicImageName(),
+                        "drawable", "au.edu.unsw.infs3634.gamifiedlearning");
+            } else {
+                image = getResources().getIdentifier(subTopic.getTopicImageName() + i,
+                        "drawable", "au.edu.unsw.infs3634.gamifiedlearning");
+            }
+            //add image inside the images arraylist
+            images.add(image);
+        }
+        //show the image
+        return images;
+    }
 }
+
+
+
+
