@@ -4,90 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Quiz">
+    tools:context=".QuizActivity">
 
-<!--checked-->
-<TextView
-    android:id="@+id/tvQuizQuestion"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:text="Quiz Text"
-    android:textSize="36sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tvQuestionNumber" />
+    <!--checked-->
 
-<TextView
-    android:id="@+id/tvScoreDisplay"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_marginLeft="32dp"
-    android:layout_marginTop="64dp"
-    android:text="Score: "
-    android:textSize="24sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-
-<Button
-    android:id="@+id/btConfirm"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="106dp"
-    android:text="Confirm"
-    android:textSize="24sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tvQuizQuestion" />
-
-<TextView
-    android:id="@+id/tvQuestionNumber"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="21dp"
-    android:text="question 1/?"
-    android:textSize="24sp"
-    app:layout_constraintStart_toStartOf="@+id/tvScoreDisplay"
-    app:layout_constraintTop_toBottomOf="@+id/tvScoreDisplay" />
-
-<TextView
-    android:id="@+id/tvTimer"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="64dp"
-    android:layout_marginEnd="32dp"
-    android:layout_marginRight="32dp"
-    android:text="00:30"
-    android:textSize="24sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-
-<RadioGroup
-    android:id="@+id/rgQuizGroup"
-    android:layout_width="263dp"
-    android:layout_height="136dp"
-    android:layout_marginTop="100dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/btConfirm">
-
-    <RadioButton
-        android:id="@+id/rbAnswer1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/text_view_question"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton" />
+        android:layout_marginTop="147dp"
+        android:text="Quiz Text"
+        android:freezesText="true"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/rbAnswer2"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/text_view_score"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton" />
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="64dp"
+        android:freezesText="true"
+        android:text="Score: "
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/rbAnswer3"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_confirm_next"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton" />
-</RadioGroup>
+        android:layout_marginTop="106dp"
+        android:text="Confirm"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_question" />
+
+    <TextView
+        android:id="@+id/text_view_question_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:freezesText="true"
+        android:layout_marginTop="47dp"
+        android:text="question 1/?"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_question" />
+
+    <TextView
+        android:id="@+id/text_view_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:freezesText="true"
+        android:text="00:30"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="263dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_confirm_next">
+
+        <RadioButton
+            android:id="@+id/radio_button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:freezesText="true"/>
+
+        <RadioButton
+            android:id="@+id/radio_button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:freezesText="true"/>
+
+        <RadioButton
+            android:id="@+id/radio_button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:freezesText="true"/>
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
