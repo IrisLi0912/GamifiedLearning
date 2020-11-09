@@ -3,6 +3,8 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 import android.provider.BaseColumns;
 
 public final class QuizContract {
+    private QuizContract(){}
+    //create an empty contract to hold this name just in case
 
     public static class QuestionsTable implements BaseColumns {
         public static final String TABLE_NAME="quiz_questions";
