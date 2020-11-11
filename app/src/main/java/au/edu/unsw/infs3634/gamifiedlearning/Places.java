@@ -35,7 +35,7 @@ public class Places {
 
     public static ArrayList<Places> getPlaces() {
         ArrayList<Places> destinations = new ArrayList<>();
-        destinations.add(new Places("Bondi Beach", R.drawable.bb2, R.drawable.bb1, R.drawable.bb, R.drawable.bb3, "Queen Elizabeth Drive, Sydney, NSW 2026", "East of Sydney CBD", "Iconic surf beach & Hall Street cafes", "2-3", 2356, 46, "Bondi Beach is a popular beach and the name of the surrounding suburb in Sydney, New South Wales, Australia. It is located 7 km east of the Sydney central business district, in the local government area of Waverley Council, in the Eastern Suburbs. It has a population of 11,656 residents. Its post code is 2026. \nBondi, North Bondi, and Bondi Junction are neighbouring suburbs. Bondi Beach is one of the most visited tourist sites in Australia. (Wikipedia)"));
+      //  destinations.add(new Places("Bondi Beach", R.drawable.bb2, R.drawable.bb1, R.drawable.bb, R.drawable.bb3, "Queen Elizabeth Drive, Sydney, NSW 2026", "East of Sydney CBD", "Iconic surf beach & Hall Street cafes", "2-3", 2356, 46, "Bondi Beach is a popular beach and the name of the surrounding suburb in Sydney, New South Wales, Australia. It is located 7 km east of the Sydney central business district, in the local government area of Waverley Council, in the Eastern Suburbs. It has a population of 11,656 residents. Its post code is 2026. \nBondi, North Bondi, and Bondi Junction are neighbouring suburbs. Bondi Beach is one of the most visited tourist sites in Australia. (Wikipedia)"));
         return destinations;
     }
 

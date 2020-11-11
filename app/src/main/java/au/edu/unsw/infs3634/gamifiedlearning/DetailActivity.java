@@ -30,19 +30,19 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+      //  setContentView(R.layout.activity_detail);
         mPlaceName = findViewById(R.id.tvPlace);
         mPicture = findViewById(R.id.ivPicture);
-        mPicture1 = findViewById(R.id.ivPicture1);
-        mPicture2 = findViewById(R.id.ivPicture2);
-        mPicture3 = findViewById(R.id.ivPicture3);
-        mAddress = findViewById(R.id.tvAddress);
+      //  mPicture1 = findViewById(R.id.ivPicture1);
+       // mPicture2 = findViewById(R.id.ivPicture2);
+       // mPicture3 = findViewById(R.id.ivPicture3);
+       // mAddress = findViewById(R.id.tvAddress);
         tvScoreRating = findViewById(R.id.tvUserScore);
-        mDetail = findViewById(R.id.tvDetail);
-        mSearch = findViewById(R.id.ivSearch);
-        mRush = findViewById(R.id.ivRush);
+       // mDetail = findViewById(R.id.tvDetail);
+       // mSearch = findViewById(R.id.ivSearch);
+       // mRush = findViewById(R.id.ivRush);
         mReviewPopulation = findViewById(R.id.tvReviewPopulation);
-        mDuration = findViewById(R.id.tvDuration);
+       // mDuration = findViewById(R.id.tvDuration);
 
         Intent intent = getIntent();
 
