@@ -23,17 +23,6 @@ public class Setting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        //created a button that can lead me to the quiz page.
-        Button temporary = findViewById(R.id.btDebugForDavid);
-        temporary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),StartingScreenActivity.class));
-            }
-        });
-        //debug button ends. Will be deleted.
-
-
         //initialise and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnSetting);
 
