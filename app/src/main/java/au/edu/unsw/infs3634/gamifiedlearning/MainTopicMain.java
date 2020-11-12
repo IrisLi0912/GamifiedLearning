@@ -39,9 +39,9 @@ public class MainTopicMain extends AppCompatActivity {
         adapter.setOnItemClickListener(new MainTopicAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Intent intent = new Intent(MainTopicMain.this, SubTopic.class);
-                intent.putExtra("data", (Parcelable) adapterList.get(position));
-                startActivity(intent);
+//                Intent intent = new Intent(MainTopicMain.this, SubTopic.class);
+//                intent.putExtra("data", (Parcelable) adapterList.get(position));
+//                startActivity(intent);
             }
         });
 

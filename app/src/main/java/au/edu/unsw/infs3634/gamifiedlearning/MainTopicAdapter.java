@@ -43,14 +43,14 @@ public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,SubTopic.class);
+//                Intent intent = new Intent(context,SubTopic.class);
 
                 // passing data to the book activity
 //                intent.putExtra("Title",mLists.get(position).getTitle());
 //                intent.putExtra("Description",mLists.get(position).getDescription());
 //                intent.putExtra("Thumbnail",mLists.get(position).getThumbnail());
                 // start the activity
-                context.startActivity(intent);
+//                context.startActivity(intent);
 
 //                if (onItemClickListener != null) {
 //                    onItemClickListener.onItemClick(position);
