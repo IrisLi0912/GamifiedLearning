@@ -32,7 +32,7 @@ public class MainPage extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainTopicMain.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.about:
+                    case R.id.profile:
                         startActivity(new Intent(getApplicationContext(),User.class));
                         overridePendingTransition(0,0);
                         return true;
@@ -40,7 +40,10 @@ public class MainPage extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainPage.class));
                         overridePendingTransition(0,0);
                         return true;
-
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                 }
                 return false;
             }

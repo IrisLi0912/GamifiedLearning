@@ -38,7 +38,7 @@ public class Setting extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnSetting);
 
         //set home selected, later change to set whatever page selected
-        bottomNavigationView.setSelectedItemId(R.id.about);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
 
         //Perform ItemSelectListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,7 +49,7 @@ public class Setting extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainTopicMain.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.about:
+                    case R.id.profile:
                         startActivity(new Intent(getApplicationContext(),User.class));
                         overridePendingTransition(0,0);
                         return true;
@@ -57,7 +57,10 @@ public class Setting extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainPage.class));
                         overridePendingTransition(0,0);
                         return true;
-
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                 }
                 return false;
             }

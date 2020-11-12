@@ -1,13 +1,17 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class StartingScreenActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_QUIZ = 1; //value here dose not matter
@@ -22,6 +26,39 @@ public class StartingScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting_screen);
+
+        //initialise and assign variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnQuiz);
+
+        //set home selected, later change to set whatever page selected
+        bottomNavigationView.setSelectedItemId(R.id.journey);
+
+        //Perform ItemSelectListener
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.topic:
+                        startActivity(new Intent(getApplicationContext(),MainTopicMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),User.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(),MainPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         textViewHighscore=findViewById(R.id.text_view_highscore);
         loadHighscore();

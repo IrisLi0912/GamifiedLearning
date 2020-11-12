@@ -7,7 +7,6 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 
         import android.content.Intent;
         import android.os.Bundle;
-        import android.os.Parcelable;
         import android.view.MenuItem;
 
         import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -61,7 +60,7 @@ public class MainTopicMain extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
                         overridePendingTransition(0, 0);
                         return true;
-                    case R.id.about:
+                    case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), User.class));
                         overridePendingTransition(0, 0);
                         return true;
