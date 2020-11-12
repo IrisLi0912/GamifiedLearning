@@ -28,7 +28,7 @@ public class MainPage extends AppCompatActivity {
 
         textViewResult = findViewById(R.id.text_view_result);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .baseUrl("https://api.nasa.gov/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
@@ -42,11 +42,10 @@ public class MainPage extends AppCompatActivity {
                 }
                 List<Post> posts = response.body();
                 for (Post post : posts) {
+//                    textViewResult.setText("Works");
                     String content = "";
-                    content += "ID: " + post.getId() + "\n";
-                    content += "User ID: " + post.getUserId() + "\n";
-                    content += "Title: " + post.getTitle() + "\n";
-                    content += "Text: " + post.getText() + "\n\n";
+                    content += "ID: " + post.getAv() + "\n";
+
                     textViewResult.append(content);
                 }
             }
