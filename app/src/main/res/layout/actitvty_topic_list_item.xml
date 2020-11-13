@@ -8,7 +8,8 @@
     android:clickable="true"
     android:focusable="true"
     android:layout_margin="8dp">
-<!--new file added from iris-->
+
+
     <ImageView
         android:id="@+id/iv_topicLogo"
         android:layout_width="80dp"
