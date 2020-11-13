@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.DIFFICULTY_EASY;
+
 public class StartingScreenActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_QUIZ = 1; //value here dose not matter
     public static final String EXTRA_DIFFICULTY = "extraDifficulty";
@@ -30,15 +32,6 @@ public class StartingScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting_screen);
-
-        spinnerDifficulty = findViewById(R.id.spinner_difficulty);
-        //calling the difficulty list in question class
-        String [] difficultyLevels = Question.getAllDifficultyLevels();
-        ArrayAdapter<String> adapterDifficulty = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, difficultyLevels);
-        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDifficulty.setAdapter(adapterDifficulty);
-
 
         //initialise and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnQuiz);
@@ -72,6 +65,17 @@ public class StartingScreenActivity extends AppCompatActivity {
             }
         });
 
+
+        //below is the spinner stuff
+        spinnerDifficulty = findViewById(R.id.spinner_difficulty);
+        //calling the difficulty list in question class
+        String [] difficultyLevels = Question.getAllDifficultyLevels();
+        ArrayAdapter<String> adapterDifficulty = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, difficultyLevels);
+        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDifficulty.setAdapter(adapterDifficulty);
+        //spinner end
+
         textViewHighscore=findViewById(R.id.text_view_highscore);
         loadHighscore();
 
@@ -83,7 +87,24 @@ public class StartingScreenActivity extends AppCompatActivity {
             }
         });
 
+        Button buttonStartQuiz1 = findViewById(R.id.btChapter1);
+        buttonStartQuiz1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizChapter1();
+            }
+        });
+
+
     }
+
+    private void startQuizChapter1() {
+        Intent intent = new Intent (StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY,DIFFICULTY_EASY);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+
     private void startQuiz(){
         //select and record the difficulty selection
         String difficulty = spinnerDifficulty.getSelectedItem().toString();
