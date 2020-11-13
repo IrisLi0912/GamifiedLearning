@@ -28,7 +28,8 @@ public class MainPage extends AppCompatActivity {
 
         textViewResult = findViewById(R.id.text_view_result);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.nasa.gov/")
+//                .baseUrl("https://api.nasa.gov/")
+                .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
@@ -42,16 +43,17 @@ public class MainPage extends AppCompatActivity {
                 }
                 List<Post> posts = response.body();
                 for (Post post : posts) {
-//                    textViewResult.setText("Works");
                     String content = "";
-                    content += "ID: " + post.getAv() + "\n";
-
+                    content += "ID: " + post.getId() + "\n";
+                    content += "User ID: " + post.getUserId() + "\n";
+                    content += "Title: " + post.getTitle() + "\n";
+                    content += "Text: " + post.getText() + "\n\n";
                     textViewResult.append(content);
                 }
             }
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
+                textViewResult.setText("it failed" + t.getMessage());
             }
         });
 
