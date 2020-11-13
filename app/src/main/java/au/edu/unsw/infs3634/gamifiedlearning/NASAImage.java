@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class NASAImage {
 
+
     @SerializedName("copyright")
     @Expose
     private String copyright;
