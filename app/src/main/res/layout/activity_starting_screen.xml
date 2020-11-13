@@ -12,11 +12,12 @@
         android:id="@+id/textView8"
         android:layout_width="0dp"
         android:layout_height="93dp"
-        android:layout_marginTop="178dp"
-        android:text="My Awesome Quiz"
+        android:layout_marginTop="60dp"
+        android:text="Journey to the Mars"
         android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +35,7 @@
         android:id="@+id/button_start_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="8dp"
         android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +49,68 @@
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_nevigation" />
+
+    <Button
+        android:id="@+id/btChapter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:text="Chapter1"
+        app:layout_constraintEnd_toEndOf="@+id/btChapter2"
+        app:layout_constraintTop_toBottomOf="@+id/btChapter2" />
+
+    <Button
+        android:id="@+id/btChapter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginRight="74dp"
+        android:text="Chapter2"
+        app:layout_constraintEnd_toEndOf="@+id/btChapter3"
+        app:layout_constraintTop_toBottomOf="@+id/btChapter3" />
+
+    <Button
+        android:id="@+id/btChapter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="161dp"
+        android:text="Chapter3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_start_quiz" />
+
+    <Button
+        android:id="@+id/btChapter4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginBottom="24dp"
+        android:text="Chapter4"
+        app:layout_constraintBottom_toTopOf="@+id/btChapter3"
+        app:layout_constraintStart_toStartOf="@+id/btChapter3" />
+
+    <Button
+        android:id="@+id/btChapter5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginBottom="24dp"
+        android:text="Chapter5"
+        app:layout_constraintBottom_toTopOf="@+id/btChapter4"
+        app:layout_constraintStart_toStartOf="@+id/btChapter4" />
+
+    <Spinner
+        android:id="@+id/spinner_difficulty"
+        android:layout_width="129dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="134dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

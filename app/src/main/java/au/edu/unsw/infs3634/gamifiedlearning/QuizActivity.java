@@ -37,6 +37,7 @@ public class QuizActivity extends AppCompatActivity {
     private TextView textViewQuestion;
     private TextView textViewScore;
     private TextView textViewQuestionCount;
+    private TextView textViewDifficulty;
     private TextView textViewCountDown;
     private RadioGroup rbGroup;
     private RadioButton rb1;
@@ -74,14 +75,20 @@ public class QuizActivity extends AppCompatActivity {
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
+        textViewDifficulty=findViewById(R.id.text_view_difficulty);
 
         textColorDefaultRb = rb1.getTextColors(); //get text clolr, green or red
         textColorDefaultCd = textViewCountDown.getTextColors();
+
+        Intent intent = getIntent();
+        String difficulty = intent.getStringExtra(StartingScreenActivity.EXTRA_DIFFICULTY);
+        textViewDifficulty.setText("Difficulty: " + difficulty);
         //the below if else statement:
         //only want do this if we do not have a instant saved. the orientation problem
         if (savedInstanceState == null) {
             QuizDbHelper dbHelper = new QuizDbHelper(this);
-            questionList = dbHelper.getAllQuestions(); //fill the list with data
+            //pass in the difficulty
+            questionList = dbHelper.getQuestions(difficulty); //fill the list with data
             questionCountTotal = questionList.size();
             Collections.shuffle(questionList);
 
