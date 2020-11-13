@@ -17,6 +17,10 @@
         <activity android:name=".Game" />
         <activity android:name=".Setting" />
         <activity android:name=".User" />
+        <activity android:name=".FunFactsMain"/>
+        <activity android:name=".MissionWebActivity"/>
+        <activity android:name=".SubTopicDetail"/>
+        <activity android:name=".SubTopicMain" />
         <activity android:name=".MainTopicMain" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".Login" />

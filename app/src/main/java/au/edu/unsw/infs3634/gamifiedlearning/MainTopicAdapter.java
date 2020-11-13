@@ -52,9 +52,9 @@ public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.View
                 // start the activity
 //                context.startActivity(intent);
 
-//                if (onItemClickListener != null) {
-//                    onItemClickListener.onItemClick(position);
-//                }
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                }
             }
 
         });
