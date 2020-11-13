@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import static au.edu.unsw.infs3634.gamifiedlearning.Question.DIFFICULTY_EASY;
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_1;
 
 public class StartingScreenActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_QUIZ = 1; //value here dose not matter
@@ -101,7 +101,7 @@ public class StartingScreenActivity extends AppCompatActivity {
     private void startQuizChapter1() {
         Intent intent = new Intent (StartingScreenActivity.this, QuizActivity.class);
         //send the value to quiz activity
-        intent.putExtra(EXTRA_DIFFICULTY,DIFFICULTY_EASY);
+        intent.putExtra(EXTRA_DIFFICULTY, CHAPTER_1);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
 

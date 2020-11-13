@@ -4,11 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Question implements Parcelable {
-    public static final String DIFFICULTY_EASY = "Easy";
-    public static final String DIFFICULTY_MEDIUM = "Medium";
-    public static final String DIFFICULTY_HARD = "Hard";
-    public static final String DIFFICULTY_4 = "D4";
-    public static final String DIFFICULTY_5 = "D5";
+    public static final String CHAPTER_1 = "C1";
+    public static final String CHAPTER_2 = "C2";
+    public static final String CHAPTER_3 = "C3";
+    public static final String DIFFICULTY_4 = "C4";
+    public static final String DIFFICULTY_5 = "C5";
 
     private String question;
     private String option1;
@@ -118,9 +118,9 @@ public class Question implements Parcelable {
     public static  String[] getAllDifficultyLevels(){
         //if we want to get a list of diiffisulty level
         return  new String[]{
-            DIFFICULTY_EASY,
-            DIFFICULTY_MEDIUM,
-            DIFFICULTY_HARD,
+                CHAPTER_1,
+                CHAPTER_2,
+            CHAPTER_3,
             DIFFICULTY_4,
             DIFFICULTY_5
         };
