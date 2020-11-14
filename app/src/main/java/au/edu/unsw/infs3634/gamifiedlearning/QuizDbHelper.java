@@ -52,18 +52,57 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     private void fillQuestionsTable() {
         //dummy data stored here for now
-        Question q1 = new Question("Easy A is correct", "A", "B", "C", 1,Question.CHAPTER_1);
+        Question q1 = new Question("What is the equation to calculate the gravitational potential energy?", "E=(-GmM)∕r^2", "E = mgh", "E=0.5mv^2", 1,Question.CHAPTER_1);
         addQuestion(q1);
-        Question q2 = new Question("Medium: B is correct","A", "B", "C", 2, Question.CHAPTER_2);
+        Question q2 = new Question("Calculate the gravitational potential energy of the entire Earth while it orbits the Sun, given that the Sun has a mass of 2x10^30 kg and the distance of the Earth to the Sun is 1.5x10^11 km.","20*10^22 Joule", "3.56x10^22 Joule", "More information is required for calculation.", 2, Question.CHAPTER_1);
         addQuestion(q2);
-        Question q3 = new Question("Medium: C is correct","A", "B", "C", 3, Question.CHAPTER_2);
+        Question q3 = new Question("What is the g-force experienced in a stable orbit","1", "-9.8", "0", 3, Question.CHAPTER_2);
         addQuestion(q3);
-        Question q4 = new Question("Hard: A is correct","A", "B", "C", 1, Question.DIFFICULTY_HARD);
+        Question q4 = new Question("Hard: A is correct","A", "B", "C", 1, Question.CHAPTER_3);
         addQuestion(q4);
-        Question q5 = new Question("Hard: B is correct","A", "B", "C", 2, Question.DIFFICULTY_HARD);
+        Question q5 = new Question("Hard: B is correct","A", "B", "C", 2, Question.CHAPTER_3);
         addQuestion(q5);
-        Question q6 = new Question("Hard: C is correct","A", "B", "C", 3, Question.DIFFICULTY_HARD);
+        Question q6 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
         addQuestion(q6);
+        Question q7 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q7);
+        Question q8 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q8);
+        Question q9 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q9);
+        Question q10 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q10);
+        Question q11 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q11);
+        Question q12 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q12);
+        Question q13 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q13);
+        Question q14 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q14);
+        Question q15 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q15);
+        Question q16= new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q16);
+        Question q17 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q17);
+        Question q18 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q18);
+        Question q19 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q19);
+        Question q20 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q20);
+        Question q21 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q21);
+        Question q22 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q22);
+        Question q23 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q23);
+        Question q24 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q24);
+        Question q25 = new Question("Hard: C is correct","A", "B", "C", 3, Question.CHAPTER_3);
+        addQuestion(q25);
+
     }
 
 
