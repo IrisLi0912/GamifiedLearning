@@ -8,18 +8,27 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class StartingScreenActivity extends AppCompatActivity {
-    private static final int REQUEST_CODE_QUIZ = 1; //value here dose not matter
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_1;
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_2;
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_3;
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_4;
+import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_5;
 
+public class StartingScreenActivity extends AppCompatActivity {
+    public static final String EXTRA_DIFFICULTY = "extraDifficulty";
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String KEY_HIGHSCORE = "keyHighscore";
+    private static final int REQUEST_CODE_QUIZ = 1; //value here dose not matter
     private TextView textViewHighscore; //reference the textview and show the high score
     private int highscore;
+    private Spinner spinnerDifficulty;
 
 
     @Override
@@ -34,22 +43,21 @@ public class StartingScreenActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.journey);
 
         //Perform ItemSelectListener
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.topic:
-                        startActivity(new Intent(getApplicationContext(),MainTopicMain.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(),User.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), User.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(),MainPage.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), MainPage.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.journey:
                         startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
@@ -60,22 +68,112 @@ public class StartingScreenActivity extends AppCompatActivity {
             }
         });
 
-        textViewHighscore=findViewById(R.id.text_view_highscore);
+
+        //below is the spinner stuff
+        spinnerDifficulty = findViewById(R.id.spinner_difficulty);
+        //calling the difficulty list in question class
+        String[] difficultyLevels = Question.getAllDifficultyLevels();
+        ArrayAdapter<String> adapterDifficulty = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, difficultyLevels);
+        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDifficulty.setAdapter(adapterDifficulty);
+        //spinner end
+
+        textViewHighscore = findViewById(R.id.text_view_highscore);
         loadHighscore();
 
-        Button buttonStartQuiz = findViewById(R.id.button_start_quiz);
+        Button buttonStartQuiz = findViewById(R.id.button_start_quiz);//Temporarily hided from app interface
+        Button buttonStartQuiz1 = findViewById(R.id.btChapter1);
+        Button buttonStartQuiz2 = findViewById(R.id.btChapter2);
+        Button buttonStartQuiz3 = findViewById(R.id.btChapter3);
+        Button buttonStartQuiz4 = findViewById(R.id.btChapter4);
+        Button buttonStartQuiz5 = findViewById(R.id.btChapter5);
+
+        //------------------Temporarily hided from app interface ------------------
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startQuiz();
             }
         });
-
+        //-------------------------------------------------------------------------
+        buttonStartQuiz1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizChapter1();
+            }
+        });
+        buttonStartQuiz2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizChapter2();
+            }
+        });
+        buttonStartQuiz3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizChapter3();
+            }
+        });
+        buttonStartQuiz4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizChapter4();
+            }
+        });
+        buttonStartQuiz5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizChapter5();
+            }
+        });
     }
-    private void startQuiz(){
-        Intent intent = new Intent (StartingScreenActivity.this, QuizActivity.class);
+
+    private void startQuizChapter1() {
+        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY, CHAPTER_1);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
+
+    private void startQuizChapter2() {
+        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY, CHAPTER_2);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+
+    private void startQuizChapter3() {
+        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY, CHAPTER_3);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+
+    private void startQuizChapter4() {
+        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY, CHAPTER_4);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+
+    private void startQuizChapter5() {
+        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY, CHAPTER_5);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+
+    //------------------Temporarily hided from app interface ------------------
+    private void startQuiz() {
+        //select and record the difficulty selection
+        String difficulty = spinnerDifficulty.getSelectedItem().toString();
+        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        //send the value to quiz activity
+        intent.putExtra(EXTRA_DIFFICULTY, difficulty);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+    //-------------------------------------------------------------------------
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -89,6 +187,7 @@ public class StartingScreenActivity extends AppCompatActivity {
             }
         }
     }
+
     private void loadHighscore() {
         //modify needed, fetch high score from firebase?
 

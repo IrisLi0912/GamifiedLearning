@@ -4,33 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Question implements Parcelable {
-    private String question;
-    private String option1;
-    private String option2;
-    private String option3;
-    private int answerNr;
-
-    public Question(){
-
-    }
-
-    public Question(String question, String option1, String option2, String option3, int answerNr) {
-        this.question = question;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-        this.answerNr = answerNr;
-        //nr means number, this is storing the number of the correct answer
-    }
-
-    protected Question(Parcel in) {
-        question = in.readString();
-        option1 = in.readString();
-        option2 = in.readString();
-        option3 = in.readString();
-        answerNr = in.readInt();
-    }
-
+    public static final String CHAPTER_1 = "C1";
+    public static final String CHAPTER_2 = "C2";
+    public static final String CHAPTER_3 = "C3";
+    public static final String CHAPTER_4 = "C4";
+    public static final String CHAPTER_5 = "C5";
     public static final Creator<Question> CREATOR = new Creator<Question>() {
         @Override
         public Question createFromParcel(Parcel in) {
@@ -42,6 +20,46 @@ public class Question implements Parcelable {
             return new Question[size];
         }
     };
+    private String question;
+    private String option1;
+    private String option2;
+    private String option3;
+    private int answerNr;
+    private String difficulty;
+
+    public Question() {
+
+    }
+
+    public Question(String question, String option1, String option2, String option3, int answerNr, String difficulty) {
+        this.question = question;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.answerNr = answerNr;
+        this.difficulty = difficulty;
+        //nr means number, this is storing the number of the correct answer
+    }
+
+    protected Question(Parcel in) {
+        question = in.readString();
+        option1 = in.readString();
+        option2 = in.readString();
+        option3 = in.readString();
+        answerNr = in.readInt();
+        difficulty = in.readString();
+    }
+
+    public static String[] getAllDifficultyLevels() {
+        //if we want to get a list of diiffisulty level
+        return new String[]{
+                CHAPTER_1,
+                CHAPTER_2,
+                CHAPTER_3,
+                CHAPTER_4,
+                CHAPTER_5
+        };
+    }
 
     public String getQuestion() {
         return question;
@@ -95,5 +113,14 @@ public class Question implements Parcelable {
         dest.writeString(option2);
         dest.writeString(option3);
         dest.writeInt(answerNr);
+        dest.writeString(difficulty);
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 }
