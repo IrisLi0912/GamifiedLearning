@@ -63,7 +63,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q5 = new Question("A satellite orbits Earth with an elliptical orbit, when dose it have the greatest kinetic energy?","Furthest to the Earth", "Closest to the Earth", "The kinetic energy stays the same", 2, Question.CHAPTER_1);
         addQuestion(q5);
 
-        Question q6 = new Question("What is the radius of Mars?","1731.1 km?", "2570 KM", "3390 KM", 3, Question.CHAPTER_2);
+        Question q6 = new Question("What is the radius of Mars?","1731.1 KM", "2570 KM", "3390 KM", 3, Question.CHAPTER_2);
         addQuestion(q6);
         Question q7 = new Question("How long is one day on Mars?","24 hours", "24.6 hours", "18.2 hours", 2, Question.CHAPTER_2);
         addQuestion(q7);
