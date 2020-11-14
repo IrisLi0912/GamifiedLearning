@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,18 +23,34 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainPage extends AppCompatActivity {
     private static final String TAG = MainPage.class.getSimpleName();
-    private TextView textViewResult;
+    private TextView textViewDesc;
+    private TextView textViewCopyRight;
+    private TextView textViewTitle;
     private ImageView spaceImage;
+    private  Button buttonMore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        textViewDesc = findViewById(R.id.text_view_result);
+        textViewTitle = findViewById(R.id.tvImageTitle);
+        textViewCopyRight = findViewById(R.id.tvAuthor);
         spaceImage = findViewById(R.id.ivMarsCondition);
+        buttonMore = findViewById(R.id.btLearnMore);
+
+        //button to open more
+        buttonMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://apod.nasa.gov/apod/astropix.html");
+                
+            }
+        });
 
 
-        textViewResult = findViewById(R.id.text_view_result);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.nasa.gov/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -42,11 +61,15 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<NASAImage> call, Response<NASAImage> response) {
                 if (!response.isSuccessful()) {
-                    textViewResult.setText("Code" + response.code() + " Sorry there are no space picture of the day yea i can not believe this as well");
+                    textViewDesc.setText("Code" + response.code() + " Sorry the new image have not been updated yet. Maybe look at this... man ");
+                    spaceImage.setImageResource(R.drawable.hologo3);
+
                     return;
                 }
                 NASAImage NASAImg = response.body();
-                textViewResult.setText(NASAImg.getUrl());
+                textViewDesc.setText(NASAImg.getExplanation());
+                textViewTitle.setText(" Astronomy Picture of the Day. \n" + NASAImg.getTitle());
+                textViewCopyRight.setText("©" +NASAImg.getCopyright());
                 //add here to get back description
                 Glide.with(spaceImage).load(NASAImg.getUrl()).into(spaceImage);
 
@@ -54,10 +77,11 @@ public class MainPage extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<NASAImage> call, Throwable t) {
-                textViewResult.setText("gg");
+                textViewDesc.setText("gg");
 
             }
         });
+
 
 
         //initialise and assign variable
@@ -91,5 +115,10 @@ public class MainPage extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 }
