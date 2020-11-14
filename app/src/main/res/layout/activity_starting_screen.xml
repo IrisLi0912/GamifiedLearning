@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_view_highscore"
+        android:id="@+id/tvHighScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
-        android:id="@+id/button_start_quiz"
+        android:id="@+id/btStartQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -41,7 +41,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_highscore" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHighScore" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnQuiz"
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         android:text="Chapter3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_start_quiz" />
+        app:layout_constraintTop_toBottomOf="@+id/btStartQuiz" />
 
     <Button
         android:id="@+id/btChapter4"

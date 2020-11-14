@@ -79,10 +79,10 @@ public class StartingScreenActivity extends AppCompatActivity {
         spinnerDifficulty.setAdapter(adapterDifficulty);
         //spinner end
 
-        textViewHighscore = findViewById(R.id.text_view_highscore);
+        textViewHighscore = findViewById(R.id.tvHighScore);
         loadHighscore();
 
-        Button buttonStartQuiz = findViewById(R.id.button_start_quiz);//Temporarily hided from app interface
+        Button buttonStartQuiz = findViewById(R.id.btStartQuiz);//Temporarily hided from app interface
         Button buttonStartQuiz1 = findViewById(R.id.btChapter1);
         Button buttonStartQuiz2 = findViewById(R.id.btChapter2);
         Button buttonStartQuiz3 = findViewById(R.id.btChapter3);
