@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/marsbg2"
     tools:context=".QuizActivity">
-
-    <!--checked-->
 
     <TextView
         android:id="@+id/text_view_question"

@@ -28,7 +28,7 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        spaceImage =findViewById(R.id.ivMarsCondition);
+        spaceImage = findViewById(R.id.ivMarsCondition);
 
 
         textViewResult = findViewById(R.id.text_view_result);
@@ -41,14 +41,20 @@ public class MainPage extends AppCompatActivity {
         NASAImgCall.enqueue(new Callback<NASAImage>() {
             @Override
             public void onResponse(Call<NASAImage> call, Response<NASAImage> response) {
-                NASAImage NASAImg= response.body();
+                if (!response.isSuccessful()) {
+                    textViewResult.setText("Code" + response.code() + " Sorry there are no space picture of the day yea i can not believe this as well");
+                    return;
+                }
+                NASAImage NASAImg = response.body();
                 textViewResult.setText(NASAImg.getUrl());
                 //add here to get back description
                 Glide.with(spaceImage).load(NASAImg.getUrl()).into(spaceImage);
+
             }
 
             @Override
             public void onFailure(Call<NASAImage> call, Throwable t) {
+                textViewResult.setText("gg");
 
             }
         });
