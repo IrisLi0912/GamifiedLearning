@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvHighScore" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnQuiz"
+        android:id="@+id/bnBottomBar"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         app:itemBackground="@color/purple_200"
@@ -66,7 +66,7 @@
         android:fontFamily="casual"
         android:text="Chapter1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/bnQuiz"
+        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
@@ -79,7 +79,7 @@
         android:fontFamily="casual"
         android:text="Chapter2"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/bnQuiz"
+        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -92,7 +92,7 @@
         android:fontFamily="casual"
         android:text="Chapter3"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@+id/bnQuiz"
+        app:layout_constraintBottom_toBottomOf="@+id/bnBottomBar"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

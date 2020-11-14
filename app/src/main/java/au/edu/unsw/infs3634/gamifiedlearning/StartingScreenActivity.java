@@ -37,7 +37,7 @@ public class StartingScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_starting_screen);
 
         //initialise and assign variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bnQuiz);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
         bottomNavigationView.setSelectedItemId(R.id.journey);
@@ -82,7 +82,7 @@ public class StartingScreenActivity extends AppCompatActivity {
         textViewHighscore = findViewById(R.id.tvHighScore);
         loadHighscore();
 
-        Button buttonStartQuiz = findViewById(R.id.btStartQuiz);//Temporarily hided from app interface
+        Button buttonStartQuiz = findViewById(R.id.btStartQuiz);//Temporarily hidden from app interface
         Button buttonStartQuiz1 = findViewById(R.id.btChapter1);
         Button buttonStartQuiz2 = findViewById(R.id.btChapter2);
         Button buttonStartQuiz3 = findViewById(R.id.btChapter3);

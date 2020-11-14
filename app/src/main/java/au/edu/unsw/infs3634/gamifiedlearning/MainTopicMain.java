@@ -61,7 +61,7 @@ public class MainTopicMain extends AppCompatActivity {
 
 
         //initialise and assign variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bnUser);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
         bottomNavigationView.setSelectedItemId(R.id.topic);

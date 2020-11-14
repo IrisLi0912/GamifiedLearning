@@ -17,7 +17,7 @@ public class User extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         //initialise and assign variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bnUser);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
         bottomNavigationView.setSelectedItemId(R.id.profile);
