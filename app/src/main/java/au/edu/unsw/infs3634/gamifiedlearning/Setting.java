@@ -6,22 +6,93 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class Setting extends AppCompatActivity {
-    Button mLogout;
+    private  FirebaseAuth fAuth;
+    private TextView currentpass;
+    private TextView newpass;
+    private TextView confirmpass;
+    private Button changepass;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        fAuth = FirebaseAuth.getInstance();
+        currentpass = findViewById(R.id.tv_current_password);
+        newpass = findViewById(R.id.tv_new_password);
+        confirmpass= findViewById(R.id.tv_confirm_password);
+        changepass = findViewById(R.id.bt_change_password);
+
+        changepass.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                String oldpass = currentpass.getText().toString().trim();
+//                String newpassword = newpass.getText().toString().trim();
+//                String confirmpassword = confirmpass.getText().toString().trim();
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String newPassword = "SOME-SECURE-PASSWORD";
+                user.updatePassword(newPassword).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (currentpass != null && newpass != null && confirmpass != null) {
+
+                            if (newpass.toString().equals(confirmpass.toString())) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(Setting.this, "Password changed successfully.", Toast.LENGTH_SHORT).show();
+                                    fAuth.signOut();
+                                    startActivity(new Intent(getApplicationContext(), Login.class));
+                                    finish();
+
+                                } else {
+                                    Toast.makeText(Setting.this, "Re-Authentication failed.", Toast.LENGTH_SHORT).show();
+                                }
+
+                            } else {
+                                startActivity(new Intent(getApplicationContext(), Login.class));
+                                finish();
+                            }
+
+                        } else {
+                            Toast.makeText(Setting.this, "Password mismatching.", Toast.LENGTH_SHORT).show();
+
+
+                        }
+                            Toast.makeText(Setting.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+                        }
+
+
+
+
+                });
+            }
+            });
+
+
+
+
 
         //initialise and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
@@ -62,4 +133,5 @@ public class Setting extends AppCompatActivity {
         finish();
 
     }
+
 }

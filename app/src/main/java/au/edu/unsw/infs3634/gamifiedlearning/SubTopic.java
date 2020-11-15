@@ -19,9 +19,10 @@ public class SubTopic implements Serializable {
     private String learnMore; //url
 
     private String key; //url
+    private Double rating;
 
     public SubTopic(String key,String topicTitle, String topicDes, int formulaImage, String formulaDes, String topicImageName, int imageMax, String topicTitle1, String topicDes1,
-                    String formulaDes1, int formulaImage1, String learnMore) {
+                    String formulaDes1, int formulaImage1, String learnMore, Double rating) {
         this.topicTitle = topicTitle;
         this.topicDes = topicDes;
         this.formulaImage = formulaImage;
@@ -34,6 +35,7 @@ public class SubTopic implements Serializable {
         this.imageMax = imageMax;
         this.learnMore = learnMore;
         this.key = key;
+        this.rating = rating;
 
 
     }
@@ -58,7 +60,7 @@ public class SubTopic implements Serializable {
                         "•\tEp is Gravitational potential energy.\n" +
                         "•\tm is the masses of the planet.\n" +
                         "•\tG is the universal gravitation constant.\n" +
-                        "•\tr is the distance from the souce of gravity.\n", R.drawable.grvfor2, "https://en.wikipedia.org/wiki/Gravitational_field"));
+                        "•\tr is the distance from the souce of gravity.\n", R.drawable.grvfor2, "https://en.wikipedia.org/wiki/Gravitational_field",1.7));
 
 
         //imagemax  sflogo
@@ -75,7 +77,7 @@ public class SubTopic implements Serializable {
                         "•\tCentripetal acceleration is: Ac = V^2/r towards the centre.\n" +
                         "•\tNote that this centripetal force can be supplied by different forces.\n" +
                         "•\tIn the case of a satellite in orbit around the Earth, this force is supplied by the force of gravity that acts between the satellite and the Earth.\n" +
-                        "•\tCircular motion also commonly occurs for charged particles moving in a magnetic field.\n", R.drawable.spacef2, "https://en.wikipedia.org/wiki/Spaceflight"));
+                        "•\tCircular motion also commonly occurs for charged particles moving in a magnetic field.\n", R.drawable.spacef2, "https://en.wikipedia.org/wiki/Spaceflight",2.6));
 
         //imagemax 4 orbitlogo
         subtopic.add(new SubTopic("General Knowledge"," Orbit ","Low Earth orbit\n" +
@@ -92,7 +94,7 @@ public class SubTopic implements Serializable {
                 "•\tPrimarily used by communications satellites\n","From the earth such a satellite appears to be stationary in the sky, always located in the same direction regardless of the time of day. This is particularly useful for communications satellites because a receiving dish need only point to a fixed spot in the sky in order to remain contact with the satellite.\n" +
                 "Geosynchronous orbit\n" +
                 "\n" + "Like geostationary orbits, geosynchronous orbits are carried out at the altitude (35,800km) which allows orbital period to equal exactly 1 day. The only difference is that geostationary orbits must fly over the equator for the satellite to appear ‘parked’ at a fixed point. Satellites undergoing geosynchronous orbits return to the same location in the sky at the same time of day, " +
-                "each day. This is particularly useful for GPS satellites, as they allow just a handful of satellites to completely cover the globe.\n", R.drawable.geo2,"https://www.iridium.com/blog/2018/09/11/satellites-101-leo-vs-geo/"));
+                "each day. This is particularly useful for GPS satellites, as they allow just a handful of satellites to completely cover the globe.\n", R.drawable.geo2,"https://www.iridium.com/blog/2018/09/11/satellites-101-leo-vs-geo/",3.8));
 
 
         //imagemax 5 uglogo
@@ -107,7 +109,7 @@ public class SubTopic implements Serializable {
                         "How it works\n" +
                         "The diagram on the right represents an extreme example. As a spacecraft travelling at a velocity  , approaches a planet moving at an orbital velocity of   relative to the Sun, the spacecraft briefly enters the planet’s orbit, then escapes its gravity once its velocity reaches the maximum.\n" +
                         "As a result, the spacecraft moves away from the planet with a speed of v+2U\n" +
-                        "Momentum is conserved, since the spacecraft gains what the planet loses in momentum.\n",R.drawable.ugf2,"https://www.physicsclassroom.com/class/circles/Lesson-3/Newton-s-Law-of-Universal-Gravitation"));
+                        "Momentum is conserved, since the spacecraft gains what the planet loses in momentum.\n",R.drawable.ugf2,"https://www.physicsclassroom.com/class/circles/Lesson-3/Newton-s-Law-of-Universal-Gravitation",2.5));
 
         //imagemax 4  stlogo
         subtopic.add(new SubTopic("General Knowledge"," The Aether Model ", "In the 19th century, Thomas Young’s discovery that light rays interfered with each other led physicists to believe that light is a waveform. At the time, all known waves required a medium in which to propagate (e.g. sound waves, surface waves, mechanical waves etc), so it was logically thought that light must also require a medium in which to propagate.\n" +
@@ -123,7 +125,7 @@ public class SubTopic implements Serializable {
                 "The Experiment\n" +
                         "Michelson and Morley set up their apparatus on a large stone block floating on mercury. This allowed it to be easily rotated. A light ray from a light source enters a half-silvered mirror and is split into two beams – one beam reflected 90° and the other passing through the mirror.\n" +
                         "Because the two beams travel at 90° to each other, one should be heading into the aether wind and the other should be heading perpendicular to it. Both beams are reflected back by mirrors, and recombined through the half-silvered mirror again.\n" +
-                        "The recombined beam enters a detector and produces an interference pattern, as some parts of the recombined beam destructively interfere, while other parts constructively interfere. This first interference pattern was recorded.\n", R.drawable.stf2,"https://arxiv.org/pdf/physics/0011003.pdf"));
+                        "The recombined beam enters a detector and produces an interference pattern, as some parts of the recombined beam destructively interfere, while other parts constructively interfere. This first interference pattern was recorded.\n", R.drawable.stf2,"https://arxiv.org/pdf/physics/0011003.pdf",4.2));
         //imagemax 3 srlogo
         subtopic.add(new SubTopic("General Knowledge"," Special Relativity ","The Principle of Relativity\n" +
                 "The principle of relativity states that no measurement made within an inertial reference frame can be used to determine the velocity of that frame. This means that when within an inertial frame of reference, it is impossible to determine whether the frame is moving or not, unless measurements are taken involving observations outside of the frame. There is no absolute rest frame against which all motion can be measured since all inertial reference frames are equal.\n",R.drawable.srf1,
@@ -132,7 +134,7 @@ public class SubTopic implements Serializable {
                 3," Einstein’s Theory of Special Relativity ","Einstein's equation E = mc2 shows that energy and mass are interchangeable. The theory of special relativity explains how space and time are linked for objects that are moving at a consistent speed in a straight line.","This violation of the principle of relativity prompted Albert Einstein to propose and analyse several thought experiments. The result of which led him to his theory of Special Relativity which contained two postulates and one statement:\n" +
                 "1.\tPostulate 1: The laws of physics are the same in all frames of reference.\n" +
                 "2.\tPostulate 2: The speed of light in empty space always has the same value, which is independent of the motion of the observer. The speed of light is given the symbol .\n" +
-                "3.\tStatement: The luminiferous aether is superfluous – that is, it is no longer needed to explain the behaviour of light.\n",R.drawable.srf2,"https://www.space.com/36273-theory-special-relativity.html#:~:text=Einstein's%20equation%20E%20%3D%20mc2%20shows%20that%20energy%20and%20mass%20are%20interchangeable.&text=The%20theory%20of%20special%20relativity,speed%20in%20a%20straight%20line."));
+                "3.\tStatement: The luminiferous aether is superfluous – that is, it is no longer needed to explain the behaviour of light.\n",R.drawable.srf2,"https://www.space.com/36273-theory-special-relativity.html#:~:text=Einstein's%20equation%20E%20%3D%20mc2%20shows%20that%20energy%20and%20mass%20are%20interchangeable.&text=The%20theory%20of%20special%20relativity,speed%20in%20a%20straight%20line.",3.4));
 
 
         // marsexploration
@@ -150,7 +152,7 @@ public class SubTopic implements Serializable {
                 "Surface\n" +
                 "The Red Planet is actually many colors. At the surface we see colors such as brown, gold and tan. The reason Mars looks reddish is due to oxidization—or rusting—of iron in the rocks, regolith (Martian “soil”), and dust of Mars. This dust gets kicked up into the atmosphere and from a distance makes the planet appear mostly red.\n" +
                 "Interestingly, while Mars is about half the diameter of Earth, its surface has nearly the same area as Earth’s dry land. Its volcanoes, impact craters, crustal movement, and atmospheric conditions such as dust storms have altered the landscape of Mars over many years, creating some of the solar system's most interesting topographical features.\n" +
-                "A large canyon system called Valles Marineris is long enough to stretch from California to New York—more than 3,000 miles (4,800 kilometers). This Martian canyon is 200 miles (320 kilometers) at its widest and 4.3 miles (7 kilometers) at its deepest. That's about 10 times the size of Earth's Grand Canyon.\n", R.drawable.marsurface, "https://courses.lumenlearning.com/astronomy/chapter/the-geology-of-mars/"));
+                "A large canyon system called Valles Marineris is long enough to stretch from California to New York—more than 3,000 miles (4,800 kilometers). This Martian canyon is 200 miles (320 kilometers) at its widest and 4.3 miles (7 kilometers) at its deepest. That's about 10 times the size of Earth's Grand Canyon.\n", R.drawable.marsurface, "https://courses.lumenlearning.com/astronomy/chapter/the-geology-of-mars/",4.6));
 
         //3 mgklogo
         subtopic.add(new SubTopic("Mars exploration","Mars General Knowledge 2 ","Structure\n" +
@@ -158,7 +160,7 @@ public class SubTopic implements Serializable {
                 "When the solar system settled into its current layout about 4.5 billion years ago, Mars formed when gravity pulled swirling gas and dust in to become the fourth planet from the Sun. Mars is about half the size of Earth, and like its fellow terrestrial planets, it has a central core, a rocky mantle and a solid crust.\n" +
                 "\n","mgklogo",3,"Atmosphere and Magnetosphere","Mars has a thin atmosphere made up mostly of carbon dioxide, nitrogen and argon gases. To our eyes, the sky would be hazy and red because of suspended dust instead of the familiar blue tint we see on Earth. Mars' sparse atmosphere doesn't offer much protection from impacts by such objects as meteorites, asteroids and comets.","" +
                 "The temperature on Mars can be as high as 70 degrees Fahrenheit (20 degrees Celsius) or as low as about -225 degrees Fahrenheit (-153 degrees Celsius). And because the atmosphere is so thin, heat from the Sun easily escapes this planet. If you were to stand on the surface of Mars on the equator at noon, it would feel like spring at your feet (75 degrees Fahrenheit or 24 degrees Celsius) and winter at your head (32 degrees Fahrenheit or 0 degrees Celsius).",R.drawable.mgkf2,
-                "https://www.space.com/16903-mars-atmosphere-climate-weather.html#:~:text=The%20atmosphere%20of%20Mars%20is,Nitrogen%3A%202.7%20percent"));
+                "https://www.space.com/16903-mars-atmosphere-climate-weather.html#:~:text=The%20atmosphere%20of%20Mars%20is,Nitrogen%3A%202.7%20percent",3.4));
 
         // 2 mclogo
         subtopic.add(new SubTopic("Mars exploration"," Characterize the Climate of Mars ","Mars is an extremely cold planet with an average temperature around minus-80 degrees. Temperatures can dip to minus-225 degrees around the poles. Periods of warmth are brief — highs can reach 70 degrees for a brief time around Noon at the equator in the summer.",R.drawable.mcf1,"What's the Martian Climate Like Today?\n" +
@@ -167,13 +169,13 @@ public class SubTopic implements Serializable {
                 "What Can the Current Climate on Mars Reveal about the Past?"," better understanding of Mars' current climate will help scientists more effectively model its past climatic behavior. To do that, we'll need detailed weather maps of the planet and information about how much dust and water vapor are in the atmosphere.\n" +
                 "\n" +
                 "Monitoring the planet for this information over one full Martian year (687 Earth days) will help us understand how Mars behaves over its seasonal cycle and guide us toward understanding how the planet changes over millions of years.\n","The layered terrain of the Martian polar regions also holds clues about the planet's past, much like the rings of a tree provide a record of its history. When and how were these polar layers deposited? Was the climate of Mars ever like that of Earth? And if so, what happened to change the planet into the dry, " +
-                "cold, barren desert it is today? Those are the questions that our missions still have to answer.",R.drawable.mcf2,"https://www.washingtonpost.com/news/capital-weather-gang/wp/2015/10/18/the-weather-on-mars-is-both-totally-alien-and-somewhat-earth-like-all-at-once/"));
+                "cold, barren desert it is today? Those are the questions that our missions still have to answer.",R.drawable.mcf2,"https://www.washingtonpost.com/news/capital-weather-gang/wp/2015/10/18/the-weather-on-mars-is-both-totally-alien-and-somewhat-earth-like-all-at-once/",2.8));
 
         //4 mglogo
         subtopic.add(new SubTopic("Mars exploration"," Characterize the geology of Mars ","The geology of Mars is the scientific study of the surface, crust, and interior of the planet Mars. It emphasizes the composition, structure, history, and physical processes that shape the planet. It is analogous to the field of terrestrial geology.", R.drawable.mgf1,"Global Properties of Mars\n" +
                 "Mars has a diameter of 6790 kilometers, just over half the diameter of Earth, giving it a total surface area very nearly equal to the continental (land) area of our planet. Its overall density of 3.9 g/cm3 suggests a composition consisting primarily of silicates but with a small metal core. The planet has no global magnetic field, although there are areas of strong surface magnetization that indicate that there was a global field billions of years ago. Apparently, the red planet has no liquid material in its core today that would conduct electricity.\n","mglogo",
                 4," Volcanoes on Mars ","the lowland plains of Mars look very much like the lunar maria, and they have about the same density of impact craters. Like the lunar maria, they probably formed between 3 and 4 billion years ago. Apparently, Mars experienced extensive volcanic activity at about the same time the Moon did, producing similar basaltic lavas.","Olympus Mons: The largest volcano on Mars, and probably the largest in the solar system, is Olympus Mons, illustrated in this computer-generated rendering based on data from the Mars Global Surveyor’s " +
-                "laser altimeter. Placed on Earth, the base of Olympus Mons would completely cover the state of Missouri; the caldera, the circular opening at the top, is 65 kilometers across, about the size of Los Angeles. (credit: NASA/Corbis)",R.drawable.mgf2,"https://mars.nasa.gov/resources/86/goal-3-characterize-the-geology-of-mars/"));
+                "laser altimeter. Placed on Earth, the base of Olympus Mons would completely cover the state of Missouri; the caldera, the circular opening at the top, is 65 kilometers across, about the size of Los Angeles. (credit: NASA/Corbis)",R.drawable.mgf2,"https://mars.nasa.gov/resources/86/goal-3-characterize-the-geology-of-mars/",3.1));
 
 
 
@@ -184,15 +186,13 @@ public class SubTopic implements Serializable {
                 "larger circle called the deferent. ", "hologo", 4, "Claudius Ptolemaeus", "In Roman Egypt during the 2nd century CE, Claudius Ptolemaeus (Ptolemy) attempted to address the problem of the orbital motion of Mars. Observations of Mars had shown that the planet appeared to move 40% faster on one side of its orbit than the other, in conflict with the Aristotelian model of uniform motion. Ptolemy modified the model of planetary motion by adding a point offset from the center of the planet's circular orbit about which " +
                 "the planet moves at a uniform rate of rotation. He proposed that the order of the planets, by increasing distance, was: the Moon, Mercury, Venus, Sun, Mars, Jupiter, Saturn, and the fixed stars. Ptolemy's model and his collective work on astronomy was presented in the multi-volume collection Almagest, which became the authoritative treatise on Western astronomy for the next fourteen centuries. \n", "In the 5th century CE, the Indian astronomical text Surya Siddhanta estimated the angular size of Mars as 2 arc-minutes (1/30 of a degree) and its " +
                 "distance to Earth as 10,433,000 km (1,296,600 yojana, where one yojana is equivalent to eight km in the Surya Siddhanta). From this the diameter of Mars is deduced to be 6,070 km (754.4 yojana), which has an error within 11% of the currently accepted value of 6,788 km. However, this estimate was based upon an inaccurate guess of the planet's angular size. The result may have been influenced by the work of Ptolemy, who listed a value of 1.57 arc-minutes. Both estimates are significantly larger than the value later obtained by telescope. \n", R.drawable.hof2,
-                "https://en.wikipedia.org/wiki/History_of_Mars_observation#:~:text=The%20first%20telescopic%20observation%20of,Planum%20and%20polar%20ice%20caps."));
+                "https://en.wikipedia.org/wiki/History_of_Mars_observation#:~:text=The%20first%20telescopic%20observation%20of,Planum%20and%20polar%20ice%20caps.",4.5));
 
         // 2  refininglogo
         subtopic.add(new SubTopic("History Observation"," Refining planetary parameters ","Surface obscuration caused by yellow clouds had been noted in the 1870s when they were observed by Schiaparelli. Evidence for such clouds was observed during the oppositions of 1892 and 1907. In 1909, Antoniadi noted that the presence of yellow clouds was associated with the obscuration of albedo features. He discovered that Mars appeared more yellow during oppositions when the planet was closest to the Sun and was receiving more energy. He suggested windblown sand or dust as the cause of the clouds",
                 R.drawable.refiningf1,"In 1894, American astronomer William W. Campbell found that the spectrum of Mars was identical to the spectrum of the Moon, throwing doubt on the burgeoning theory that the atmosphere of Mars is similar to that of the Earth. Previous detections of water in the atmosphere of Mars were explained by unfavorable conditions, and Campbell determined that the water signature came entirely from the Earth's atmosphere. ","refininglogo",2," Mars History Observation ","Baltic German astronomer Hermann Struve used the observed changes in the orbits of " +
                 "the Martian moons to determine the gravitational influence of the planet's oblate shape. In 1895, he used this data to estimate that the equatorial diameter was 1/190 larger than the polar diameter.[36][73] In 1911, he refined the value to 1/192. This result was confirmed by American meteorologist Edgar W. Woolard in 1944.","Using a vacuum thermocouple attached to the 2.54 m (100 in) Hooker Telescope at Mount Wilson Observatory, in 1924 the American astronomers Seth Barnes Nicholson and Edison Pettit were able to measure the thermal energy being radiated by the surface of Mars. They determined that the temperature " +
-                "ranged from −68 °C (−90 °F) at the pole up to 7 °C (45 °F) at the midpoint of the disk (corresponding to the equator).",R.drawable.refiningf2,"https://www.wikiwand.com/en/History_of_Mars_observation#/Refining_planetary_parameters"));
-
-
+                "ranged from −68 °C (−90 °F) at the pole up to 7 °C (45 °F) at the midpoint of the disk (corresponding to the equator).",R.drawable.refiningf2,"https://www.wikiwand.com/en/History_of_Mars_observation#/Refining_planetary_parameters",2.9));
 
         return subtopic;
     }
@@ -294,5 +294,13 @@ public class SubTopic implements Serializable {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }

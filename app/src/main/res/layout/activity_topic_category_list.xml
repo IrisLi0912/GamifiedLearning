@@ -11,7 +11,7 @@
     app:cardElevation="3dp"
     app:cardMaxElevation="3dp"
     android:background="@drawable/marsbg">
-    >
+
 
     <LinearLayout
         android:layout_width="match_parent"
