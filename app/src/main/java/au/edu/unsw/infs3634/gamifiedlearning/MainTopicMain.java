@@ -1,18 +1,17 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.recyclerview.widget.GridLayoutManager;
-        import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.os.Parcelable;
-        import android.view.MenuItem;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 // Card view five Main topics main activity page
 
@@ -23,31 +22,46 @@ public class MainTopicMain extends AppCompatActivity {
     private ArrayList<MainTopicsCategory> adapterList;
     private MainTopicAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_recyclerview);
 
-
         recyclerView = findViewById(R.id.tv_topliclist);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
         allTopic = MainTopicsCategory.getMainTopicsCategory();
         adapterList = new ArrayList<>();
         adapterList.addAll(allTopic);
+
+
         adapter = new MainTopicAdapter(this, adapterList);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new MainTopicAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Intent intent = new Intent(MainTopicMain.this, SubTopic.class);
-                intent.putExtra("data", (Parcelable) adapterList.get(position));
-                startActivity(intent);
+                if(adapterList.get(position).getType() == 1){
+                    Intent intent = new Intent(MainTopicMain.this, MissionWebActivity.class);
+                    intent.putExtra("data",  adapterList.get(position));
+                    startActivity(intent);
+                }else if (adapterList.get(position).getType() == 2){
+                    Intent intent = new Intent(MainTopicMain.this, FunFactsMain.class);
+
+                    intent.putExtra("data",  adapterList.get(position));
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(MainTopicMain.this, SubTopicMain.class);
+                    intent.putExtra("data",  adapterList.get(position));
+                    startActivity(intent);
+                }
+
             }
         });
 
 
         //initialise and assign variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bnUser);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
         bottomNavigationView.setSelectedItemId(R.id.topic);
@@ -61,7 +75,7 @@ public class MainTopicMain extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
                         overridePendingTransition(0, 0);
                         return true;
-                    case R.id.about:
+                    case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), User.class));
                         overridePendingTransition(0, 0);
                         return true;
@@ -69,11 +83,15 @@ public class MainTopicMain extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), MainPage.class));
                         overridePendingTransition(0, 0);
                         return true;
-
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                 }
                 return false;
             }
         });
+
 
     }
 }

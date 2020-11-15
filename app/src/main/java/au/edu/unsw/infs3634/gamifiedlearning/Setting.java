@@ -23,22 +23,11 @@ public class Setting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        //created a button that can lead me to the quiz page.
-        Button temporary = findViewById(R.id.btDebugForDavid);
-        temporary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),StartingScreenActivity.class));
-            }
-        });
-        //debug button ends. Will be deleted.
-
-
         //initialise and assign variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bnSetting);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
-        bottomNavigationView.setSelectedItemId(R.id.about);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
 
         //Perform ItemSelectListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,7 +38,7 @@ public class Setting extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainTopicMain.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.about:
+                    case R.id.profile:
                         startActivity(new Intent(getApplicationContext(),User.class));
                         overridePendingTransition(0,0);
                         return true;
@@ -57,7 +46,10 @@ public class Setting extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainPage.class));
                         overridePendingTransition(0,0);
                         return true;
-
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                 }
                 return false;
             }

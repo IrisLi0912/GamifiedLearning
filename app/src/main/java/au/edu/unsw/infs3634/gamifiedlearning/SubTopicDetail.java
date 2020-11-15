@@ -1,6 +1,5 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.youth.banner.Banner;
 import com.youth.banner.indicator.CircleIndicator;
@@ -37,17 +38,16 @@ public class SubTopicDetail extends AppCompatActivity {
         Banner iv_topicLogo = findViewById(R.id.banner); //banner
         TextView tv_topicTitle = findViewById(R.id.tv_topicTitle);
         TextView tv_topicDes = findViewById(R.id.tv_topicDes);
-        ImageView iv_image = findViewById(R.id.iv_image);
+        ImageView iv_formulaImage = findViewById(R.id.iv_formulaImage);
         TextView tv_formulaDes = findViewById(R.id.tv_formulaDes);
-
-        TextView tv_topicTitle1= findViewById(R.id.tv_topicTitle1);
+        TextView tv_topicTitle1 = findViewById(R.id.tv_topicTitle1);
         TextView tv_topicDes1 = findViewById(R.id.tv_topicDes1);
         TextView tv_formulaDes1 = findViewById(R.id.tv_formulaDes1);
-        ImageView iv_image1 = findViewById(R.id.iv_image1);
+        ImageView iv_formulaImage1 = findViewById(R.id.iv_formulaImage1);
         TextView tv_learnMore = findViewById(R.id.tv_learnMore);
 
 
-        iv_image.setImageResource(subTopic.getImage());
+        iv_formulaImage.setImageResource(subTopic.getFormulaImage());
         tv_topicTitle.setText(subTopic.getTopicTitle() + "");
         tv_topicDes.setText(subTopic.getTopicDes() + "");
         tv_formulaDes.setText(subTopic.getFormulaDes());
@@ -55,8 +55,7 @@ public class SubTopicDetail extends AppCompatActivity {
         tv_topicTitle1.setText(subTopic.getTopicTitle1() + "");
         tv_topicDes1.setText(subTopic.getTopicDes1() + "");
         tv_formulaDes1.setText(subTopic.getFormulaDes1() + "");
-        iv_image1.setImageResource(subTopic.getImage1());
-
+        iv_formulaImage1.setImageResource(subTopic.getFormulaImage1());
 
         tv_learnMore.setOnClickListener(new View.OnClickListener() {
             @Override

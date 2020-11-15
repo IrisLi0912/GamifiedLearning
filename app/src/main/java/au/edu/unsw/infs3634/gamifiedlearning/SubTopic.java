@@ -1,45 +1,42 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-//whenever click each of the main topic it will transfer to recyclerview sub-topic page
-public class SubTopic {
+public class SubTopic implements Serializable {
 
     private String topicTitle;
     private String topicDes;
-    private int image; //R.drawable
+    private int formulaImage; //R.drawable
     private String formulaDes;
-
     private String topicImageName; //image banner
     private int imageMax;//initialization the number of image that will be including in to imagebanner.
 
     private String topicTitle1;
     private String topicDes1;
     private String formulaDes1;
-    private int image1; //R.drawable
-
+    private int formulaImage1; //R.drawable
     private String learnMore; //url
+
     private String key; //url
 
-    public SubTopic(String key, String topicTitle, String topicDes, int image, String formulaDes, String topicImageName, int imageMax, String topicTitle1, String topicDes1,
-                    String formulaDes1, int image1, String learnMore) {
+    public SubTopic(String key,String topicTitle, String topicDes, int formulaImage, String formulaDes, String topicImageName, int imageMax, String topicTitle1, String topicDes1,
+                    String formulaDes1, int formulaImage1, String learnMore) {
         this.topicTitle = topicTitle;
         this.topicDes = topicDes;
-        this.image = image;
+        this.formulaImage = formulaImage;
         this.formulaDes = formulaDes;
         this.topicImageName = topicImageName;
         this.topicTitle1 = topicTitle1;
         this.topicDes1 = topicDes1;
         this.formulaDes1 = formulaDes1;
-        this.image1 = image1;
+        this.formulaImage1 = formulaImage1;
         this.imageMax = imageMax;
         this.learnMore = learnMore;
         this.key = key;
 
 
     }
-
     public static ArrayList<SubTopic> getSubTopics() {
         ArrayList<SubTopic> subtopic = new ArrayList<>();
 
@@ -88,7 +85,7 @@ public class SubTopic {
                 "•\tBelow 250km, atmospheric drag becomes too high for stable orbits to last long\n" +
                 "•\tAbove 1,000km are regions of harmful radiation, called Van-Allen belt\n", R.drawable.leo1,
                 "Van-Allen belts are regions of high radiation trapped by the earth’s magnetic field and pose significant risk to astronauts as well as to electronic equipment.\n" +
-                "Due to the relatively low altitude of Low Earth orbits, satellites experience a small amount of atmospheric drag (the gas particles are very thin at those altitudes, but still enough to cause orbital decay over a long time).\n","orbitlogo",4," Geostationary orbit ","•\tAltitude of exactly 35,800km\n" +
+                        "Due to the relatively low altitude of Low Earth orbits, satellites experience a small amount of atmospheric drag (the gas particles are very thin at those altitudes, but still enough to cause orbital decay over a long time).\n","orbitlogo",4," Geostationary orbit ","•\tAltitude of exactly 35,800km\n" +
                 "•\tPeriod of orbit is exactly one day, to match the rotation of the Earth\n" +
                 "•\tSatellite flies over the equator\n" +
                 "•\tSatellite appears to be ‘parked’ over a fixed point on the surface of the Earth, throughout day and night\n" +
@@ -127,11 +124,11 @@ public class SubTopic {
                         "Michelson and Morley set up their apparatus on a large stone block floating on mercury. This allowed it to be easily rotated. A light ray from a light source enters a half-silvered mirror and is split into two beams – one beam reflected 90° and the other passing through the mirror.\n" +
                         "Because the two beams travel at 90° to each other, one should be heading into the aether wind and the other should be heading perpendicular to it. Both beams are reflected back by mirrors, and recombined through the half-silvered mirror again.\n" +
                         "The recombined beam enters a detector and produces an interference pattern, as some parts of the recombined beam destructively interfere, while other parts constructively interfere. This first interference pattern was recorded.\n", R.drawable.stf2,"https://arxiv.org/pdf/physics/0011003.pdf"));
-    //imagemax 3 srlogo
+        //imagemax 3 srlogo
         subtopic.add(new SubTopic("General Knowledge"," Special Relativity ","The Principle of Relativity\n" +
                 "The principle of relativity states that no measurement made within an inertial reference frame can be used to determine the velocity of that frame. This means that when within an inertial frame of reference, it is impossible to determine whether the frame is moving or not, unless measurements are taken involving observations outside of the frame. There is no absolute rest frame against which all motion can be measured since all inertial reference frames are equal.\n",R.drawable.srf1,
                 "For example, consider a train that is travelling at a constant velocity. From within the train, there is no observation that " +
-                "can be made to determine whether the train is stopped at a station or travelling at a constant velocity. This is because the train is an inertial frame of reference so long as it is travelling at a constant velocity. The only way to determine the motion of the train is to make observations of other frames of reference outside the train, e.g. by looking out of the window at objects outside.","srlogo",
+                        "can be made to determine whether the train is stopped at a station or travelling at a constant velocity. This is because the train is an inertial frame of reference so long as it is travelling at a constant velocity. The only way to determine the motion of the train is to make observations of other frames of reference outside the train, e.g. by looking out of the window at objects outside.","srlogo",
                 3," Einstein’s Theory of Special Relativity ","Einstein's equation E = mc2 shows that energy and mass are interchangeable. The theory of special relativity explains how space and time are linked for objects that are moving at a consistent speed in a straight line.","This violation of the principle of relativity prompted Albert Einstein to propose and analyse several thought experiments. The result of which led him to his theory of Special Relativity which contained two postulates and one statement:\n" +
                 "1.\tPostulate 1: The laws of physics are the same in all frames of reference.\n" +
                 "2.\tPostulate 2: The speed of light in empty space always has the same value, which is independent of the motion of the observer. The speed of light is given the symbol .\n" +
@@ -140,7 +137,7 @@ public class SubTopic {
 
         // marsexploration
         //imagemax  3 marslogo
-        subtopic.add(new SubTopic("Mars Exploration", " Exploration ", "No planet beyond Earth has been studied as intensely as Mars. Recorded observations of Mars date as far back as the era of ancient Egypt over 4,000 years ago, when they charted the planet's movements in the sky. Today, a science fleet of robotic spacecraft study Mars from all angles.\n", R.drawable.marsexplor, "•\tSix spacecraft are in orbit at Mars. NASA's scient trio are Mars Reconnaissance Orbiter, Mars Odyssey and MAVEN. ESA managed the ExoMars Trace Gas Orbiter and Mars Express missions. India's first Red Planet spacecraft — the Mars Orbiter Mission (MOM) — since 2014.\n" +
+        subtopic.add(new SubTopic("Mars exploration", " Exploration ", "No planet beyond Earth has been studied as intensely as Mars. Recorded observations of Mars date as far back as the era of ancient Egypt over 4,000 years ago, when they charted the planet's movements in the sky. Today, a science fleet of robotic spacecraft study Mars from all angles.\n", R.drawable.marsexplor, "•\tSix spacecraft are in orbit at Mars. NASA's scient trio are Mars Reconnaissance Orbiter, Mars Odyssey and MAVEN. ESA managed the ExoMars Trace Gas Orbiter and Mars Express missions. India's first Red Planet spacecraft — the Mars Orbiter Mission (MOM) — since 2014.\n" +
                 "•\tTwo robotic spacecraft are at work on the surface. NASA's Curiosity rover is exploring Mount Sharp in Gale Crater. NASA's InSight, a stationary lander, is probing Mars' interior from a site on a flat smooth plain called Elysium Planitia.\n" +
                 "•\tBoth NASA and ESA have plans to send new rovers to Mars in 2020.\n", "marslogo", 3, "Mars general knowledge 1", "Size and Distance\n" +
                 "With a radius of 2,106 miles (3,390 kilometers), Mars is about half the size of Earth. If Earth were the size of a nickel, Mars would be about as big as a raspberry.\n" +
@@ -155,7 +152,7 @@ public class SubTopic {
                 "Interestingly, while Mars is about half the diameter of Earth, its surface has nearly the same area as Earth’s dry land. Its volcanoes, impact craters, crustal movement, and atmospheric conditions such as dust storms have altered the landscape of Mars over many years, creating some of the solar system's most interesting topographical features.\n" +
                 "A large canyon system called Valles Marineris is long enough to stretch from California to New York—more than 3,000 miles (4,800 kilometers). This Martian canyon is 200 miles (320 kilometers) at its widest and 4.3 miles (7 kilometers) at its deepest. That's about 10 times the size of Earth's Grand Canyon.\n", R.drawable.marsurface, "https://courses.lumenlearning.com/astronomy/chapter/the-geology-of-mars/"));
 
-            //3 mgklogo
+        //3 mgklogo
         subtopic.add(new SubTopic("Mars exploration","Mars General Knowledge 2 ","Structure\n" +
                 "Mars has a dense core at its center between 930 and 1,300 miles (1,500 to 2,100 kilometers) in radius. It's made of iron, nickel and sulfur. Surrounding the core is a rocky mantle between 770 and 1,170 miles (1,240 to 1,880 kilometers) thick, and above that, a crust made of iron, magnesium, aluminum, calcium and potassium. This crust is between 6 and 30 miles (10 to 50 kilometers) deep.\n",R.drawable.mgkf1,"Formation\n" +
                 "When the solar system settled into its current layout about 4.5 billion years ago, Mars formed when gravity pulled swirling gas and dust in to become the fourth planet from the Sun. Mars is about half the size of Earth, and like its fellow terrestrial planets, it has a central core, a rocky mantle and a solid crust.\n" +
@@ -163,11 +160,11 @@ public class SubTopic {
                 "The temperature on Mars can be as high as 70 degrees Fahrenheit (20 degrees Celsius) or as low as about -225 degrees Fahrenheit (-153 degrees Celsius). And because the atmosphere is so thin, heat from the Sun easily escapes this planet. If you were to stand on the surface of Mars on the equator at noon, it would feel like spring at your feet (75 degrees Fahrenheit or 24 degrees Celsius) and winter at your head (32 degrees Fahrenheit or 0 degrees Celsius).",R.drawable.mgkf2,
                 "https://www.space.com/16903-mars-atmosphere-climate-weather.html#:~:text=The%20atmosphere%20of%20Mars%20is,Nitrogen%3A%202.7%20percent"));
 
-            // 2 mclogo
+        // 2 mclogo
         subtopic.add(new SubTopic("Mars exploration"," Characterize the Climate of Mars ","Mars is an extremely cold planet with an average temperature around minus-80 degrees. Temperatures can dip to minus-225 degrees around the poles. Periods of warmth are brief — highs can reach 70 degrees for a brief time around Noon at the equator in the summer.",R.drawable.mcf1,"What's the Martian Climate Like Today?\n" +
                 "\n" +
                 "The current Martian climate is regulated by seasonal changes of the carbon dioxide ice caps, the movement of large amounts of dust by the atmosphere and the exchange of water vapor between the surface and the atmosphere. One of the most dynamic weather patterns on Mars is the generation of dust storms that generally occur in the southern spring and summer. These storms can grow to encompass the whole planet. Understanding how these storms develop and grow is one goal of future climatic studies.\n","mclogo",2,
-        "What Can the Current Climate on Mars Reveal about the Past?"," better understanding of Mars' current climate will help scientists more effectively model its past climatic behavior. To do that, we'll need detailed weather maps of the planet and information about how much dust and water vapor are in the atmosphere.\n" +
+                "What Can the Current Climate on Mars Reveal about the Past?"," better understanding of Mars' current climate will help scientists more effectively model its past climatic behavior. To do that, we'll need detailed weather maps of the planet and information about how much dust and water vapor are in the atmosphere.\n" +
                 "\n" +
                 "Monitoring the planet for this information over one full Martian year (687 Earth days) will help us understand how Mars behaves over its seasonal cycle and guide us toward understanding how the planet changes over millions of years.\n","The layered terrain of the Martian polar regions also holds clues about the planet's past, much like the rings of a tree provide a record of its history. When and how were these polar layers deposited? Was the climate of Mars ever like that of Earth? And if so, what happened to change the planet into the dry, " +
                 "cold, barren desert it is today? Those are the questions that our missions still have to answer.",R.drawable.mcf2,"https://www.washingtonpost.com/news/capital-weather-gang/wp/2015/10/18/the-weather-on-mars-is-both-totally-alien-and-somewhat-earth-like-all-at-once/"));
@@ -200,6 +197,9 @@ public class SubTopic {
         return subtopic;
     }
 
+
+
+
     public String getTopicTitle() {
         return topicTitle;
     }
@@ -216,12 +216,12 @@ public class SubTopic {
         this.topicDes = topicDes;
     }
 
-    public int getImage() {
-        return image;
+    public int getFormulaImage() {
+        return formulaImage;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setFormulaImage(int formulaImage) {
+        this.formulaImage = formulaImage;
     }
 
     public String getFormulaDes() {
@@ -272,12 +272,12 @@ public class SubTopic {
         this.formulaDes1 = formulaDes1;
     }
 
-    public int getImage1() {
-        return image1;
+    public int getFormulaImage1() {
+        return formulaImage1;
     }
 
-    public void setImage1(int image1) {
-        this.image1 = image1;
+    public void setFormulaImage1(int formulaImage1) {
+        this.formulaImage1 = formulaImage1;
     }
 
     public String getLearnMore() {

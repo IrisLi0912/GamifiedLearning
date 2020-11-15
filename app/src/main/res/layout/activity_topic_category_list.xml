@@ -9,7 +9,9 @@
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="32dp"
     app:cardElevation="3dp"
-    app:cardMaxElevation="3dp">
+    app:cardMaxElevation="3dp"
+    android:background="@drawable/marsbg">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
