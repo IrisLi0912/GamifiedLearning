@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         }else{
 
                             Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                            status.setVisibility(View.GONE);
 
                         }
                     }
