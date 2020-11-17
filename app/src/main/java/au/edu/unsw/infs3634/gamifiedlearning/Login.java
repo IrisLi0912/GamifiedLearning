@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,7 @@ public class Login extends AppCompatActivity {
     Button mGoToSignUp;
     FirebaseAuth fAuth;
     ProgressBar mStatus;
+    TextView forgot_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,16 @@ public class Login extends AppCompatActivity {
         mGoToSignUp = findViewById(R.id.btGoLogIn);
         fAuth = FirebaseAuth.getInstance();
         mStatus = findViewById(R.id.loginProgressBar);
+        forgot_password = findViewById(R.id.tv_forgetpass);
+
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               openDialog();
+            }
+        });
+
+
 
         mLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -76,5 +88,11 @@ public class Login extends AppCompatActivity {
     public void goToSignUp(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
+    }
+
+    public void openDialog(){
+        ForgotPassword forgotPassword = new ForgotPassword();
+        forgotPassword.show(getSupportFragmentManager(),"Forgot Password");
+
     }
 }

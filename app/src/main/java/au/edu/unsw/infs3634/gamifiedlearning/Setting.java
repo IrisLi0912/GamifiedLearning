@@ -39,13 +39,15 @@ public class Setting extends AppCompatActivity {
     private TextView confirmpass;
     private Button changepass;
 
+    private FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       
         setContentView(R.layout.activity_setting);
-        fAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         currentpass = findViewById(R.id.tv_current_password);
         newpass = findViewById(R.id.tv_new_password);
         confirmpass= findViewById(R.id.tv_confirm_password);
