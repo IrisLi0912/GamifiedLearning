@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class SubTopicAdapter extends RecyclerView.Adapter<SubTopicAdapter.ViewHo
 
         holder.iv_topicLogo.setImageResource(image);
         holder.tv_topicTitle.setText(item.getTopicTitle());
+        holder.rating.setRating(Float.parseFloat(item.getRating().toString()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +72,13 @@ public class SubTopicAdapter extends RecyclerView.Adapter<SubTopicAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_topicTitle;
         ImageView iv_topicLogo;
+        RatingBar rating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_topicTitle = itemView.findViewById(R.id.tv_topicTitle);
             iv_topicLogo = itemView.findViewById(R.id.iv_topicLogo);
+            rating = itemView.findViewById(R.id.rating);
         }
     }
 

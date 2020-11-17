@@ -4,76 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Setting">
-<!--checked. keeping master-->
-    <TextView
-        android:id="@+id/tvChangePW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="69dp"
-        android:layout_marginLeft="69dp"
-        android:layout_marginTop="122dp"
-        android:text="Setting"
+    tools:context=".Setting"
+    android:background="@drawable/marsbg">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="661dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginBottom="144dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525">
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="203dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="aMAZEing Mars"
+            android:textColor="#874B01"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        <EditText
+            android:id="@+id/tv_current_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:hint="Current Password" />
 
-    <TextView
-        android:id="@+id/tvOldPW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:text="Old Password"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPassword" />
+        <EditText
+            android:id="@+id/tv_new_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="New Password" />
 
-    <TextView
-        android:id="@+id/tvNewPW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:text="New Password"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPassword2" />
+        <EditText
+            android:id="@+id/tv_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Confirm Password" />
 
-    <Button
-        android:id="@+id/btLogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="54dp"
-        android:text="LogOut"
-        android:onClick="logout"
-        app:layout_constraintStart_toStartOf="@+id/tvNewPW"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        <Button
+            android:id="@+id/bt_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/rubik_bold"
+            android:text="Change Password" />
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnBottomBar"
@@ -84,5 +70,4 @@
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_nevigation" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
