@@ -46,9 +46,6 @@ public class Setting extends AppCompatActivity {
         changepass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-//                String oldpass = currentpass.getText().toString().trim();
-//                String newpassword = newpass.getText().toString().trim();
-//                String confirmpassword = confirmpass.getText().toString().trim();
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String newPassword = "SOME-SECURE-PASSWORD";

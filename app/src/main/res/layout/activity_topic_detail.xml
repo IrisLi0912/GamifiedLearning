@@ -19,13 +19,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="73dp"
+                android:layout_height="53dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_topicTitle"
-                    android:layout_width="256dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="248dp"
+                    android:layout_height="50dp"
                     android:gravity="center"
                     android:text="Main topic title"
                     android:textAppearance="@style/TitleTextView" />
@@ -57,7 +57,7 @@
                 <TextView
                     android:id="@+id/tv_topicDes"
                     android:layout_width="match_parent"
-                    android:layout_height="67dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/layoutborder"
                     android:text="Defination of topic"
                     android:textAppearance="@style/BodyTextView" />
@@ -71,7 +71,7 @@
                 <ImageView
                     android:id="@+id/iv_formulaImage1"
                     android:layout_width="match_parent"
-                    android:layout_height="94dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     tools:srcCompat="@tools:sample/avatars" />
             </LinearLayout>
@@ -84,7 +84,7 @@
                 <TextView
                     android:id="@+id/tv_formulaDes"
                     android:layout_width="match_parent"
-                    android:layout_height="95dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/layoutborder"
                     android:text="formula description"
                     android:textAppearance="@style/BodyTextView" />
@@ -92,7 +92,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="207dp"
+                android:layout_height="210dp"
                 android:orientation="vertical">
 
                 <View
@@ -104,7 +104,7 @@
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="151dp"
+                    android:layout_height="183dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop" />
 
@@ -117,7 +117,7 @@
                 <TextView
                     android:id="@+id/tv_topicTitle1"
                     android:layout_width="match_parent"
-                    android:layout_height="53dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="sub topic "
                     android:textAppearance="@style/TitleTextView" />
@@ -131,7 +131,7 @@
                 <TextView
                     android:id="@+id/tv_topicDes1"
                     android:layout_width="match_parent"
-                    android:layout_height="95dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/layoutborder"
                     android:text="subtopic description"
                     android:textAppearance="@style/BodyTextView" />
@@ -159,7 +159,7 @@
                 <TextView
                     android:id="@+id/tv_formulaDes1"
                     android:layout_width="match_parent"
-                    android:layout_height="106dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/layoutborder"
                     android:text="Sub topic formula des"
