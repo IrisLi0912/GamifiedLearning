@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d(TAG, "onSuccess: user created" + userID);
                                 }
                             });
-                        startActivity(new Intent(getApplicationContext(), Setting.class));
+                        startActivity(new Intent(getApplicationContext(), User.class));
                             //Currently redirects to setting screen to test logout functionality
                         }else{
 
