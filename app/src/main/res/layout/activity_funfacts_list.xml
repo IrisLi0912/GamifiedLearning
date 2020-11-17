@@ -29,27 +29,33 @@
         <TextView
             android:id="@+id/tv_funfactTitle"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="43dp"
             android:gravity="center"
             android:textAppearance="@style/TitleTextView"
             tools:text="Fun fact title" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="112dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="67dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_description"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/layoutborder"
                     android:text="TextView"
                     android:textAppearance="@style/BodyTextView" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="?android:attr/listDivider" />
 
             </LinearLayout>
         </ScrollView>
