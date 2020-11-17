@@ -54,7 +54,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="326dp"
-        android:layout_height="225dp"
+        android:layout_height="263dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
@@ -71,6 +71,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Full Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
             android:inputType="textPersonName" />
 
         <EditText
@@ -136,8 +144,8 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="34dp"
+        android:layout_height="28dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
