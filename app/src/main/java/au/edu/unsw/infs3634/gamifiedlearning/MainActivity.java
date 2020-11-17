@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     EditText mName;
     EditText mEmail;
     EditText mPass;
+    EditText mUserName;
     Button mSignUp;
     Button mGoToLogin;
     FirebaseAuth fAuth;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar status;
 
     public static final String TAG = "TAG";
+
 
 
     @Override
@@ -48,10 +50,9 @@ public class MainActivity extends AppCompatActivity {
         mName = findViewById(R.id.etName);
         mEmail = findViewById(R.id.etEmail);
         mPass = findViewById(R.id.etPassword);
+        mUserName = findViewById(R.id.etUserName);
         mSignUp = findViewById(R.id.btSignUp);
-        //mUserName = findViewById(R.id.etUserName);
         mGoToLogin = findViewById(R.id.btGoLogIn);
-
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         status = findViewById(R.id.progressBar);
@@ -62,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
             //Currently redirects to setting screen to test logout functionality
         }
 
+
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String pass = mPass.getText().toString().trim();
                 String name = mName.getText().toString();
-               // String userName = mUserName.gettext.toString.trim();
-
+                String userName = mUserName.getText().toString();
 
 
                 if (TextUtils.isEmpty(email)) {
@@ -77,11 +78,17 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(pass)) {
-                    mPass.setError("Please enter a valid Password");
+                    mPass.setError("Please enter a valid Password!");
                 }
+
+                if (TextUtils.isEmpty(userName)) {
+                    mUserName.setError("Please enter a Username!");
+                }
+
                 // password length restriction can go here
 
                 status.setVisibility(View.VISIBLE);
+
 
                 fAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
@@ -95,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             HashMap<String, Object> user = new HashMap<>();
                             user.put("name", name);
                             user.put("email", email);
-                           // user.put("userName", userName);
+                            user.put("userName", userName);
                             dR.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
