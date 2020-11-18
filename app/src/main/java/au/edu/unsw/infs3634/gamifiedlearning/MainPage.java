@@ -1,6 +1,7 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,12 +9,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,8 +35,14 @@ public class MainPage extends AppCompatActivity {
     private TextView textViewDesc;
     private TextView textViewCopyRight;
     private TextView textViewTitle;
+    private TextView textViewWelcome;
     private ImageView spaceImage;
-    private  Button buttonMore;
+    private Button buttonMore;
+    private WebView webView;
+
+    String userID;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
 
 
     @Override
@@ -38,15 +53,37 @@ public class MainPage extends AppCompatActivity {
         textViewDesc = findViewById(R.id.text_view_result);
         textViewTitle = findViewById(R.id.tvImageTitle);
         textViewCopyRight = findViewById(R.id.tvAuthor);
+        textViewWelcome = findViewById(R.id.tvWelcomeMsg);
         spaceImage = findViewById(R.id.ivMarsCondition);
         buttonMore = findViewById(R.id.btLearnMore);
+        webView = (WebView) findViewById(R.id.webview2);
+
+        //fech and display name through firebase
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userID = fAuth.getCurrentUser().getUid();
+
+        DocumentReference dR = fStore.collection("users").document(userID);
+        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                textViewWelcome.setText("Welcome back, " + value.getString("name"));
+            }
+        });
+
+        //webview display and scale to correct dimension
+        String html = "<iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/' width='380' height='390'  scrolling='no' frameborder='0'></iframe>";
+        webView = (WebView) findViewById(R.id.webview2);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadData(html, "text/html", null);
+
 
         //button to open more
         buttonMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoUrl("https://apod.nasa.gov/apod/astropix.html");
-                
+
             }
         });
 
@@ -64,14 +101,14 @@ public class MainPage extends AppCompatActivity {
                     textViewDesc.setText("Error Code: " + response.code() + " Sorry the new image have not been updated yet. But here is a photo from previous weeks. \n  Comet dust falls through a twilight sky in this dream-like scene, but it's not part of a fairytale movie. Still, Castle Neuschwanstein, nestled in the Bavarian Alps, did inspire Disneyland's Sleeping Beauty Castle. Captured on July 20, the bright streak above the castle towers is likely a Perseid meteor. Though it peaks near mid-August, the annual summer meteor shower is active now. The meteor trail over the fairytale castle can be traced back to the shower's radiant in the heroic constellation Perseus off the top right of the frame. Perseid meteors are produced by dust from periodic Comet Swift-Tuttle. With its own broad dust tail now sweeping through northern skies the celestial apparition above the distant horizon is planet Earth's current darling, Comet NEOWISE. ");
                     spaceImage.setImageResource(R.drawable.fairytale);
                     textViewTitle.setText(" Astronomy Picture of the Day. \n Fairytale NEOWISE");
-                    textViewCopyRight.setText("© Stephane Guisard (Los Cielos de America, TWAN)" );
+                    textViewCopyRight.setText("© Stephane Guisard (Los Cielos de America, TWAN)");
 
                     return;
                 }
                 NASAImage NASAImg = response.body();
                 textViewDesc.setText(NASAImg.getExplanation());
                 textViewTitle.setText(" Astronomy Picture of the Day. \n" + NASAImg.getTitle());
-                textViewCopyRight.setText("©" +NASAImg.getCopyright());
+                textViewCopyRight.setText("©" + NASAImg.getCopyright());
                 //add here to get back description
                 Glide.with(spaceImage).load(NASAImg.getUrl()).into(spaceImage);
 
@@ -83,7 +120,6 @@ public class MainPage extends AppCompatActivity {
 
             }
         });
-
 
 
         //initialise and assign variable

@@ -64,12 +64,13 @@
 
         <Button
             android:id="@+id/bt_change_password"
-            android:layout_width="match_parent"
+            android:layout_width="322dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/button"
             android:fontFamily="@font/rubik_bold"
-            android:text="Change Password" />
+            android:text="Change Password" 
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
