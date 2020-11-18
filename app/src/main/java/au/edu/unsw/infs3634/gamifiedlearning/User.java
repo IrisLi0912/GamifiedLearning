@@ -96,4 +96,9 @@ public class User extends AppCompatActivity {
         finish();
 
     }
+
+    public void goToPasswordReset(View view){
+        startActivity(new Intent(getApplicationContext(),Setting.class));
+        finish();
+    }
 }
