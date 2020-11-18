@@ -121,7 +121,7 @@ public class StartingScreenActivity extends AppCompatActivity {
                     // change the display to encourage more questions be answered
                     textViewEncourage.setText( "Nice start! Answer more questions to unlock the next chapter!");
                 } else if (score>=10.0 && score < 15.0) {
-                    buttonStartQuiz1.setVisibility(View.VISIBLE);
+                    buttonStartQuiz1.setVisibility(View.GONE);
                     buttonStartQuiz2.setVisibility(View.GONE);
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
                     buttonStartQuiz4.setVisibility(View.GONE);

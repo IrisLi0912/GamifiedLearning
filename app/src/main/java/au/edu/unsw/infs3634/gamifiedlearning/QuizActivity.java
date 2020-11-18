@@ -323,6 +323,9 @@ public class QuizActivity extends AppCompatActivity {
         //maybe we put a method that update the score into the firebase or leader board
 
         finish();
+        startActivity(new Intent(getApplicationContext(), User.class));
+
+
     }
 
     @Override
