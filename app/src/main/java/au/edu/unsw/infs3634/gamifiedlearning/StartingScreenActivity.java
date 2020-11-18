@@ -102,39 +102,55 @@ public class StartingScreenActivity extends AppCompatActivity {
         dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                textViewScoreServer.setText(value.getString("score") + " Points");
-                int i = Integer.parseInt(value.getString("score"));
-                score = i;
+                textViewScoreServer.setText(value.getDouble("score") + " Points");
+                double score = value.getDouble("score");
+
                 //show avliable chapters base on user score
-                if (score <=10) {
+                if (score <4){
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
+                    buttonStartQuiz4.setVisibility(View.GONE);
+                    buttonStartQuiz5.setVisibility(View.GONE);
+                }
+                else if (score>=5.0 && score <10.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
                     buttonStartQuiz2.setVisibility(View.VISIBLE);
                     buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     // change the display to encourage more questions be answered
                     textViewEncourage.setText( "Nice start! Answer more questions to unlock the next chapter!");
-                } else if (score <= 15) {
-                    buttonStartQuiz2.setVisibility(View.VISIBLE);
+                } else if (score>=10.0 && score < 15.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.GONE);
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     //change the display again
                     textViewEncourage.setText( "You are at the half way!!!!");
-                } else if (score <= 20) {
-                    buttonStartQuiz2.setVisibility(View.VISIBLE);
-                    buttonStartQuiz3.setVisibility(View.VISIBLE);
+                } else if (score >= 15.0 && score < 20.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.VISIBLE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     //change the display again
                     textViewEncourage.setText( "One more step to the Mars!");
-                } else if (score <= 112387) {
-                    buttonStartQuiz2.setVisibility(View.VISIBLE);
-                    buttonStartQuiz3.setVisibility(View.VISIBLE);
-                    buttonStartQuiz4.setVisibility(View.VISIBLE);
+                } else if (score >=20.0 && score < 112387.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
+                    buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.VISIBLE);
                     textViewTitle.setText( "Well Done!! You complected the quest!");
                     textViewEncourage.setVisibility(View.GONE);
                 } else {
+                    buttonStartQuiz1.setVisibility(View.VISIBLE);
+                    buttonStartQuiz2.setVisibility(View.VISIBLE);
+                    buttonStartQuiz3.setVisibility(View.VISIBLE);
+                    buttonStartQuiz4.setVisibility(View.VISIBLE);
+                    buttonStartQuiz5.setVisibility(View.VISIBLE);
+
                 }
 
             }

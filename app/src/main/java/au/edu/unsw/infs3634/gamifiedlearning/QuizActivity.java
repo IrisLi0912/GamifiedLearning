@@ -9,6 +9,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -28,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -52,9 +55,16 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton rb2;
     private RadioButton rb3;
     private Button buttonConfirmNext;
+
     private String userID;
+    private String userID2;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
+
+    public String holderName;
+    public String holderEmail;
+    public String holderUserName;
+    public double holderScore;
 
     private ColorStateList textColorDefaultRb;//rb for radio button
     private ColorStateList textColorDefaultCd; //cd for countdown
@@ -77,6 +87,33 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userID2 = fAuth.getCurrentUser().getUid();
+
+
+
+
+
+
+        userID2 = fAuth.getCurrentUser().getUid();
+        DocumentReference dR = fStore.collection("users").document(userID2);
+        HashMap<String, Object> user = new HashMap<>();
+        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                //because using .put will fully rebuild the database, so previous data must be on hold before write.
+                holderName = value.getString("name");
+                System.out.println(holderName +"this is the output");
+                holderEmail = value.getString("email");
+                holderUserName =value.getString("userName");
+                holderScore = value.getDouble("score");
+
+
+            }
+        });
+
         //assign buttons
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewScore = findViewById(R.id.text_view_score);
@@ -88,7 +125,7 @@ public class QuizActivity extends AppCompatActivity {
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
-        textViewDifficulty=findViewById(R.id.text_view_difficulty);
+        textViewDifficulty = findViewById(R.id.text_view_difficulty);
 
         textColorDefaultRb = rb1.getTextColors(); //get text clolr, green or red
         textColorDefaultCd = textViewCountDown.getTextColors();
@@ -143,16 +180,16 @@ public class QuizActivity extends AppCompatActivity {
         });
 
 
-
         //fetch and display score from firebase server.
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
-        DocumentReference dR = fStore.collection("users").document(userID);
-        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+
+        DocumentReference dR2 = fStore.collection("users").document(userID);
+        dR2.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                textViewScoreServer.setText(value.getString("score") + " Points");
+                textViewScoreServer.setText(value.getDouble("score") + " Points");
             }
         });
 
@@ -252,6 +289,29 @@ public class QuizActivity extends AppCompatActivity {
             buttonConfirmNext.setText("Next");
         } else {
             buttonConfirmNext.setText("Finish");
+            if (score == 5) {
+                //update the database with the score, score field +5
+                System.out.println("test");
+                userID = fAuth.getCurrentUser().getUid();
+                DocumentReference dR = fStore.collection("users").document(userID);
+                HashMap<String, Object> user = new HashMap<>();
+
+
+                //----------------------------------
+                user.put("name", holderName);
+                user.put("email", holderEmail);
+                user.put("userName", holderUserName);
+                user.put("score", holderScore+5);
+                dR.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        System.out.println("pass");
+                    }
+                });
+                System.out.println("test finished");
+                //----------------------------------
+            } else {
+            }
         }
     }
 
@@ -261,7 +321,11 @@ public class QuizActivity extends AppCompatActivity {
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, resultIntent);
         //maybe we put a method that update the score into the firebase or leader board
+
         finish();
+        startActivity(new Intent(getApplicationContext(), User.class));
+
+
     }
 
     @Override

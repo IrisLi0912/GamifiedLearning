@@ -53,7 +53,7 @@ public class User extends AppCompatActivity {
                 mName.setText(value.getString("name"));
                 mEmail.setText(value.getString("email"));
                 mUserName.setText(value.getString("userName"));
-                mScore.setText(value.getString("score") + " Points");
+                mScore.setText(value.getDouble("score") + " Points");
             }
         });
 
