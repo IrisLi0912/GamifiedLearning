@@ -29,6 +29,8 @@ public class MainTopicMain extends AppCompatActivity {
         setContentView(R.layout.activity_topic_recyclerview);
 
         recyclerView = findViewById(R.id.tv_topliclist);
+
+        //display the topic category into a grid layout with card view
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         allTopic = MainTopicsCategory.getMainTopicsCategory();
@@ -41,13 +43,15 @@ public class MainTopicMain extends AppCompatActivity {
         adapter.setOnItemClickListener(new MainTopicAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+
+                //define different type of topic category
+                // launch to different activity with different layout
                 if(adapterList.get(position).getType() == 1){
                     Intent intent = new Intent(MainTopicMain.this, MissionWebActivity.class);
                     intent.putExtra("data",  adapterList.get(position));
                     startActivity(intent);
                 }else if (adapterList.get(position).getType() == 2){
                     Intent intent = new Intent(MainTopicMain.this, FunFactsMain.class);
-
                     intent.putExtra("data",  adapterList.get(position));
                     startActivity(intent);
                 }else {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SubTopicMain extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ArrayList<SubTopic> allSight;
+    private ArrayList<SubTopic> allTopic;
     private ArrayList<SubTopic> adapterList;
     private SubTopicAdapter adapter;
 
@@ -24,26 +24,25 @@ public class SubTopicMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subtopic_recyclerview);
 
-//        Toolbar mToolbar = findViewById(R.id.toolbar2);
-//        setSupportActionBar(mToolbar);
-//        mToolbar.setTitleTextColor(Color.BLACK);
-//        mToolbar.setBackgroundColor(Color.CYAN);
 
+        //intent message
         mainTopicsCategory = (MainTopicsCategory) getIntent().getSerializableExtra("data");
 
 
         recyclerView = findViewById(R.id.tv_subtopiclist);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        allSight = SubTopic.getSubTopics();
+        allTopic = SubTopic.getSubTopics();
 
 
         adapterList = new ArrayList<>();
 
 
-        for (int i = 0; i < allSight.size(); i++) {
-            if (allSight.get(i).getKey().equals(mainTopicsCategory.getTopicCategory())) {
-                adapterList.add(allSight.get(i));
+        //put all subtopic into a arraylist
+        //using the key: topic category name to classfile all the subtopic into correct topic category
+        for (int i = 0; i < allTopic.size(); i++) {
+            if (allTopic.get(i).getKey().equals(mainTopicsCategory.getTopicCategory())) {
+                adapterList.add(allTopic.get(i));
 
             }
         }
@@ -53,7 +52,7 @@ public class SubTopicMain extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new SubTopicAdapter(this, adapterList);
         recyclerView.setAdapter(adapter);
-        // redirect to detail page
+        // launch to subtopic detail activity
         adapter.setOnItemClickListener(new SubTopicAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {

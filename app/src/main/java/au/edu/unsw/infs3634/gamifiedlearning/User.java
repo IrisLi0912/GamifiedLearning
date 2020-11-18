@@ -54,6 +54,7 @@ public class User extends AppCompatActivity {
         mEmail = findViewById(R.id.tvProfileEmail);
         mScore = findViewById(R.id.tvCoinNumber);
         mAvatar = findViewById(R.id.ivAvatar);
+
         mFirst = findViewById(R.id.tvFirstUser);
         mSecond = findViewById(R.id.tvSecondUser);
         mThird = findViewById(R.id.tvThirdUser);

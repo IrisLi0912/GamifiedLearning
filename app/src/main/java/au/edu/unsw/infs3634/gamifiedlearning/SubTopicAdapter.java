@@ -38,6 +38,7 @@ public class SubTopicAdapter extends RecyclerView.Adapter<SubTopicAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         SubTopic item = mLists.get(position);
 
+
         int image = context.getResources().getIdentifier(item.getTopicImageName(),
                 "drawable", "au.edu.unsw.infs3634.gamifiedlearning");
 

@@ -81,6 +81,7 @@ public class Setting extends AppCompatActivity {
 
 
         //initialise and assign variable
+
         // already intitalised somewhere else?
        // BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
@@ -122,22 +123,33 @@ public class Setting extends AppCompatActivity {
 
     }
 
+    //create a change password method
     public void changePassword() {
         String cpass = currentpass.getText().toString().trim();
         String npass = newpass.getText().toString().trim();
         String conpass = confirmpass.getText().toString().trim();
 
+        //all the fields can not be null
         if (!TextUtils.isEmpty(cpass) && !TextUtils.isEmpty(npass) && !TextUtils.isEmpty(conpass)) {
 
+            //new password and confire password should be the same
             if (npass.equals(conpass)) {
 
+                //get the cuurrent user information in firebase
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                //make sure there is a current user and correct email
                 if (user != null && user.getEmail() != null) {
+
+
+                    //give authenticate to user update their password
 
                     AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), cpass);
                     user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+
+
                             if (task.isSuccessful()) {
                                 Toast.makeText(Setting.this, "Re-Authentication success. ", Toast.LENGTH_SHORT).show();
 
@@ -145,6 +157,9 @@ public class Setting extends AppCompatActivity {
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
+
+                                                // successfully change password
+                                                // back to login
                                                 if (task.isSuccessful()) {
                                                     Toast.makeText(Setting.this, "Password changed successfully. ", Toast.LENGTH_SHORT).show();
                                                     fAuth.signOut();
@@ -155,6 +170,8 @@ public class Setting extends AppCompatActivity {
                                             }
                                         });
                             } else {
+
+                                //otherwise re authentication failed
                                 Toast.makeText(Setting.this, "Re-Authentication failed. ", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -175,11 +192,14 @@ public class Setting extends AppCompatActivity {
 
 
         } else {
+
             Toast.makeText(Setting.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
 
 
         }
     }
+
+
 
 //    public void logout(View view) {
 //        FirebaseAuth.getInstance().signOut();
@@ -187,5 +207,6 @@ public class Setting extends AppCompatActivity {
 //        finish();
 //
 //    }
+
 
 }

@@ -89,7 +89,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q16);
         Question q17 = new Question("How long is the expected mission duration?","At least 7 Mars year", "36 days Mars day", "At least one Mars year", 3, Question.CHAPTER_4);
         addQuestion(q17);
-        Question q18 = new Question("What fuel is used to provide power for the “Persercerance”?","carbon-14", "plutonium-238", "Diesel", 2, Question.CHAPTER_4);
+        Question q18 = new Question("What fuel is used to provide power for the “Persercerance”?","Carbon-14", "Plutonium-238", "Diesel", 2, Question.CHAPTER_4);
         addQuestion(q18);
         Question q19 = new Question("When will/ was the “Perseverance” launched?","Feb. 18, 2022", "July 30, 2020", "First quarter 2025", 2, Question.CHAPTER_4);
         addQuestion(q19);
