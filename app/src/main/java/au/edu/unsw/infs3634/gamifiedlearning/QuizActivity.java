@@ -55,9 +55,16 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton rb2;
     private RadioButton rb3;
     private Button buttonConfirmNext;
+
     private String userID;
+    private String userID2;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
+
+    public String holderName;
+    public String holderEmail;
+    public String holderUserName;
+    public double holderScore;
 
     private ColorStateList textColorDefaultRb;//rb for radio button
     private ColorStateList textColorDefaultCd; //cd for countdown
@@ -79,6 +86,33 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userID2 = fAuth.getCurrentUser().getUid();
+
+
+
+
+
+
+        userID2 = fAuth.getCurrentUser().getUid();
+        DocumentReference dR = fStore.collection("users").document(userID2);
+        HashMap<String, Object> user = new HashMap<>();
+        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                //because using .put will fully rebuild the database, so previous data must be on hold before write.
+                holderName = value.getString("name");
+                System.out.println(holderName +"this is the output");
+                holderEmail = value.getString("email");
+                holderUserName =value.getString("userName");
+                holderScore = value.getDouble("score");
+
+
+            }
+        });
 
         //assign buttons
         textViewQuestion = findViewById(R.id.text_view_question);
@@ -150,8 +184,9 @@ public class QuizActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
-        DocumentReference dR = fStore.collection("users").document(userID);
-        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+
+        DocumentReference dR2 = fStore.collection("users").document(userID);
+        dR2.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 textViewScoreServer.setText(value.getDouble("score") + " Points");
@@ -260,7 +295,13 @@ public class QuizActivity extends AppCompatActivity {
                 userID = fAuth.getCurrentUser().getUid();
                 DocumentReference dR = fStore.collection("users").document(userID);
                 HashMap<String, Object> user = new HashMap<>();
-                user.put("score", 5);
+
+
+                //----------------------------------
+                user.put("name", holderName);
+                user.put("email", holderEmail);
+                user.put("userName", holderUserName);
+                user.put("score", holderScore+5);
                 dR.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -268,7 +309,7 @@ public class QuizActivity extends AppCompatActivity {
                     }
                 });
                 System.out.println("test finished");
-                //this is not working
+                //----------------------------------
             } else {
             }
         }
