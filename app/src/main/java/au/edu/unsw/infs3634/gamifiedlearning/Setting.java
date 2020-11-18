@@ -81,7 +81,7 @@ public class Setting extends AppCompatActivity {
 
 
         //initialise and assign variable
-        // already intitalised
+        // already intitalised somewhere else?
        // BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
