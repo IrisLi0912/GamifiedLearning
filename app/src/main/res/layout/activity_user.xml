@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".User">
 
-
     <ImageView
         android:id="@+id/ivAvatar"
         android:layout_width="134dp"
@@ -49,10 +48,11 @@
         android:layout_marginEnd="20dp"
         android:text="Learning Progress:"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btLogout"
+        app:layout_constraintEnd_toStartOf="@+id/bt_resetpass" />
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/tvCoinNumber"
@@ -114,28 +114,29 @@
         app:layout_constraintStart_toStartOf="@+id/tvUserName"
         app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
-    <Button
-        android:id="@+id/btLogout"
+<!--     <Button
+
+        android:id="@+id/bt_resetpass"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="39dp"
         android:layout_height="38dp"
         android:layout_marginTop="12dp"
         android:background="#FFFFFF"
         android:drawableBottom="@android:drawable/ic_lock_idle_lock"
-        android:onClick="logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.731"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" /> -->
 
     <Button
-        android:id="@+id/btPassSet"
+        android:id="@+id/bt_resetpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:text="Password Reset"
-        android:onClick="goToPasswordReset"
         app:layout_constraintBottom_toBottomOf="@+id/rvLeaderBoard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
