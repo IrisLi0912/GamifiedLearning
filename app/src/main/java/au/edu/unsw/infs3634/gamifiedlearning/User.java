@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,8 +23,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 public class User extends AppCompatActivity {
     Button mLogout;
     TextView mName;
-    //  TextView mUserName;
+    TextView mUserName;
     TextView mEmail;
+    TextView mScore;
+    ImageView mAvatar;
     String userID;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -34,8 +37,10 @@ public class User extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         mName =findViewById(R.id.tvName);
-        //    mUserName = findViewById(R.id.tvUserName);
+        mUserName = findViewById(R.id.tvUserName);
         mEmail = findViewById(R.id.tvProfileEmail);
+        mScore = findViewById(R.id.tvCoinNumber);
+        mAvatar = findViewById(R.id.ivAvatar);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -47,6 +52,9 @@ public class User extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 mName.setText(value.getString("name"));
                 mEmail.setText(value.getString("email"));
+                mUserName.setText(value.getString("userName"));
+                mScore.setText(value.getString("score") + " Points");
+
             }
         });
 
