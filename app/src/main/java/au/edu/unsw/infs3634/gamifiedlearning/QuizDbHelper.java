@@ -54,7 +54,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         //dummy data stored here for now
         Question q1 = new Question("What is the equation to calculate the gravitational potential energy?", "E=(-GmM)∕r^2", "E = mgh", "E=0.5mv^2", 1,Question.CHAPTER_1);
         addQuestion(q1);
-        Question q2 = new Question("Calculate the gravitational potential energy of the entire Earth while it orbits the Sun, given that the Sun has a mass of 2x10^30 kg and the distance of the Earth to the Sun is 1.5x10^11 km.","20*10^22 Joule", "3.56x10^22 Joule", "More information is required for calculation.", 2, Question.CHAPTER_1);
+        Question q2 = new Question("Calculate the gravitational potential energy of the entire Earth while it orbits the Sun, given that the Sun has a mass of 2x10^30 kg and the distance of the Earth to the Sun is 1.5x10^11 km.","20x10^22 Joule", "3.56x10^22 Joule", "More information is required for calculation.", 2, Question.CHAPTER_1);
         addQuestion(q2);
         Question q3 = new Question("What is the g-force experienced in a stable orbit","1", "-9.8", "0", 3, Question.CHAPTER_1);
         addQuestion(q3);
@@ -71,10 +71,10 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q8);
         Question q9 = new Question("Why is understanding the climate on Mars important?","To understand if the Mars will turn into a supernova", "Prepare for Elon Musk's landing", "Understanding the climate of Mars is important to facilitate human exploration and to determine if Mars could have the conditions to support life", 3, Question.CHAPTER_2);
         addQuestion(q9);
-        Question q10 = new Question("What had been discovered from the inside of the Martian Meteorite?","Huge amount of Carbon 14", "tiny gas bubbles, water and organic (carbon-based) compounds in them.", "Only silicon dioxide ", 2, Question.CHAPTER_2);
+        Question q10 = new Question("What had been discovered from the inside of the Martian Meteorite?","Huge amount of Carbon 14", "Tiny gas bubbles, water and organic (carbon-based) compounds in them.", "Only silicon dioxide ", 2, Question.CHAPTER_2);
         addQuestion(q10);
 
-        Question q11 = new Question("When was Aristotle first observed an occultation of Mars?","A", "B", "4 May 357 BCE", 3, Question.CHAPTER_3);
+        Question q11 = new Question("When was Aristotle first observed an occultation of Mars?","5 March 200 BC", "1705 BC", "4 May 357 BCE", 3, Question.CHAPTER_3);
         addQuestion(q11);
         Question q12 = new Question("When was the first standard nomenclature for Martian albedo features was introduced?","1906", "1900", "1960", 3, Question.CHAPTER_3);
         addQuestion(q12);
@@ -91,9 +91,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q17);
         Question q18 = new Question("What fuel is used to provide power for the “Persercerance”?","carbon-14", "plutonium-238", "Diesel", 2, Question.CHAPTER_4);
         addQuestion(q18);
-        Question q19 = new Question("When will/ was the “Perseverance” launched?","Feb. 18, 2022", "July 30, 2020", "C", 2, Question.CHAPTER_4);
+        Question q19 = new Question("When will/ was the “Perseverance” launched?","Feb. 18, 2022", "July 30, 2020", "First quarter 2025", 2, Question.CHAPTER_4);
         addQuestion(q19);
-        Question q20 = new Question("How many cameras are on the “Persercerance”?","19", "B", "C", 1, Question.CHAPTER_4);
+        Question q20 = new Question("How many cameras are on the “Persercerance”?","19", "4", "28", 1, Question.CHAPTER_4);
         addQuestion(q20);
 
         Question q21 = new Question("How high is Olympus Mons - the tallest mountain - in the solar system?","190 KM", "77 KM", "21 KM", 3, Question.CHAPTER_5);
