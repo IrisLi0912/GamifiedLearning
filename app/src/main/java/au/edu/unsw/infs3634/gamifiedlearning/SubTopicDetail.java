@@ -25,13 +25,6 @@ public class SubTopicDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_detail);
 
-        // modify the toolbar, set title and  text color
-//    Toolbar mToolbar = findViewById(R.id.toolbar);
-//        mToolbar.setTitle(" Sight Detail ");
-//        mToolbar.setTitleTextColor(Color.BLACK);
-//        mToolbar.setBackgroundColor(Color.CYAN);
-
-
         subTopic = (SubTopic) getIntent().getSerializableExtra("data");
 
 
@@ -57,6 +50,7 @@ public class SubTopicDetail extends AppCompatActivity {
         tv_formulaDes1.setText(subTopic.getFormulaDes1() + "");
         iv_formulaImage1.setImageResource(subTopic.getFormulaImage1());
 
+        //monitor learn more button
         tv_learnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,18 +60,22 @@ public class SubTopicDetail extends AppCompatActivity {
             }
         });
 
+        //set the image banner
         ImageBanner adapter = new ImageBanner(getImage());
         iv_topicLogo.setAdapter(adapter);
 
+        // automatically play image  or drag the image
         iv_topicLogo.setIndicator(new CircleIndicator(this));
 
 
     }
 
     public ArrayList<Integer> getImage() {
+
         ArrayList<Integer> images = new ArrayList<>();
 
-        for (int i = 0; i < subTopic.getImageMax(); i++) {
+        //enable the image is loading according to the imagemax
+        for (int i = 0; i <= subTopic.getImageMax(); i++) {
             int image;
 
             if (i == 0) {

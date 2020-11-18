@@ -36,17 +36,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/button"
-                    android:drawableLeft="@drawable/link"
                     android:drawablePadding="-2dp"
                     android:elevation="3dp"
-                    android:fontFamily="@font/kalam_bold"
                     android:gravity="center"
                     android:text="Learn More"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:visibility="visible"
-                    app:backgroundTint="#B9D6EF" />
+                    app:drawableStartCompat="@drawable/link"
+                    android:textSize="14dp"
+                    android:textColor="#AD555454"
+                    android:fontFamily="@font/rubik"/>
             </LinearLayout>
 
             <LinearLayout
@@ -66,10 +63,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="99dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/iv_formulaImage1"
+                    android:id="@+id/iv_formulaImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -92,26 +90,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="262dp"
                 android:orientation="vertical">
 
                 <View
                     android:id="@+id/divider3"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1.5dp"
+                    android:layout_marginTop="4dp"
                     android:background="@color/black" />
 
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="183dp"
+                    android:layout_height="230dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerInside" />
 
                 <View
                     android:id="@+id/divider2"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1.5dp"
+                    android:layout_marginBottom="4dp"
                     android:background="@color/black" />
 
                 <TextView
@@ -137,24 +137,31 @@
                     android:textAppearance="@style/BodyTextView" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="105dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/iv_formulaImage"
-                    android:layout_width="284dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/iv_formulaImage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     tools:srcCompat="@tools:sample/avatars" />
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/black" />
 
                 <TextView
                     android:id="@+id/tv_formulaDes1"
@@ -164,6 +171,8 @@
                     android:background="@drawable/layoutborder"
                     android:text="Sub topic formula des"
                     android:textAppearance="@style/BodyTextView" />
+
+
             </LinearLayout>
 
         </LinearLayout>
