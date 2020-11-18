@@ -21,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class User extends AppCompatActivity {
-    Button mResetpass;
+    Button mLogout;
     TextView mName;
     TextView mUserName;
     TextView mEmail;
@@ -45,15 +45,6 @@ public class User extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
-        mResetpass = findViewById(R.id.bt_resetpass);
-
-        mResetpass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Setting.class));
-            }
-
-        });
 
         DocumentReference dR = fStore.collection("users").document(userID);
         dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -106,4 +97,8 @@ public class User extends AppCompatActivity {
 
     }
 
+    public void goToPasswordReset(View view){
+        startActivity(new Intent(getApplicationContext(),Setting.class));
+        finish();
+    }
 }
