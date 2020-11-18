@@ -81,7 +81,8 @@ public class Setting extends AppCompatActivity {
 
 
         //initialise and assign variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
+        // already intitalised
+       // BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
         bottomNavigationView.setSelectedItemId(R.id.profile);
@@ -178,11 +179,13 @@ public class Setting extends AppCompatActivity {
 
 
         }
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), Login.class));
-        finish();
-
     }
+
+//    public void logout(View view) {
+//        FirebaseAuth.getInstance().signOut();
+//        startActivity(new Intent(getApplicationContext(), Login.class));
+//        finish();
+//
+//    }
 
 }
