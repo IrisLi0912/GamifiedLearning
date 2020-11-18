@@ -41,7 +41,7 @@ public class User extends AppCompatActivity {
         mEmail = findViewById(R.id.tvProfileEmail);
         mScore = findViewById(R.id.tvCoinNumber);
         mAvatar = findViewById(R.id.ivAvatar);
-
+//
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
