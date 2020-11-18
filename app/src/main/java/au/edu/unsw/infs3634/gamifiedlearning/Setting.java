@@ -2,6 +2,7 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,6 @@ public class Setting extends AppCompatActivity {
     private TextView newpass;
     private TextView confirmpass;
     private Button changepass;
-
 
 
     @Override
@@ -79,25 +79,68 @@ public class Setting extends AppCompatActivity {
 
         });
 
+
+        //initialise and assign variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
+
+        //set home selected, later change to set whatever page selected
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        //Perform ItemSelectListener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.topic:
+                        startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Setting.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainPage.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
+
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), Login.class));
+        finish();
+
     }
 
     public void changePassword() {
-        if (currentpass != null && newpass != null && confirmpass != null) {
+        String cpass = currentpass.getText().toString().trim();
+        String npass = newpass.getText().toString().trim();
+        String conpass = confirmpass.getText().toString().trim();
 
-            if (newpass.toString().equals(confirmpass.toString())) {
+        if (!TextUtils.isEmpty(cpass) && !TextUtils.isEmpty(npass) && !TextUtils.isEmpty(conpass)) {
 
+            if (npass.equals(conpass)) {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null && user.getEmail() != null) {
 
-                    AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), currentpass.toString());
+                    AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), cpass);
                     user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(Setting.this, "Re-Authentication success. ", Toast.LENGTH_SHORT).show();
 
-                                user.updatePassword(newpass.toString())
+                                user.updatePassword(npass)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -106,7 +149,6 @@ public class Setting extends AppCompatActivity {
                                                     fAuth.signOut();
                                                     startActivity(new Intent(getApplicationContext(), Login.class));
                                                     finish();
-
 
                                                 }
                                             }
@@ -136,42 +178,6 @@ public class Setting extends AppCompatActivity {
 
 
         }
-
-
-
-//        //initialise and assign variable
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
-//
-//        //set home selected, later change to set whatever page selected
-//        bottomNavigationView.setSelectedItemId(R.id.profile);
-//
-//        //Perform ItemSelectListener
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                switch (menuItem.getItemId()) {
-//                    case R.id.topic:
-//                        startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//                    case R.id.profile:
-//                        startActivity(new Intent(getApplicationContext(), User.class));
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//                    case R.id.home:
-//                        startActivity(new Intent(getApplicationContext(), MainPage.class));
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//                    case R.id.journey:
-//                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//                }
-//                return false;
-//            }
-//        });
-    }
-
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), Login.class));

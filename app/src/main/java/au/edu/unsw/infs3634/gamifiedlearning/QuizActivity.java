@@ -1,6 +1,7 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -36,6 +43,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private TextView textViewQuestion;
     private TextView textViewScore;
+    private TextView textViewScoreServer;
     private TextView textViewQuestionCount;
     private TextView textViewDifficulty;
     private TextView textViewCountDown;
@@ -44,6 +52,9 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton rb2;
     private RadioButton rb3;
     private Button buttonConfirmNext;
+    private String userID;
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
 
     private ColorStateList textColorDefaultRb;//rb for radio button
     private ColorStateList textColorDefaultCd; //cd for countdown
@@ -66,8 +77,10 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        //assign buttons
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewScore = findViewById(R.id.text_view_score);
+        textViewScoreServer = findViewById(R.id.text_view_score_server);
         textViewQuestionCount = findViewById(R.id.text_view_question_count);
         textViewCountDown = findViewById(R.id.text_view_countdown);
         rbGroup = findViewById(R.id.radio_group);
@@ -79,6 +92,7 @@ public class QuizActivity extends AppCompatActivity {
 
         textColorDefaultRb = rb1.getTextColors(); //get text clolr, green or red
         textColorDefaultCd = textViewCountDown.getTextColors();
+
 
         Intent intent = getIntent();
         String difficulty = intent.getStringExtra(StartingScreenActivity.EXTRA_DIFFICULTY);
@@ -127,6 +141,22 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        //fetch and display score from firebase server.
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userID = fAuth.getCurrentUser().getUid();
+        DocumentReference dR = fStore.collection("users").document(userID);
+        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                textViewScoreServer.setText(value.getString("score") + " Points");
+            }
+        });
+
+
     }
 
     private void showNextQuestion() {
@@ -186,11 +216,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void checkAnswer() {
+        //show the answer if correct, stop the timer, update score
         answered = true;
-
         countDownTimer.cancel();
-
-
         RadioButton rbSelected = findViewById(rbGroup.getCheckedRadioButtonId());
         int answerNr = rbGroup.indexOfChild(rbSelected) + 1;
         if (answerNr == currentQuestion.getAnswerNr()) {
@@ -202,6 +230,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void showSolution() {
+        //show the correct solution with green color
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
@@ -233,7 +262,6 @@ public class QuizActivity extends AppCompatActivity {
         setResult(RESULT_OK, resultIntent);
         //maybe we put a method that update the score into the firebase or leader board
         finish();
-
     }
 
     @Override
