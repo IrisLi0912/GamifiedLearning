@@ -106,28 +106,28 @@ public class StartingScreenActivity extends AppCompatActivity {
                 int i = Integer.parseInt(value.getString("score"));
                 score = i;
                 //show avliable chapters base on user score
-                if (score <=10) {
+                if (score>5 && score <=10) {
                     buttonStartQuiz2.setVisibility(View.VISIBLE);
                     buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     // change the display to encourage more questions be answered
                     textViewEncourage.setText( "Nice start! Answer more questions to unlock the next chapter!");
-                } else if (score <= 15) {
+                } else if (score>10 && score <= 15) {
                     buttonStartQuiz2.setVisibility(View.VISIBLE);
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     //change the display again
                     textViewEncourage.setText( "You are at the half way!!!!");
-                } else if (score <= 20) {
+                } else if (score > 15 && score <= 20) {
                     buttonStartQuiz2.setVisibility(View.VISIBLE);
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
                     buttonStartQuiz4.setVisibility(View.VISIBLE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     //change the display again
                     textViewEncourage.setText( "One more step to the Mars!");
-                } else if (score <= 112387) {
+                } else if (score >20 && score <= 112387) {
                     buttonStartQuiz2.setVisibility(View.VISIBLE);
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
                     buttonStartQuiz4.setVisibility(View.VISIBLE);

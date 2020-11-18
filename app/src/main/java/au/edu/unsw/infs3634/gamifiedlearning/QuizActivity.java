@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -88,7 +89,7 @@ public class QuizActivity extends AppCompatActivity {
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
-        textViewDifficulty=findViewById(R.id.text_view_difficulty);
+        textViewDifficulty = findViewById(R.id.text_view_difficulty);
 
         textColorDefaultRb = rb1.getTextColors(); //get text clolr, green or red
         textColorDefaultCd = textViewCountDown.getTextColors();
@@ -141,7 +142,6 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         });
-
 
 
         //fetch and display score from firebase server.
@@ -261,6 +261,14 @@ public class QuizActivity extends AppCompatActivity {
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, resultIntent);
         //maybe we put a method that update the score into the firebase or leader board
+        if (score == 5) {
+            //update the database with the score, score field +5
+            userID = fAuth.getCurrentUser().getUid();
+            DocumentReference dR = fStore.collection("users").document(userID);
+            HashMap<String, Object> user = new HashMap<>();
+            user.put("score", "score" +5);
+        } else {
+        }
         finish();
     }
 

@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                             user.put("name", name);
                             user.put("email", email);
                             user.put("userName", userName);
-                            user.put("score", "O");
+                            user.put("score", 0);
 
                             dR.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
