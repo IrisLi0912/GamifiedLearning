@@ -8,7 +8,7 @@
     tools:context=".StartingScreenActivity">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tvTitleJourney"
         android:layout_width="0dp"
         android:layout_height="93dp"
         android:layout_marginTop="40dp"
@@ -17,7 +17,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleJourney" />
 
     <Button
         android:id="@+id/btStartQuiz"
@@ -129,6 +129,38 @@
         android:layout_marginTop="72dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleJourney" />
+
+    <Button
+        android:id="@+id/btInstruction"
+        android:layout_width="102dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/button"
+        android:text="Instruction"
+        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvScoreServer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="18dp" />
+
+    <TextView
+        android:id="@+id/tvEncourage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="225dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvScoreServer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

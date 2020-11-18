@@ -14,15 +14,24 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="669dp"
+        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/webview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpaceHolder" />
 
             <ImageView
                 android:id="@+id/ivMarsCondition"
@@ -70,13 +79,29 @@
                 android:layout_marginTop="44dp"
                 android:fontFamily="casual"
                 android:gravity="center"
-                android:text="F"
+                android:text="Before starting today's journey, remember to check out Mar's recent weather below ~ \n Click Credit to learn more."
                 android:textAllCaps="false"
                 android:textColor="#000000"
-                android:textSize="36sp"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btLearnMore" />
+
+            <TextView
+                android:id="@+id/tvSpaceHolder2"
+                android:layout_width="20dp"
+                android:layout_height="65dp"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text="F"
+                android:textAllCaps="false"
+                android:textColor="@android:color/transparent"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.73"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/webview2" />
 
             <TextView
                 android:id="@+id/text_view_result"
@@ -124,6 +149,10 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_nevigation" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nevigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

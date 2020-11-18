@@ -103,13 +103,15 @@ public class MainActivity extends AppCompatActivity {
                             user.put("name", name);
                             user.put("email", email);
                             user.put("userName", userName);
+                            user.put("score", 0);
+
                             dR.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Log.d(TAG, "onSuccess: user created" + userID);
                                 }
                             });
-                        startActivity(new Intent(getApplicationContext(), Setting.class));
+                        startActivity(new Intent(getApplicationContext(), User.class));
                             //Currently redirects to setting screen to test logout functionality
                         }else{
 

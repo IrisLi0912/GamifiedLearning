@@ -1,6 +1,7 @@
 package au.edu.unsw.infs3634.gamifiedlearning;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_1;
 import static au.edu.unsw.infs3634.gamifiedlearning.Question.CHAPTER_2;
@@ -29,7 +36,22 @@ public class StartingScreenActivity extends AppCompatActivity {
     private TextView textViewHighscore; //reference the textview and show the high score
     private int highscore;
     private Spinner spinnerDifficulty;
+    private TextView textViewScoreServer;
+    private Button buttonStartQuiz;
+    private Button buttonStartQuiz1;
+    private Button buttonStartQuiz2;
+    private Button buttonStartQuiz3;
+    private Button buttonStartQuiz4;
+    private Button buttonStartQuiz5;
+    private Button buttonInstruction;
+    private TextView textViewEncourage;
+    private TextView textViewTitle;
+    private int score;
 
+    //firebase declear
+    private String userID;
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +90,72 @@ public class StartingScreenActivity extends AppCompatActivity {
             }
         });
 
+        //display available chapters base on score
+        textViewScoreServer = findViewById(R.id.tvScoreServer);
+        textViewEncourage = findViewById(R.id.tvEncourage);
+        textViewTitle = findViewById(R.id.tvTitleJourney);
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userID = fAuth.getCurrentUser().getUid();
+        DocumentReference dR = fStore.collection("users").document(userID);
+        dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                textViewScoreServer.setText(value.getDouble("score") + " Points");
+                double score = value.getDouble("score");
+
+                //show avliable chapters base on user score
+                if (score <4){
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
+                    buttonStartQuiz4.setVisibility(View.GONE);
+                    buttonStartQuiz5.setVisibility(View.GONE);
+                }
+                else if (score>=5.0 && score <10.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.VISIBLE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
+                    buttonStartQuiz4.setVisibility(View.GONE);
+                    buttonStartQuiz5.setVisibility(View.GONE);
+                    // change the display to encourage more questions be answered
+                    textViewEncourage.setText( "Nice start! Answer more questions to unlock the next chapter!");
+                } else if (score>=10.0 && score < 15.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.VISIBLE);
+                    buttonStartQuiz4.setVisibility(View.GONE);
+                    buttonStartQuiz5.setVisibility(View.GONE);
+                    //change the display again
+                    textViewEncourage.setText( "You are at the half way!!!!");
+                } else if (score >= 15.0 && score < 20.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
+                    buttonStartQuiz4.setVisibility(View.VISIBLE);
+                    buttonStartQuiz5.setVisibility(View.GONE);
+                    //change the display again
+                    textViewEncourage.setText( "One more step to the Mars!");
+                } else if (score >=20.0 && score < 112387.0) {
+                    buttonStartQuiz1.setVisibility(View.GONE);
+                    buttonStartQuiz2.setVisibility(View.GONE);
+                    buttonStartQuiz3.setVisibility(View.GONE);
+                    buttonStartQuiz4.setVisibility(View.GONE);
+                    buttonStartQuiz5.setVisibility(View.VISIBLE);
+                    textViewTitle.setText( "Well Done!! You complected the quest!");
+                    textViewEncourage.setVisibility(View.GONE);
+                } else {
+                    buttonStartQuiz1.setVisibility(View.VISIBLE);
+                    buttonStartQuiz2.setVisibility(View.VISIBLE);
+                    buttonStartQuiz3.setVisibility(View.VISIBLE);
+                    buttonStartQuiz4.setVisibility(View.VISIBLE);
+                    buttonStartQuiz5.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+        });
+
 
         //below is the spinner stuff
         spinnerDifficulty = findViewById(R.id.spinner_difficulty);
@@ -82,12 +170,20 @@ public class StartingScreenActivity extends AppCompatActivity {
         textViewHighscore = findViewById(R.id.tvHighScore);
         loadHighscore();
 
-        Button buttonStartQuiz = findViewById(R.id.btStartQuiz);//Temporarily hidden from app interface
-        Button buttonStartQuiz1 = findViewById(R.id.btChapter1);
-        Button buttonStartQuiz2 = findViewById(R.id.btChapter2);
-        Button buttonStartQuiz3 = findViewById(R.id.btChapter3);
-        Button buttonStartQuiz4 = findViewById(R.id.btChapter4);
-        Button buttonStartQuiz5 = findViewById(R.id.btChapter5);
+        buttonStartQuiz = findViewById(R.id.btStartQuiz);//Temporarily hidden from app interface
+        buttonStartQuiz1 = findViewById(R.id.btChapter1);
+        buttonStartQuiz2 = findViewById(R.id.btChapter2);
+        buttonStartQuiz3 = findViewById(R.id.btChapter3);
+        buttonStartQuiz4 = findViewById(R.id.btChapter4);
+        buttonStartQuiz5 = findViewById(R.id.btChapter5);
+        buttonInstruction = findViewById(R.id.btInstruction);
+        //hide chapter 2345 if score is low
+//        buttonStartQuiz2.setVisibility(View.GONE);
+//        buttonStartQuiz3.setVisibility(View.GONE);
+//        buttonStartQuiz4.setVisibility(View.GONE);
+//        buttonStartQuiz5.setVisibility(View.GONE);
+
+
 
         //------------------Temporarily hided from app interface ------------------
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +223,12 @@ public class StartingScreenActivity extends AppCompatActivity {
                 startQuizChapter5();
             }
         });
+        buttonInstruction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startInstruction();
+            }
+        });
     }
 
     private void startQuizChapter1() {
@@ -164,6 +266,10 @@ public class StartingScreenActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
 
+    private void startInstruction() {
+        startActivity(new Intent(getApplicationContext(), Instruction.class));
+    }
+
     //------------------Temporarily hided from app interface ------------------
     private void startQuiz() {
         //select and record the difficulty selection
@@ -173,6 +279,7 @@ public class StartingScreenActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_DIFFICULTY, difficulty);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
+
     //-------------------------------------------------------------------------
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

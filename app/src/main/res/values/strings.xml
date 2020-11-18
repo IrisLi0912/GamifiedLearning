@@ -4,4 +4,11 @@
     <string name="action_sort">Sort</string>
     <string name="sort_popularity">By review popularity</string>
     <string name="sort_score">By score (High to Low)</string>
+    <string name="instruction_1">Mars is the fourth planet from the Sun and the second smallest planet in the Solar System. Named after the Roman god of war, it is often described as the “Red Planet”, as the iron oxide prevalent on its surface gives it a reddish appearance.</string>
+    <string name="instruction_2">Mars is a terrestrial planet with a thin atmosphere, having surface features reminiscent both of the impact craters of the Moon and the volcanoes, valleys, deserts, and polar ice caps of Earth.</string>
+    <string name="instruction_3">You are a scientist working with NASA to understand that far and mysterious planet. Through the journey, you will start with learning general knowledge of space physics, step on a spaceship, then observe, and explore Mars and the wilde space, and finally, land on the mars, and drive Elon Musk’s Tesla Roster.</string>
+    <string name="instruction_4">You can navigate the app from the bottom navigation bar. This application is divided into 3 major parts: Knowledge bank, Space Journey, and Astronomy Picture of the Day.</string>
+    <string name="instruction_5">The knowledge bank is where you can check in with the topics provided, including different sub topics and online resources.</string>
+    <string name="instruction_6">After you are confident with the knowledge, you can get on the journey and launch your rocket. By completing the quizzes, you will receive experience points and unlock different parts of the journey.</string>
+    <string name="instruction_7">Lets begin the journey then! \n\"</string>
 </resources>
