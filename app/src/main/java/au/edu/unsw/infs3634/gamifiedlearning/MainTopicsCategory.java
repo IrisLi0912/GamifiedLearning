@@ -20,6 +20,7 @@ public class MainTopicsCategory  implements Serializable {
 
 
 
+    //input topic category
     public static ArrayList<MainTopicsCategory> getMainTopicsCategory() {
         ArrayList<MainTopicsCategory> maintopics = new ArrayList<>();
         maintopics.add(new MainTopicsCategory("General Knowledge", R.drawable.gk,0));

@@ -10,15 +10,15 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="158dp"
-        android:layout_height="113dp"
+        android:layout_width="159dp"
+        android:layout_height="147dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loginmarsicon" />
+        app:srcCompat="@drawable/loginmarsicon2" />
 
     <TextView
         android:id="@+id/textView4"

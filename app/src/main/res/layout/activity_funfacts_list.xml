@@ -29,7 +29,7 @@
         <TextView
             android:id="@+id/tv_funfactTitle"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="@style/TitleTextView"
             tools:text="Fun fact title" />
@@ -46,7 +46,7 @@
                 <TextView
                     android:id="@+id/tv_description"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/layoutborder"
                     android:text="TextView"
                     android:textAppearance="@style/BodyTextView" />

@@ -33,6 +33,7 @@ public class FunFactsAdapter extends RecyclerView.Adapter<FunFactsAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        //get corresponding value form list
         holder.tv_funfactTitle.setText(mLists.get(position).getFunfactTitle());
         holder.tv_description.setText(mLists.get(position).getDescription());
         holder.iv_funfactImage.setImageResource(mLists.get(position).getFunfactImage());

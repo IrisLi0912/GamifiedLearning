@@ -71,7 +71,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q8);
         Question q9 = new Question("Why is understanding the climate on Mars important?","To understand if the Mars will turn into a supernova", "Prepare for Elon Musk's landing", "Understanding the climate of Mars is important to facilitate human exploration and to determine if Mars could have the conditions to support life", 3, Question.CHAPTER_2);
         addQuestion(q9);
-        Question q10 = new Question("What had been discovered from the inside of the Martian Meteorite?","Huge amount of Carbon 14", "tiny gas bubbles, water and organic (carbon-based) compounds in them.", "Only silicon dioxide ", 2, Question.CHAPTER_2);
+        Question q10 = new Question("What had been discovered from the inside of the Martian Meteorite?","Huge amount of Carbon 14", "Tiny gas bubbles, water and organic (carbon-based) compounds in them.", "Only silicon dioxide ", 2, Question.CHAPTER_2);
         addQuestion(q10);
 
         Question q11 = new Question("When was Aristotle first observed an occultation of Mars?","A", "B", "4 May 357 BCE", 3, Question.CHAPTER_3);
@@ -89,7 +89,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q16);
         Question q17 = new Question("How long is the expected mission duration?","At least 7 Mars year", "36 days Mars day", "At least one Mars year", 3, Question.CHAPTER_4);
         addQuestion(q17);
-        Question q18 = new Question("What fuel is used to provide power for the “Persercerance”?","carbon-14", "plutonium-238", "Diesel", 2, Question.CHAPTER_4);
+        Question q18 = new Question("What fuel is used to provide power for the “Persercerance”?","Carbon-14", "Plutonium-238", "Diesel", 2, Question.CHAPTER_4);
         addQuestion(q18);
         Question q19 = new Question("When will/ was the “Perseverance” launched?","Feb. 18, 2022", "July 30, 2020", "C", 2, Question.CHAPTER_4);
         addQuestion(q19);

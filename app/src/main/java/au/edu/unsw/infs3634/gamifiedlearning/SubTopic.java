@@ -40,6 +40,7 @@ public class SubTopic implements Serializable {
 
     }
     public static ArrayList<SubTopic> getSubTopics() {
+        //input suptopic data
         ArrayList<SubTopic> subtopic = new ArrayList<>();
 
         //general knowledge  grvlogo
@@ -190,7 +191,7 @@ public class SubTopic implements Serializable {
 
         // 2  refininglogo
         subtopic.add(new SubTopic("History Observation"," Refining planetary parameters ","Surface obscuration caused by yellow clouds had been noted in the 1870s when they were observed by Schiaparelli. Evidence for such clouds was observed during the oppositions of 1892 and 1907. In 1909, Antoniadi noted that the presence of yellow clouds was associated with the obscuration of albedo features. He discovered that Mars appeared more yellow during oppositions when the planet was closest to the Sun and was receiving more energy. He suggested windblown sand or dust as the cause of the clouds",
-                R.drawable.refiningf1,"In 1894, American astronomer William W. Campbell found that the spectrum of Mars was identical to the spectrum of the Moon, throwing doubt on the burgeoning theory that the atmosphere of Mars is similar to that of the Earth. Previous detections of water in the atmosphere of Mars were explained by unfavorable conditions, and Campbell determined that the water signature came entirely from the Earth's atmosphere. ","refininglogo",2," Mars History Observation ","Baltic German astronomer Hermann Struve used the observed changes in the orbits of " +
+                R.drawable.refiningf1,"In 1894, American astronomer William W. Campbell found that the spectrum of Mars was identical to the spectrum of the Moon, throwing doubt on the burgeoning theory that the atmosphere of Mars is similar to that of the Earth. Previous detections of water in the atmosphere of Mars were explained by unfavorable conditions, and Campbell determined that the water signature came entirely from the Earth's atmosphere. ","refininglogo",4," Mars History Observation ","Baltic German astronomer Hermann Struve used the observed changes in the orbits of " +
                 "the Martian moons to determine the gravitational influence of the planet's oblate shape. In 1895, he used this data to estimate that the equatorial diameter was 1/190 larger than the polar diameter.[36][73] In 1911, he refined the value to 1/192. This result was confirmed by American meteorologist Edgar W. Woolard in 1944.","Using a vacuum thermocouple attached to the 2.54 m (100 in) Hooker Telescope at Mount Wilson Observatory, in 1924 the American astronomers Seth Barnes Nicholson and Edison Pettit were able to measure the thermal energy being radiated by the surface of Mars. They determined that the temperature " +
                 "ranged from −68 °C (−90 °F) at the pole up to 7 °C (45 °F) at the midpoint of the disk (corresponding to the equator).",R.drawable.refiningf2,"https://www.wikiwand.com/en/History_of_Mars_observation#/Refining_planetary_parameters",2.7));
 
