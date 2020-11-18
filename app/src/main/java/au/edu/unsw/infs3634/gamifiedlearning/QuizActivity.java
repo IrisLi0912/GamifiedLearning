@@ -152,7 +152,7 @@ public class QuizActivity extends AppCompatActivity {
         dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                textViewScoreServer.setText(value.getString("score") + " Points");
+                textViewScoreServer.setText(value.getDouble("score") + " Points");
             }
         });
 
