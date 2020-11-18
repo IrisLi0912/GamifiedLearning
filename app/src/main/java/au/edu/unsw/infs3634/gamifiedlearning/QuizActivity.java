@@ -9,6 +9,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -252,6 +254,23 @@ public class QuizActivity extends AppCompatActivity {
             buttonConfirmNext.setText("Next");
         } else {
             buttonConfirmNext.setText("Finish");
+            if (score == 5) {
+                //update the database with the score, score field +5
+                System.out.println("test");
+                userID = fAuth.getCurrentUser().getUid();
+                DocumentReference dR = fStore.collection("users").document(userID);
+                HashMap<String, Object> user = new HashMap<>();
+                user.put("score", 5);
+                dR.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        System.out.println("pass");
+                    }
+                });
+                System.out.println("test finished");
+                //this is not working
+            } else {
+            }
         }
     }
 
@@ -261,14 +280,7 @@ public class QuizActivity extends AppCompatActivity {
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, resultIntent);
         //maybe we put a method that update the score into the firebase or leader board
-        if (score == 5) {
-            //update the database with the score, score field +5
-            userID = fAuth.getCurrentUser().getUid();
-            DocumentReference dR = fStore.collection("users").document(userID);
-            HashMap<String, Object> user = new HashMap<>();
-            user.put("score", "score" +5);
-        } else {
-        }
+
         finish();
     }
 
