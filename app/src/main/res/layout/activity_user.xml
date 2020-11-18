@@ -36,8 +36,8 @@
         android:layout_marginTop="8dp"
         android:text="Learning Progress: 5/10"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btLogout"
-        app:layout_constraintTop_toTopOf="@+id/btLogout" />
+        app:layout_constraintEnd_toStartOf="@+id/bt_resetpass"
+        app:layout_constraintTop_toTopOf="@+id/bt_resetpass" />
 
     <TextView
         android:id="@+id/tvCoinNumber"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <Button
-        android:id="@+id/btLogout"
+        android:id="@+id/bt_resetpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
