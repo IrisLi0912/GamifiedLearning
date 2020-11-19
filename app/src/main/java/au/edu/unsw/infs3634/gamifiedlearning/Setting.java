@@ -38,6 +38,10 @@ public class Setting extends AppCompatActivity {
         newpass = findViewById(R.id.tv_new_password);
         confirmpass = findViewById(R.id.tv_confirm_password);
         changepass = findViewById(R.id.bt_change_password);
+
+
+        Intent intent = getIntent();
+
         //initialise and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
@@ -201,12 +205,7 @@ public class Setting extends AppCompatActivity {
 
 
 
-//    public void logout(View view) {
-//        FirebaseAuth.getInstance().signOut();
-//        startActivity(new Intent(getApplicationContext(), Login.class));
-//        finish();
-//
-//    }
+
 
 
 }

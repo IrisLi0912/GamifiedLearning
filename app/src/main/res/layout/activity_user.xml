@@ -112,16 +112,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
 
-    <Button
-        android:id="@+id/btPassSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:onClick="goToPasswordReset"
-        android:text="Password Reset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView2"
@@ -240,15 +230,34 @@
         android:id="@+id/textView9"
         android:layout_width="214dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Leaderboard"
         android:textColor="#AB6AFB"
         android:textSize="36sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCoinNumber" />
+
+    <LinearLayout
+        android:layout_width="389dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <Button
+            android:id="@+id/bt_resetpass"
+            android:layout_width="wrap_content"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Password Reset " />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
