@@ -28,7 +28,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class User extends AppCompatActivity {
-    Button mLogout;
+    Button mResetpass;
     TextView mName;
     TextView mUserName;
     TextView mEmail;
@@ -65,6 +65,16 @@ public class User extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
+
+        mResetpass = findViewById(R.id.bt_resetpass);
+
+        mResetpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(User.this, Setting.class));
+            }
+
+        });
 
 //        CollectionReference collectionRef = fStore.collection("users");
 //        Query query = collectionRef.orderBy("score", Direction.DESCENDING).limit(1);
@@ -162,8 +172,5 @@ public class User extends AppCompatActivity {
 
     }
 
-    public void goToPasswordReset(View view){
-        startActivity(new Intent(getApplicationContext(),Setting.class));
-        finish();
-    }
+
 }
