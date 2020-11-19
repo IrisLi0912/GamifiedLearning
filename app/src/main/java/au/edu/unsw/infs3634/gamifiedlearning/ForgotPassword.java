@@ -13,12 +13,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ForgotPassword extends AppCompatDialogFragment {
+public class ForgotPassword extends DialogFragment {
      private EditText Email;
      FirebaseAuth firebaseAuth;
 
@@ -27,22 +28,23 @@ public class ForgotPassword extends AppCompatDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        //show activity forgot password xml
+        View view = inflater.inflate(R.layout.activity_forgot_password,null);
+        Email = view.findViewById(R.id.tv_email);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
         // build a new dialog for forgot password.
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-
-        //show activity forgot password xml
-        View view = inflater.inflate(R.layout.activity_forgot_password,null);
-
-        Email = view.findViewById(R.id.tv_email);
-        firebaseAuth = FirebaseAuth.getInstance();
+        builder.setView(view);
 
 
         // modify the dialog
-        //set title and two buttons
-        builder.setView(view);
-        builder.setTitle("Reset Password ");
+        //set two buttons
+
         builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -85,8 +87,8 @@ public class ForgotPassword extends AppCompatDialogFragment {
                 }
 
             }
-        });
 
+        });
 
         return builder.create();
     }
