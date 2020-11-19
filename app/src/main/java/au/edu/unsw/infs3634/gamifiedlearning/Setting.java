@@ -40,9 +40,18 @@ public class Setting extends AppCompatActivity {
         changepass = findViewById(R.id.bt_change_password);
 
 
-        Intent intent = getIntent();
+        changepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changePassword();
+            }
+
+        });
+
 
         //initialise and assign variable
+
+        // already intitalised somewhere else?
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
         //set home selected, later change to set whatever page selected
@@ -59,50 +68,6 @@ public class Setting extends AppCompatActivity {
                         return true;
                     case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), User.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainPage.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.journey:
-                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
-            }
-        });
-
-
-        changepass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changePassword();
-            }
-
-        });
-
-
-        //initialise and assign variable
-
-        // already intitalised somewhere else?
-       // BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
-
-        //set home selected, later change to set whatever page selected
-        bottomNavigationView.setSelectedItemId(R.id.profile);
-
-        //Perform ItemSelectListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.topic:
-                        startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), Setting.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
