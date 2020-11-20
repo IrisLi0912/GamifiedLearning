@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         status = findViewById(R.id.progressBar);
 
         if(fAuth.getCurrentUser() !=null){
-            startActivity(new Intent(getApplicationContext(), Setting.class));
+            startActivity(new Intent(getApplicationContext(), MainPage.class));
             finish();
-            //Currently redirects to setting screen to test logout functionality
+            //redirect user to main page
         }
 
 
@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 String pass = mPass.getText().toString().trim();
                 String name = mName.getText().toString();
                 String userName = mUserName.getText().toString();
-
 
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Please enter an Email address!");
@@ -88,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 // password length restriction can go here
 
                 status.setVisibility(View.VISIBLE);
-
 
                 fAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
@@ -122,9 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-
         });
-
     }
 
     public void goToLogin(View view){
