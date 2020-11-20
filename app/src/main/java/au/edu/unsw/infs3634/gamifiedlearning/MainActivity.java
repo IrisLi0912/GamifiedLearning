@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = "TAG";
     EditText mName;
     EditText mEmail;
     EditText mPass;
@@ -36,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userID;
     ProgressBar status;
-
-    public static final String TAG = "TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         status = findViewById(R.id.progressBar);
 
-        if(fAuth.getCurrentUser() !=null){
+        if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainPage.class));
             finish();
             //redirect user to main page
@@ -86,10 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
                 status.setVisibility(View.VISIBLE);
 
-                fAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                //try anc catch when user did not enter the required fields
+                try {fAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+                        if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Registered", Toast.LENGTH_SHORT).show();
 
                             // Stores User Data to FireStore
@@ -107,22 +107,29 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d(TAG, "onSuccess: user created" + userID);
                                 }
                             });
-                        startActivity(new Intent(getApplicationContext(), User.class));
+                            startActivity(new Intent(getApplicationContext(), User.class));
                             //Currently redirects to setting screen to test logout functionality
-                        }else{
+                        } else {
 
-                            Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Please re-check your Email address, \n or enter a longer password", Toast.LENGTH_LONG).show();
                             status.setVisibility(View.GONE);
 
                         }
                     }
                 });
+                } catch (Exception e) {
+                    System.out.println("yoo this user did not enter the required fields");
+                    Toast.makeText(MainActivity.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+                }
+
+
+
             }
         });
     }
 
-    public void goToLogin(View view){
-        startActivity(new Intent(getApplicationContext(),Login.class));
+    public void goToLogin(View view) {
+        startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
 }
