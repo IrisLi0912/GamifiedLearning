@@ -85,12 +85,6 @@ public class Setting extends AppCompatActivity {
     }
 
 
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), Login.class));
-        finish();
-
-    }
 
     //create a change password method
     public void changePassword() {

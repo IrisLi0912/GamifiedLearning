@@ -9,7 +9,11 @@
     android:background="#FBE9E9"
     app:cardCornerRadius="32dp"
     app:cardElevation="3dp"
-    app:cardMaxElevation="3dp">
+    app:cardMaxElevation="3dp"
+    android:stateListAnimator="@animator/animation"
+    android:foreground="?attr/selectableItemBackground"
+            android:clickable="true">
+
 
 
     <LinearLayout

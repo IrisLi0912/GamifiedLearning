@@ -33,7 +33,10 @@
         <item name="colorControlActivated">#FB4F89</item>
     </style>
 
+    <style name="LightThemeSelector" parent="android:Theme.Holo.Light">
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
 
+    </style>
 
 
 
