@@ -35,6 +35,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class User extends AppCompatActivity {
     Button mResetpass;
+    Button mLogout;
     TextView mName;
     TextView mUserName;
     TextView mEmail;
@@ -85,16 +86,21 @@ public class User extends AppCompatActivity {
         adView1.loadAd(adRequest);
 
 
-
-
-
-
-
         mResetpass = findViewById(R.id.bt_resetpass);
         mResetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(User.this, Setting.class));
+            }
+
+        });
+
+        mLogout = findViewById(R.id.bt_logout);
+
+        mLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(User.this, Login.class));
             }
 
         });
@@ -186,9 +192,11 @@ public class User extends AppCompatActivity {
         });
     }
 
+
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),Login.class));
         finish();
     }
+
 }
