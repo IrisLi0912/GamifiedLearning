@@ -44,7 +44,6 @@ public class User extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +85,6 @@ public class User extends AppCompatActivity {
                 mEmail.setText(value.getString("email"));
                 mUserName.setText(value.getString("userName"));
                 mScore.setText(value.getDouble("score") + " Points");
-
             }
 
         });
@@ -131,7 +129,6 @@ public class User extends AppCompatActivity {
             }
         });
 
-
         //initialise and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
 
@@ -169,8 +166,5 @@ public class User extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),Login.class));
         finish();
-
     }
-
-
 }

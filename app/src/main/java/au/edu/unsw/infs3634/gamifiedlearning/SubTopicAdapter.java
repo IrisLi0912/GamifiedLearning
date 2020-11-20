@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class SubTopicAdapter extends RecyclerView.Adapter<SubTopicAdapter.ViewHolder> {
 
-
     ArrayList<SubTopic> mLists;
     Context context;
     private OnItemClickListener onItemClickListener;
@@ -64,7 +63,6 @@ public class SubTopicAdapter extends RecyclerView.Adapter<SubTopicAdapter.ViewHo
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
-
 
     public interface OnItemClickListener {
         void onItemClick(int position);

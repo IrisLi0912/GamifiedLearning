@@ -39,7 +39,6 @@ public class Setting extends AppCompatActivity {
         confirmpass = findViewById(R.id.tv_confirm_password);
         changepass = findViewById(R.id.bt_change_password);
 
-
         Intent intent = getIntent();
 
         //initialise and assign variable
@@ -85,12 +84,10 @@ public class Setting extends AppCompatActivity {
 
     }
 
-
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
-
     }
 
     //create a change password method
@@ -111,14 +108,12 @@ public class Setting extends AppCompatActivity {
                 //make sure there is a current user and correct email
                 if (user != null && user.getEmail() != null) {
 
-
                     //give authenticate to user update their password
 
                     AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), cpass);
                     user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
 
                             if (task.isSuccessful()) {
                                 Toast.makeText(Setting.this, "Re-Authentication success. ", Toast.LENGTH_SHORT).show();
@@ -127,7 +122,6 @@ public class Setting extends AppCompatActivity {
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
-
                                                 // successfully change password
                                                 // back to login
                                                 if (task.isSuccessful()) {
@@ -135,43 +129,24 @@ public class Setting extends AppCompatActivity {
                                                     fAuth.signOut();
                                                     startActivity(new Intent(getApplicationContext(), Login.class));
                                                     finish();
-
                                                 }
                                             }
                                         });
                             } else {
-
                                 //otherwise re authentication failed
                                 Toast.makeText(Setting.this, "Re-Authentication failed. ", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-
-
                 } else {
                     startActivity(new Intent(this, Login.class));
                     finish();
-
                 }
-
-
             } else {
                 Toast.makeText(Setting.this, "Password mismatching.", Toast.LENGTH_SHORT).show();
-
             }
-
-
         } else {
-
             Toast.makeText(Setting.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
-
-
         }
     }
-
-
-
-
-
-
 }

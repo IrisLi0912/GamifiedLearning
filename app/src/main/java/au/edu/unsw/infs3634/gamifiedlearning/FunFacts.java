@@ -7,11 +7,11 @@ public class FunFacts {
     private int funfactImage;
 
 
-    public FunFacts (){
+    public FunFacts() {
 
     }
 
-    public FunFacts(String funfactTitle, String description, int funfactImage){
+    public FunFacts(String funfactTitle, String description, int funfactImage) {
         this.funfactTitle = funfactTitle;
         this.description = description;
         this.funfactImage = funfactImage;

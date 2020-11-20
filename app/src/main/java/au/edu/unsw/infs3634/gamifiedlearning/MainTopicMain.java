@@ -22,7 +22,6 @@ public class MainTopicMain extends AppCompatActivity {
     private ArrayList<MainTopicsCategory> adapterList;
     private MainTopicAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +36,6 @@ public class MainTopicMain extends AppCompatActivity {
         adapterList = new ArrayList<>();
         adapterList.addAll(allTopic);
 
-
         adapter = new MainTopicAdapter(this, adapterList);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new MainTopicAdapter.OnItemClickListener() {
@@ -46,20 +44,19 @@ public class MainTopicMain extends AppCompatActivity {
 
                 //define different type of topic category
                 // launch to different activity with different layout
-                if(adapterList.get(position).getType() == 1){
+                if (adapterList.get(position).getType() == 1) {
                     Intent intent = new Intent(MainTopicMain.this, MissionWebActivity.class);
-                    intent.putExtra("data",  adapterList.get(position));
+                    intent.putExtra("data", adapterList.get(position));
                     startActivity(intent);
-                }else if (adapterList.get(position).getType() == 2){
+                } else if (adapterList.get(position).getType() == 2) {
                     Intent intent = new Intent(MainTopicMain.this, FunFactsMain.class);
-                    intent.putExtra("data",  adapterList.get(position));
+                    intent.putExtra("data", adapterList.get(position));
                     startActivity(intent);
-                }else {
+                } else {
                     Intent intent = new Intent(MainTopicMain.this, SubTopicMain.class);
-                    intent.putExtra("data",  adapterList.get(position));
+                    intent.putExtra("data", adapterList.get(position));
                     startActivity(intent);
                 }
-
             }
         });
 
@@ -95,7 +92,5 @@ public class MainTopicMain extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
 }

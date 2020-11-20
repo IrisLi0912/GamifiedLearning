@@ -207,10 +207,6 @@ public class StartingScreenActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         //------------------Temporarily hided from app interface ------------------
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
