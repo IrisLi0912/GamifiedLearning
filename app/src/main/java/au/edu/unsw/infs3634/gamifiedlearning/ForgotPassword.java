@@ -19,10 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatDialogFragment {
-     private EditText Email;
-     FirebaseAuth firebaseAuth;
-
-
+    FirebaseAuth firebaseAuth;
+    private EditText Email;
 
     @NonNull
     @Override
@@ -33,11 +31,10 @@ public class ForgotPassword extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         //show activity forgot password xml
-        View view = inflater.inflate(R.layout.activity_forgot_password,null);
+        View view = inflater.inflate(R.layout.activity_forgot_password, null);
 
         Email = view.findViewById(R.id.tv_email);
         firebaseAuth = FirebaseAuth.getInstance();
-
 
         // modify the dialog
         //set title and two buttons
@@ -59,35 +56,26 @@ public class ForgotPassword extends AppCompatDialogFragment {
 
                 // email textfiled can not be null, otherwise popup relate message
                 if (email.equals("")) {
-                    Toast.makeText(view.getContext(),"All fileds are required", Toast.LENGTH_SHORT).show();
-
-                }else{
-
-
+                    Toast.makeText(view.getContext(), "All fileds are required", Toast.LENGTH_SHORT).show();
+                } else {
                     firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             // if the email was correct,send a link to users email to reset password
                             //the dialog closed, user will be back to login page
-                            if (task.isSuccessful()){
-                                Toast.makeText(view.getContext(),"Please check your email", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(view.getContext(),Login.class));
-
-                            }else{
+                            if (task.isSuccessful()) {
+                                Toast.makeText(view.getContext(), "Please check your email", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(view.getContext(), Login.class));
+                            } else {
                                 //otherwise an error exception catched
-                               String error = task.getException().getMessage();
-                               Toast.makeText(view.getContext(),error,Toast.LENGTH_SHORT).show();
+                                String error = task.getException().getMessage();
+                                Toast.makeText(view.getContext(), error, Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
-
                 }
-
             }
         });
-
-
         return builder.create();
     }
 }

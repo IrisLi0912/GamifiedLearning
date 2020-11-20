@@ -44,13 +44,11 @@ public class Login extends AppCompatActivity {
         forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openDialog();
+                openDialog();
             }
         });
 
-
-
-        mLogin.setOnClickListener(new View.OnClickListener(){
+        mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
@@ -80,19 +78,17 @@ public class Login extends AppCompatActivity {
                         }
                     }
                 });
-
             }
         });
     }
 
-    public void goToSignUp(View view){
+    public void goToSignUp(View view) {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
 
-    public void openDialog(){
+    public void openDialog() {
         ForgotPassword forgotPassword = new ForgotPassword();
-        forgotPassword.show(getSupportFragmentManager(),"Forgot Password");
-
+        forgotPassword.show(getSupportFragmentManager(), "Forgot Password");
     }
 }

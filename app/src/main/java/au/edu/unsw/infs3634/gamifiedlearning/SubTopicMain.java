@@ -24,19 +24,15 @@ public class SubTopicMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subtopic_recyclerview);
 
-
         //intent message
         mainTopicsCategory = (MainTopicsCategory) getIntent().getSerializableExtra("data");
-
 
         recyclerView = findViewById(R.id.tv_subtopiclist);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         allTopic = SubTopic.getSubTopics();
 
-
         adapterList = new ArrayList<>();
-
 
         //put all subtopic into a arraylist
         //using the key: topic category name to classfile all the subtopic into correct topic category
@@ -46,7 +42,6 @@ public class SubTopicMain extends AppCompatActivity {
 
             }
         }
-
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

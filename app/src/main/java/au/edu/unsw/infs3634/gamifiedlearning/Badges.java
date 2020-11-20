@@ -70,8 +70,6 @@ public class Badges extends AppCompatActivity {
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
-
-
                 } else if (score >= 5.0 && score < 10.0) {
                     imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.hidden);
@@ -99,7 +97,6 @@ public class Badges extends AppCompatActivity {
                     textBadge0.setText("Physics Master \n Completed module 1");
                     textBadge1.setText("Junior Astronaut \n Completed module 2");
                     textBadge2.setText("Knowledge Astronaut \n Completed module 3");
-
                 } else if (score >= 20.0 && score < 25) {
                     imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.b1);

@@ -37,7 +37,6 @@ public class SubTopic implements Serializable {
         this.key = key;
         this.rating = rating;
 
-
     }
     public static ArrayList<SubTopic> getSubTopics() {
         //input suptopic data

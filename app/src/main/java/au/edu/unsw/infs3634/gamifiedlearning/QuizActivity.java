@@ -87,17 +87,11 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-
+        //fetch and store current user details
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID2 = fAuth.getCurrentUser().getUid();
 
-
-
-
-
-
-        userID2 = fAuth.getCurrentUser().getUid();
         DocumentReference dR = fStore.collection("users").document(userID2);
         HashMap<String, Object> user = new HashMap<>();
         dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -105,11 +99,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 //because using .put will fully rebuild the database, so previous data must be on hold before write.
                 holderName = value.getString("name");
-                System.out.println(holderName +"this is the output");
                 holderEmail = value.getString("email");
                 holderUserName =value.getString("userName");
                 holderScore = value.getDouble("score");
-
 
             }
         });
@@ -161,7 +153,6 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
 
-
         buttonConfirmNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,8 +183,6 @@ public class QuizActivity extends AppCompatActivity {
                 textViewScoreServer.setText(value.getDouble("score") + " Points");
             }
         });
-
-
     }
 
     private void showNextQuestion() {
@@ -296,7 +285,6 @@ public class QuizActivity extends AppCompatActivity {
                 userID = fAuth.getCurrentUser().getUid();
                 DocumentReference dR = fStore.collection("users").document(userID);
                 HashMap<String, Object> user = new HashMap<>();
-
 
                 //----------------------------------
                 user.put("name", holderName);

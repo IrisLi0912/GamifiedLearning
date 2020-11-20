@@ -27,7 +27,6 @@ public class SubTopicDetail extends AppCompatActivity {
 
         subTopic = (SubTopic) getIntent().getSerializableExtra("data");
 
-
         Banner iv_topicLogo = findViewById(R.id.banner); //banner
         TextView tv_topicTitle = findViewById(R.id.tv_topicTitle);
         TextView tv_topicDes = findViewById(R.id.tv_topicDes);
@@ -38,7 +37,6 @@ public class SubTopicDetail extends AppCompatActivity {
         TextView tv_formulaDes1 = findViewById(R.id.tv_formulaDes1);
         ImageView iv_formulaImage1 = findViewById(R.id.iv_formulaImage1);
         TextView tv_learnMore = findViewById(R.id.tv_learnMore);
-
 
         iv_formulaImage.setImageResource(subTopic.getFormulaImage());
         tv_topicTitle.setText(subTopic.getTopicTitle() + "");
@@ -66,7 +64,6 @@ public class SubTopicDetail extends AppCompatActivity {
 
         // automatically play image  or drag the image
         iv_topicLogo.setIndicator(new CircleIndicator(this));
-
 
     }
 

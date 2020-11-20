@@ -17,8 +17,7 @@ public class FunFactsAdapter extends RecyclerView.Adapter<FunFactsAdapter.MyView
     Context context;
 
 
-
-    public FunFactsAdapter (Context context, List<FunFacts> mLists){
+    public FunFactsAdapter(Context context, List<FunFacts> mLists) {
         this.context = context;
         this.mLists = mLists;
     }
@@ -50,15 +49,12 @@ public class FunFactsAdapter extends RecyclerView.Adapter<FunFactsAdapter.MyView
         TextView tv_description;
         ImageView iv_funfactImage;
 
-
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            tv_funfactTitle = (TextView) itemView.findViewById(R.id.tv_funfactTitle) ;
+            tv_funfactTitle = (TextView) itemView.findViewById(R.id.tv_funfactTitle);
             iv_funfactImage = (ImageView) itemView.findViewById(R.id.iv_funfactImage);
-            tv_description= (TextView) itemView.findViewById(R.id.tv_description);
-
-
+            tv_description = (TextView) itemView.findViewById(R.id.tv_description);
         }
     }
 
