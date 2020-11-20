@@ -140,7 +140,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/signupbutton"
-        android:onClick="goToSignUp"
         android:text="Sign Up"
         android:textColor="#F3F2F2"
         android:textColorHighlight="#F6F2F2"

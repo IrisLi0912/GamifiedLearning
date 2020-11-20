@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class SubTopicDetail extends AppCompatActivity {
 
     private SubTopic subTopic;
+    Animation scaleUp, scaleDown;
 
 
     @Override
@@ -38,6 +41,7 @@ public class SubTopicDetail extends AppCompatActivity {
         ImageView iv_formulaImage1 = findViewById(R.id.iv_formulaImage1);
         TextView tv_learnMore = findViewById(R.id.tv_learnMore);
 
+
         iv_formulaImage.setImageResource(subTopic.getFormulaImage());
         tv_topicTitle.setText(subTopic.getTopicTitle() + "");
         tv_topicDes.setText(subTopic.getTopicDes() + "");
@@ -48,6 +52,9 @@ public class SubTopicDetail extends AppCompatActivity {
         tv_formulaDes1.setText(subTopic.getFormulaDes1() + "");
         iv_formulaImage1.setImageResource(subTopic.getFormulaImage1());
 
+        //add animation for button learn more
+
+
         //monitor learn more button
         tv_learnMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +62,12 @@ public class SubTopicDetail extends AppCompatActivity {
                 Uri uri = Uri.parse(subTopic.getLearnMore());
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                tv_learnMore.startAnimation(animation);
+
             }
         });
+
 
         //set the image banner
         ImageBanner adapter = new ImageBanner(getImage());
@@ -88,6 +99,11 @@ public class SubTopicDetail extends AppCompatActivity {
         }
         //show the image
         return images;
+    }
+
+    public void gotoMainTopicMain(View view) {
+        startActivity(new Intent(getApplicationContext(),MainTopicMain.class));
+        finish();
     }
 }
 

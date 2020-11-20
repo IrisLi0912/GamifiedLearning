@@ -15,11 +15,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="53dp"
+                android:background="#99CDCBCB"
                 android:orientation="horizontal">
 
                 <TextView
@@ -38,12 +39,14 @@
                     android:background="@drawable/button"
                     android:drawablePadding="-2dp"
                     android:elevation="3dp"
+                    android:fontFamily="@font/rubik_bold"
                     android:gravity="center"
                     android:text="Learn More"
-                    app:drawableStartCompat="@drawable/link"
-                    android:textSize="14dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="#AD555454"
-                    android:fontFamily="@font/rubik"/>
+                    android:textSize="14dp"
+                    app:drawableStartCompat="@drawable/link" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -90,20 +93,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="262dp"
+                android:layout_height="239dp"
                 android:orientation="vertical">
-
-                <View
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1.5dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/black" />
 
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
+                    android:layout_marginTop="2dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside" />
 
@@ -111,22 +108,23 @@
                     android:id="@+id/divider2"
                     android:layout_width="match_parent"
                     android:layout_height="1.5dp"
-                    android:layout_marginBottom="4dp"
                     android:background="@color/black" />
 
-                <TextView
-                    android:id="@+id/tv_topicTitle1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="sub topic "
-                    android:textAppearance="@style/TitleTextView" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_topicTitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#99CDCBCB"
+                    android:gravity="center"
+                    android:text="sub topic "
+                    android:textAppearance="@style/TitleTextView" />
 
                 <TextView
                     android:id="@+id/tv_topicDes1"
@@ -148,6 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+
                     tools:srcCompat="@tools:sample/avatars" />
             </LinearLayout>
 
@@ -155,13 +154,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <View
-                    android:id="@+id/divider5"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@color/black" />
 
                 <TextView
                     android:id="@+id/tv_formulaDes1"
@@ -174,6 +166,15 @@
 
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:text="Back"
+                android:onClick="gotoMainTopicMain"
+                android:layout_marginTop="8dp"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

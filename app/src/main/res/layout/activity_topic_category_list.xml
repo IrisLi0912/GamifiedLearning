@@ -6,14 +6,12 @@
     android:layout_width="180dp"
     android:layout_height="200dp"
     android:layout_margin="10dp"
-    android:background="#FBE9E9"
-    app:cardCornerRadius="32dp"
-    app:cardElevation="3dp"
-    app:cardMaxElevation="3dp"
-    android:stateListAnimator="@animator/animation"
+    android:clickable="true"
     android:foreground="?attr/selectableItemBackground"
-            android:clickable="true">
-
+    android:stateListAnimator="@animator/animation"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:cardMaxElevation="3dp">
 
 
     <LinearLayout
@@ -27,17 +25,16 @@
             android:layout_height="164dp"
             android:adjustViewBounds="true"
             android:background="#F8F6F6"
-            android:cropToPadding="true"/>
-
+            android:cropToPadding="true" />
 
 
         <TextView
             android:id="@+id/tv_mtopicTittle"
             android:layout_width="match_parent"
             android:layout_height="36dp"
+            android:layout_gravity="center"
             android:background="#F8F6F6"
             android:gravity="center"
-            android:layout_gravity="center"
             android:text="Topic tittle"
             android:textAppearance="@style/TitleTextView"
             android:textColor="#000000" />

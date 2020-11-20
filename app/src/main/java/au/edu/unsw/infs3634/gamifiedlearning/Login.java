@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -48,11 +50,25 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        mGoToSignUp.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View v){
+               Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+               mGoToSignUp.startAnimation(animation);
+               startActivity(new Intent(getApplicationContext(), Register.class));
+               finish();
+           }
+        });
+
+
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                mLogin.startAnimation(animation);
                 String email = mEmail.getText().toString().trim();
                 String pass = mPass.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Please enter an Email address!");
@@ -65,27 +81,31 @@ public class Login extends AppCompatActivity {
 
                 mStatus.setVisibility(View.VISIBLE);
 
-                fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                //try and catch statement if user did not enter password and email
+                try{fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(Login.this, "Logged In", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Register.class));
                         } else {
 
-                            Toast.makeText(Login.this, "Error!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "The Email / Password is incorrect.", Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 });
+
+                }catch (Exception e){
+                    System.out.println("yoo this user did not enter the required fields");
+                    Toast.makeText(Login.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
 
-    public void goToSignUp(View view) {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        finish();
-    }
 
     public void openDialog() {
         ForgotPassword forgotPassword = new ForgotPassword();
