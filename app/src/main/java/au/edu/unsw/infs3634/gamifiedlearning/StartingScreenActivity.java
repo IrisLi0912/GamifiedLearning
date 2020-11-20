@@ -44,6 +44,7 @@ public class StartingScreenActivity extends AppCompatActivity {
     private Button buttonStartQuiz4;
     private Button buttonStartQuiz5;
     private Button buttonInstruction;
+    private Button buttonBadges;
     private TextView textViewEncourage;
     private TextView textViewTitle;
     private int score;
@@ -196,7 +197,17 @@ public class StartingScreenActivity extends AppCompatActivity {
         buttonStartQuiz4 = findViewById(R.id.btChapter4);
         buttonStartQuiz5 = findViewById(R.id.btChapter5);
         buttonInstruction = findViewById(R.id.btInstruction);
+        buttonBadges = findViewById(R.id.btBadges);
         //hide chapter 2345 if score is low
+
+        buttonBadges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Badges.class));
+            }
+        });
+
+
 
 
 
