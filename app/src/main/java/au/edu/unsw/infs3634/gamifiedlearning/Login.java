@@ -49,10 +49,17 @@ public class Login extends AppCompatActivity {
         });
 
         mLogin.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String pass = mPass.getText().toString().trim();
+
+
 
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Please enter an Email address!");
@@ -65,7 +72,9 @@ public class Login extends AppCompatActivity {
 
                 mStatus.setVisibility(View.VISIBLE);
 
-                fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                //try and catch statement if user did not enter password and email
+                try{fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -73,11 +82,17 @@ public class Login extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
 
-                            Toast.makeText(Login.this, "Error!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "The Email / Password is incorrect.", Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 });
+
+                }catch (Exception e){
+                    System.out.println("yoo this user did not enter the required fields");
+                    Toast.makeText(Login.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
