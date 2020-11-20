@@ -13,6 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -43,6 +49,7 @@ public class User extends AppCompatActivity {
     String userID;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    AdView adView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +72,25 @@ public class User extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
 
-        mResetpass = findViewById(R.id.bt_resetpass);
+        //adview implementation
+        adView1 = findViewById(R.id.adView);
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
+        adView1 = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView1.loadAd(adRequest);
+
+
+
+
+
+
+
+        mResetpass = findViewById(R.id.bt_resetpass);
         mResetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
