@@ -59,9 +59,9 @@ public class Badges extends AppCompatActivity {
         dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                textBadge0.setText(value.getDouble("score") + " Points");
-                double score = value.getDouble("score");
 
+                double score = value.getDouble("score");
+                textBadge0.setText("Physics Master \n Complete module 1");
                 //show avliable chapters base on user score
                 if (score < 4) {
                     imageBadge0.setImageResource(R.drawable.hidden);
@@ -71,41 +71,42 @@ public class Badges extends AppCompatActivity {
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
 
+
                 } else if (score >= 5.0 && score < 10.0) {
-                    imageBadge0.setImageResource(R.drawable.hidden);
+                    imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.hidden);
                     imageBadge2.setImageResource(R.drawable.hidden);
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
                 } else if (score >= 10.0 && score < 15.0) {
-                    imageBadge0.setImageResource(R.drawable.hidden);
-                    imageBadge1.setImageResource(R.drawable.hidden);
+                    imageBadge0.setImageResource(R.drawable.b0);
+                    imageBadge1.setImageResource(R.drawable.b1);
                     imageBadge2.setImageResource(R.drawable.hidden);
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
                 } else if (score >= 15.0 && score < 20.0) {
-                    imageBadge0.setImageResource(R.drawable.hidden);
-                    imageBadge1.setImageResource(R.drawable.hidden);
-                    imageBadge2.setImageResource(R.drawable.hidden);
+                    imageBadge0.setImageResource(R.drawable.b0);
+                    imageBadge1.setImageResource(R.drawable.b1);
+                    imageBadge2.setImageResource(R.drawable.b2);
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
                 } else if (score >= 20.0 && score < 25) {
-                    imageBadge0.setImageResource(R.drawable.hidden);
-                    imageBadge1.setImageResource(R.drawable.hidden);
-                    imageBadge2.setImageResource(R.drawable.hidden);
-                    imageBadge3.setImageResource(R.drawable.hidden);
+                    imageBadge0.setImageResource(R.drawable.b0);
+                    imageBadge1.setImageResource(R.drawable.b1);
+                    imageBadge2.setImageResource(R.drawable.b2);
+                    imageBadge3.setImageResource(R.drawable.b3);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
                 } else if (score >= 25.0 && score < 100000.0) {
-                    imageBadge0.setImageResource(R.drawable.hidden);
-                    imageBadge1.setImageResource(R.drawable.hidden);
-                    imageBadge2.setImageResource(R.drawable.hidden);
-                    imageBadge3.setImageResource(R.drawable.hidden);
-                    imageBadge4.setImageResource(R.drawable.hidden);
-                    imageBadge5.setImageResource(R.drawable.hidden);
+                    imageBadge0.setImageResource(R.drawable.b0);
+                    imageBadge1.setImageResource(R.drawable.b1);
+                    imageBadge2.setImageResource(R.drawable.b2);
+                    imageBadge3.setImageResource(R.drawable.b3);
+                    imageBadge4.setImageResource(R.drawable.b4);
+                    imageBadge5.setImageResource(R.drawable.b5);
                 } else {
 
 
