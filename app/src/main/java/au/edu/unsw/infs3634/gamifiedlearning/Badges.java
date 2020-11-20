@@ -61,8 +61,8 @@ public class Badges extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
                 double score = value.getDouble("score");
-                textBadge0.setText("Physics Master \n Complete module 1");
-                //show avliable chapters base on user score
+
+                //show avaliable chapters base on user score
                 if (score < 4) {
                     imageBadge0.setImageResource(R.drawable.hidden);
                     imageBadge1.setImageResource(R.drawable.hidden);
@@ -79,6 +79,7 @@ public class Badges extends AppCompatActivity {
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
+                    textBadge0.setText("Physics Master \n Completed module 1");
                 } else if (score >= 10.0 && score < 15.0) {
                     imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.b1);
@@ -86,6 +87,8 @@ public class Badges extends AppCompatActivity {
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
+                    textBadge0.setText("Physics Master \n Completed module 1");
+                    textBadge1.setText("Junior Astronaut \n Completed module 2");
                 } else if (score >= 15.0 && score < 20.0) {
                     imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.b1);
@@ -93,6 +96,10 @@ public class Badges extends AppCompatActivity {
                     imageBadge3.setImageResource(R.drawable.hidden);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
+                    textBadge0.setText("Physics Master \n Completed module 1");
+                    textBadge1.setText("Junior Astronaut \n Completed module 2");
+                    textBadge2.setText("Knowledge Astronaut \n Completed module 3");
+
                 } else if (score >= 20.0 && score < 25) {
                     imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.b1);
@@ -100,6 +107,10 @@ public class Badges extends AppCompatActivity {
                     imageBadge3.setImageResource(R.drawable.b3);
                     imageBadge4.setImageResource(R.drawable.hidden);
                     imageBadge5.setImageResource(R.drawable.hidden);
+                    textBadge0.setText("Physics Master \n Completed module 1");
+                    textBadge1.setText("Junior Astronaut \n Completed module 2");
+                    textBadge2.setText("Knowledge Astronaut \n Completed module 3");
+                    textBadge3.setText("Senior Astronaut \n Completed module 4");
                 } else if (score >= 25.0 && score < 100000.0) {
                     imageBadge0.setImageResource(R.drawable.b0);
                     imageBadge1.setImageResource(R.drawable.b1);
@@ -107,14 +118,15 @@ public class Badges extends AppCompatActivity {
                     imageBadge3.setImageResource(R.drawable.b3);
                     imageBadge4.setImageResource(R.drawable.b4);
                     imageBadge5.setImageResource(R.drawable.b5);
+                    textBadge0.setText("Physics Master \n Completed module 1");
+                    textBadge1.setText("Junior Astronaut \n Completed module 2");
+                    textBadge2.setText("Knowledge Astronaut \n Completed module 3");
+                    textBadge3.setText("Senior Astronaut \n Completed module 4");
+                    textBadge4.setText("Space Man \n Completed module 5");
+                    textBadge5.setText("The Elon Musk \n Completed all the modules");
                 } else {
-
-
                 }
-
             }
         });
-
-
     }
 }
