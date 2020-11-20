@@ -34,7 +34,6 @@ public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.View
         return new ViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         MainTopicsCategory item = mLists.get(position);
@@ -43,7 +42,6 @@ public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (onItemClickListener != null) {
                     onItemClickListener.onItemClick(position);
                 }
@@ -51,7 +49,6 @@ public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.View
 
         });
     }
-
 
     @Override
     public int getItemCount() {
@@ -75,10 +72,6 @@ public class MainTopicAdapter extends RecyclerView.Adapter<MainTopicAdapter.View
             tv_mtopicTittle = itemView.findViewById(R.id.tv_mtopicTittle);
             iv_topicCategory = itemView.findViewById(R.id.iv_topicCategory);
             tv_cardView = itemView.findViewById(R.id.tv_cardview);
-
-
-
         }
-
     }
 }

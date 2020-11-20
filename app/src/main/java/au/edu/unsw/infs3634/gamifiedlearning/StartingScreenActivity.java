@@ -44,6 +44,7 @@ public class StartingScreenActivity extends AppCompatActivity {
     private Button buttonStartQuiz4;
     private Button buttonStartQuiz5;
     private Button buttonInstruction;
+    private Button buttonBadges;
     private TextView textViewEncourage;
     private TextView textViewTitle;
     private int score;
@@ -94,6 +95,8 @@ public class StartingScreenActivity extends AppCompatActivity {
         textViewScoreServer = findViewById(R.id.tvScoreServer);
         textViewEncourage = findViewById(R.id.tvEncourage);
         textViewTitle = findViewById(R.id.tvTitleJourney);
+        View root = textViewTitle.getRootView();
+
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -111,6 +114,10 @@ public class StartingScreenActivity extends AppCompatActivity {
                     buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
+                    root.setBackgroundResource(R.drawable.chapter1);
+                    textViewTitle.setText("Journey to the Mars");
+                    textViewEncourage.setText( "Ready to launch the rocket? ");
+
                 }
                 else if (score>=5.0 && score <10.0) {
                     buttonStartQuiz1.setVisibility(View.GONE);
@@ -118,6 +125,7 @@ public class StartingScreenActivity extends AppCompatActivity {
                     buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
+                    root.setBackgroundResource(R.drawable.chapter2);
                     // change the display to encourage more questions be answered
                     textViewEncourage.setText( "Nice start! Answer more questions to unlock the next chapter!");
                 } else if (score>=10.0 && score < 15.0) {
@@ -126,6 +134,7 @@ public class StartingScreenActivity extends AppCompatActivity {
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
+                    root.setBackgroundResource(R.drawable.chapter3);
                     //change the display again
                     textViewEncourage.setText( "You are at the half way!!!!");
                 } else if (score >= 15.0 && score < 20.0) {
@@ -134,17 +143,28 @@ public class StartingScreenActivity extends AppCompatActivity {
                     buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.VISIBLE);
                     buttonStartQuiz5.setVisibility(View.GONE);
+                    root.setBackgroundResource(R.drawable.chapter4);
                     //change the display again
-                    textViewEncourage.setText( "One more step to the Mars!");
-                } else if (score >=20.0 && score < 112387.0) {
+                    textViewEncourage.setText( "Few more step to the Mars!");
+                } else if (score >=20.0 && score < 25) {
                     buttonStartQuiz1.setVisibility(View.GONE);
                     buttonStartQuiz2.setVisibility(View.GONE);
                     buttonStartQuiz3.setVisibility(View.GONE);
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.VISIBLE);
-                    textViewTitle.setText( "Well Done!! You complected the quest!");
+                    root.setBackgroundResource(R.drawable.chapter5);
+                    textViewEncourage.setText( "Prepare for the landing!! ");
+                } else if (score >=25.0 && score < 100000.0) {
+                    buttonStartQuiz1.setVisibility(View.VISIBLE);
+                    buttonStartQuiz2.setVisibility(View.VISIBLE);
+                    buttonStartQuiz3.setVisibility(View.VISIBLE);
+                    buttonStartQuiz4.setVisibility(View.VISIBLE);
+                    buttonStartQuiz5.setVisibility(View.VISIBLE);
+                    root.setBackgroundResource(R.drawable.chapter5);
+                    textViewTitle.setText("Well Done!! You complected the quest!");
                     textViewEncourage.setVisibility(View.GONE);
-                } else {
+                }
+                else {
                     buttonStartQuiz1.setVisibility(View.VISIBLE);
                     buttonStartQuiz2.setVisibility(View.VISIBLE);
                     buttonStartQuiz3.setVisibility(View.VISIBLE);
@@ -177,13 +197,15 @@ public class StartingScreenActivity extends AppCompatActivity {
         buttonStartQuiz4 = findViewById(R.id.btChapter4);
         buttonStartQuiz5 = findViewById(R.id.btChapter5);
         buttonInstruction = findViewById(R.id.btInstruction);
+        buttonBadges = findViewById(R.id.btBadges);
         //hide chapter 2345 if score is low
-//        buttonStartQuiz2.setVisibility(View.GONE);
-//        buttonStartQuiz3.setVisibility(View.GONE);
-//        buttonStartQuiz4.setVisibility(View.GONE);
-//        buttonStartQuiz5.setVisibility(View.GONE);
 
-
+        buttonBadges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Badges.class));
+            }
+        });
 
         //------------------Temporarily hided from app interface ------------------
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gamebg_blur"
+    tools:context=".Badges">
+
+
+    <ImageView
+        android:id="@+id/ivBadge0"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hidden" />
+
+    <ImageView
+        android:id="@+id/ivBadge1"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBadge0"
+        app:srcCompat="@drawable/hidden" />
+
+    <ImageView
+        android:id="@+id/ivBadge2"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge0"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge0"
+        app:srcCompat="@drawable/hidden" />
+
+
+    <ImageView
+        android:id="@+id/ivBadge3"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge1"
+        app:layout_constraintTop_toTopOf="@+id/ivBadge2"
+        app:srcCompat="@drawable/hidden"  />
+
+    <ImageView
+        android:id="@+id/ivBadge5"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge3"
+        app:layout_constraintTop_toTopOf="@+id/ivBadge4"
+        app:srcCompat="@drawable/hidden" />
+
+    <ImageView
+        android:id="@+id/ivBadge4"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge2"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge2"
+        app:srcCompat="@drawable/hidden"  />
+
+    <TextView
+        android:id="@+id/tvBadge0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge0"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge0"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge0" />
+
+    <TextView
+        android:id="@+id/tvBadge1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge1"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge1"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge1" />
+
+    <TextView
+        android:id="@+id/tvBadge2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge2"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge2"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge2"  />
+
+    <TextView
+        android:id="@+id/tvBadge3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge3"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge3"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge3" />
+
+    <TextView
+        android:id="@+id/tvBadge4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge4"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge4"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge4"  />
+
+    <TextView
+        android:id="@+id/tvBadge5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/ivBadge5"
+        app:layout_constraintStart_toStartOf="@+id/ivBadge5"
+        app:layout_constraintTop_toBottomOf="@+id/ivBadge5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

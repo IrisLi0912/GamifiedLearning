@@ -4,37 +4,33 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MainTopicsCategory  implements Serializable {
+public class MainTopicsCategory implements Serializable {
 
     private String topicCategory;
     private int imageName;
     private int type;
 
 
-    public MainTopicsCategory(String topicCategory, int imageName,int type) {
+    public MainTopicsCategory(String topicCategory, int imageName, int type) {
         this.topicCategory = topicCategory;
         this.imageName = imageName;
         this.type = type;
-
     }
-
-
 
     //input topic category
     public static ArrayList<MainTopicsCategory> getMainTopicsCategory() {
         ArrayList<MainTopicsCategory> maintopics = new ArrayList<>();
-        maintopics.add(new MainTopicsCategory("General Knowledge", R.drawable.gk,0));
+        maintopics.add(new MainTopicsCategory("General Knowledge", R.drawable.gk, 0));
 
-        maintopics.add(new MainTopicsCategory("Mars exploration", R.drawable.marsexploration,0));
+        maintopics.add(new MainTopicsCategory("Mars exploration", R.drawable.marsexploration, 0));
 
-        maintopics.add(new MainTopicsCategory("History Observation", R.drawable.marshistory,0));
+        maintopics.add(new MainTopicsCategory("History Observation", R.drawable.marshistory, 0));
 
-        maintopics.add(new MainTopicsCategory("Future Missions", R.drawable.mission,1));
+        maintopics.add(new MainTopicsCategory("Future Missions", R.drawable.mission, 1));
 
-        maintopics.add(new MainTopicsCategory("Fun Facts", R.drawable.funfacts,2));
+        maintopics.add(new MainTopicsCategory("Fun Facts", R.drawable.funfacts, 2));
 
         return maintopics;
-
     }
 
     public String getTopicCategory() {

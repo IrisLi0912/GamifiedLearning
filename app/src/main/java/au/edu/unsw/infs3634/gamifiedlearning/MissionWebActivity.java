@@ -2,6 +2,7 @@ package au.edu.unsw.infs3634.gamifiedlearning;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -32,6 +33,5 @@ public class MissionWebActivity extends AppCompatActivity {
 
         //launch to the uri, display future mission in a webview
         webview.loadUrl("https://mars.nasa.gov/mars-exploration/missions/?page=0&per_page=99&order=date+desc&search=");
-
     }
 }

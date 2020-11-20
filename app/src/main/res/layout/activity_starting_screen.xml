@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gamebg"
+
     tools:context=".StartingScreenActivity">
 
     <TextView
@@ -132,11 +132,22 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTitleJourney" />
 
     <Button
-        android:id="@+id/btInstruction"
+        android:id="@+id/btBadges"
         android:layout_width="102dp"
         android:layout_height="47dp"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button"
+        android:text="My Badges"
+        app:layout_constraintBottom_toTopOf="@+id/btInstruction"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btInstruction"
+        android:layout_width="102dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/button"
         android:text="Instruction"
         app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
@@ -153,12 +164,12 @@
 
     <TextView
         android:id="@+id/tvEncourage"
-        android:layout_width="wrap_content"
+        android:layout_width="243dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="225dp"
         android:text="TextView"
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvScoreServer" />

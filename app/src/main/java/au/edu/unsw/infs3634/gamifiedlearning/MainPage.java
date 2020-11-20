@@ -87,7 +87,6 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.nasa.gov/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -98,11 +97,11 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<NASAImage> call, Response<NASAImage> response) {
                 if (!response.isSuccessful()) {
+                    //The actions if the image have not been updated
+                    textViewTitle.setText(" Astronomy Picture of the Day: \n Fairytale NEOWISE");
+                    textViewCopyRight.setText("© Stephane Guisard (Los Cielos de America, TWAN)");
                     textViewDesc.setText("Error Code: " + response.code() + " Sorry the new image have not been updated yet. But here is a photo from previous weeks. \n  Comet dust falls through a twilight sky in this dream-like scene, but it's not part of a fairytale movie. Still, Castle Neuschwanstein, nestled in the Bavarian Alps, did inspire Disneyland's Sleeping Beauty Castle. Captured on July 20, the bright streak above the castle towers is likely a Perseid meteor. Though it peaks near mid-August, the annual summer meteor shower is active now. The meteor trail over the fairytale castle can be traced back to the shower's radiant in the heroic constellation Perseus off the top right of the frame. Perseid meteors are produced by dust from periodic Comet Swift-Tuttle. With its own broad dust tail now sweeping through northern skies the celestial apparition above the distant horizon is planet Earth's current darling, Comet NEOWISE. ");
                     spaceImage.setImageResource(R.drawable.fairytale);
-                    textViewTitle.setText(" Astronomy Picture of the Day. \n Fairytale NEOWISE");
-                    textViewCopyRight.setText("© Stephane Guisard (Los Cielos de America, TWAN)");
-
                     return;
                 }
                 NASAImage NASAImg = response.body();
@@ -117,10 +116,8 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onFailure(Call<NASAImage> call, Throwable t) {
                 textViewDesc.setText("gg");
-
             }
         });
-
 
         //initialise and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
