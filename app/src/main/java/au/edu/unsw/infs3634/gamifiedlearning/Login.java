@@ -30,9 +30,7 @@ public class Login extends AppCompatActivity {
     FirebaseAuth fAuth;
     ProgressBar mStatus;
     TextView forgotpassword;
-    private EditText Email;
-    private Button cancel, send;
-    EditText send_email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
