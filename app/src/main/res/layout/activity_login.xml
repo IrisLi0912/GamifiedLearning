@@ -97,11 +97,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="center"
-            android:onClick="MyClick"
             android:text="Forgot you password?"
             android:textColor="#0C0C0C"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
