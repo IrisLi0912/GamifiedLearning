@@ -5,7 +5,8 @@
     android:id="@+id/btMore"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPage">
+    tools:context=".MainPage"
+    android:background="@drawable/marsbg">
     <!--checked-->
     <!--there were 2 main page file in iris's branch. the proper one is saved.-->
     <!--no adview is added-->
@@ -15,9 +16,10 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="669dp"
         app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,9 +51,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Welcome Back "
-                android:textAllCaps="false"
-                android:textSize="24sp"
+                android:fontFamily="@font/kalam_bold"
+                android:text="Welcome Back ~"
+                android:textSize="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/rubik"
                 android:gravity="center"
                 android:text="Astronomy Picture of the Day:"
                 android:textAllCaps="false"
@@ -76,15 +78,15 @@
                 android:id="@+id/tvSpaceHolder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:fontFamily="casual"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/kalam_bold"
                 android:gravity="center"
                 android:text="Before starting today's journey, remember to check out Mar's recent weather below ~ \n Click Credit to learn more."
-                android:textAllCaps="false"
-                android:textColor="#000000"
+                android:textColor="#0B0A0A"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btLearnMore" />
 
@@ -126,12 +128,14 @@
 
             <Button
                 android:id="@+id/btLearnMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
+                android:layout_width="200dp"
+                android:layout_height="51dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/button"
-
+                android:clickable="true"
+                android:fontFamily="@font/rubik_medium"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@animator/animation"
                 android:text="I want to learn more!"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

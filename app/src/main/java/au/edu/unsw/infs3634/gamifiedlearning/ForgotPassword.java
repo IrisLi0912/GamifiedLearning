@@ -5,8 +5,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,11 +27,12 @@ public class ForgotPassword extends AppCompatDialogFragment {
     FirebaseAuth firebaseAuth;
     private EditText Email;
 
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-      
-           // build a new dialog for forgot password.
+
+        // build a new dialog for forgot password.
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -40,11 +44,12 @@ public class ForgotPassword extends AppCompatDialogFragment {
 
         Email = view.findViewById(R.id.tv_email);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
 
 
- 
-        builder.setView(view);
+//        builder.setView(view);
+
 
         // modify the dialog
         //set two buttons
@@ -88,7 +93,11 @@ public class ForgotPassword extends AppCompatDialogFragment {
 
         });
 
+        Dialog dialog = builder.create();
+        dialog.show();
+        dialog.getWindow().setLayout(800,1200);
 
-        return builder.create();
+        return dialog;
     }
+
 }

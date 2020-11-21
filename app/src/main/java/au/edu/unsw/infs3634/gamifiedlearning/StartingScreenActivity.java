@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -203,6 +205,8 @@ public class StartingScreenActivity extends AppCompatActivity {
         buttonBadges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonBadges.startAnimation(animation);
                 startActivity(new Intent(getApplicationContext(), Badges.class));
             }
         });
@@ -211,6 +215,8 @@ public class StartingScreenActivity extends AppCompatActivity {
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonStartQuiz.startAnimation(animation);
                 startQuiz();
             }
         });
@@ -218,36 +224,48 @@ public class StartingScreenActivity extends AppCompatActivity {
         buttonStartQuiz1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonStartQuiz1.startAnimation(animation);
                 startQuizChapter1();
             }
         });
         buttonStartQuiz2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonStartQuiz2.startAnimation(animation);
                 startQuizChapter2();
             }
         });
         buttonStartQuiz3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonStartQuiz3.startAnimation(animation);
                 startQuizChapter3();
             }
         });
         buttonStartQuiz4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonStartQuiz4.startAnimation(animation);
                 startQuizChapter4();
             }
         });
         buttonStartQuiz5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonStartQuiz5.startAnimation(animation);
                 startQuizChapter5();
             }
         });
         buttonInstruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                buttonInstruction.startAnimation(animation);
                 startInstruction();
             }
         });

@@ -25,26 +25,28 @@
 
                 <TextView
                     android:id="@+id/tv_topicTitle"
-                    android:layout_width="248dp"
+                    android:layout_width="325dp"
                     android:layout_height="50dp"
                     android:gravity="center"
+                    android:layout_marginEnd="8dp"
                     android:text="Main topic title"
                     android:textAppearance="@style/TitleTextView" />
 
                 <TextView
                     android:id="@+id/tv_learnMore"
-                    android:layout_width="139dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@drawable/button"
-                    android:drawablePadding="-2dp"
+                    android:drawableStart="30dp"
                     android:elevation="3dp"
                     android:fontFamily="@font/rubik_bold"
                     android:gravity="center"
-                    android:text="Learn More"
+                    android:tooltipText="Learn More"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="#AD555454"
-                    android:textSize="14dp"
+
+
                     app:drawableStartCompat="@drawable/link" />
 
             </LinearLayout>

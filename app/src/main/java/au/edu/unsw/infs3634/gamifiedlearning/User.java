@@ -91,6 +91,8 @@ public class User extends AppCompatActivity {
         mResetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                mResetpass.startAnimation(animation);
                 startActivity(new Intent(User.this, Setting.class));
             }
 
