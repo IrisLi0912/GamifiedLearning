@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,11 +49,11 @@ public class Login extends AppCompatActivity {
 
 
         forgotpassword.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View v) {
-                                                openDialog();
-                                              }
-                                          }
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        }
 
         );
 
@@ -116,9 +115,9 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void openDialog(){
+    public void openDialog() {
         ForgotPassword forgotPassword = new ForgotPassword();
-        forgotPassword.show(getSupportFragmentManager(),"Forgot Password");
+        forgotPassword.show(getSupportFragmentManager(), "Forgot Password");
 
     }
 }
