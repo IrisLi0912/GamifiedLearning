@@ -48,124 +48,121 @@ public class Login extends AppCompatActivity {
         mStatus = findViewById(R.id.loginProgressBar);
         forgot_password = findViewById(R.id.tv_forgetpass);
 
-    }
+
+            mGoToSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
+                    mGoToSignUp.startAnimation(animation);
+                    startActivity(new Intent(getApplicationContext(), Register.class));
+                    finish();
+                }
+            });
 
 
-            public void MyClick (View view) {
-                Email = findViewById(R.id.tv_email);
-                fAuth = FirebaseAuth.getInstance();
-                // build a new dialog for forgot password.
-                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                // modify the dialog
-                //set two buttons
-                View mview = getLayoutInflater().inflate(R.layout.activity_forgot_password,null);
-                cancel = mview.findViewById(R.id.bt_cancel);
-                send = mview.findViewById(R.id.bt_send);
-                builder.setView(mview);
+            mLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
+                    mLogin.startAnimation(animation);
+                    String email = mEmail.getText().toString().trim();
+                    String pass = mPass.getText().toString().trim();
 
-                AlertDialog alertDialog = builder.create();
-                alertDialog.setCanceledOnTouchOutside(false);
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
-                        cancel.startAnimation(animation);
-                        alertDialog.dismiss();
+
+                    if (TextUtils.isEmpty(email)) {
+                        mEmail.setError("Please enter an Email address!");
                     }
-                });
 
-                send.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
-                        send.startAnimation(animation);
+                    if (TextUtils.isEmpty(pass)) {
+                        mPass.setError("Please enter a valid Password");
+                    }
+                    // password length restriction can go here
 
-                        String email = Email.getText().toString().trim();
+                    mStatus.setVisibility(View.VISIBLE);
 
-                        // email textfiled can not be null, otherwise popup relate message
-                        if (email.equals("")) {
-                            Toast.makeText(view.getContext(), "All fileds are required", Toast.LENGTH_SHORT).show();
-                        } else {
-                            fAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    // if the email was correct,send a link to users email to reset password
-                                    //the dialog closed, user will be back to login page
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(view.getContext(), "Please check your email", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(view.getContext(), Login.class));
-                                    } else {
-                                        //otherwise an error exception catched
-                                        String error = task.getException().getMessage();
-                                        Toast.makeText(view.getContext(), error, Toast.LENGTH_SHORT).show();
-                                    }
+                    //try and catch statement if user did not enter password and email
+                    try {
+                        fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(Login.this, "Logged In", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), Register.class));
+                                } else {
+
+                                    Toast.makeText(Login.this, "The Email / Password is incorrect.", Toast.LENGTH_SHORT).show();
+
                                 }
-                            });
-                        }
+                            }
+                        });
 
+                    } catch (Exception e) {
+                        System.out.println("yoo this user did not enter the required fields");
+                        Toast.makeText(Login.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
                     }
-                });
-                alertDialog.show();
+
+                }
+            });
+        }
 
 
+    public void MyClick (View view){
+        Email = findViewById(R.id.tv_email);
+        fAuth = FirebaseAuth.getInstance();
+        // build a new dialog for forgot password.
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+        // modify the dialog
+        //set two buttons
+        View mview = getLayoutInflater().inflate(R.layout.activity_forgot_password, null);
+        cancel = mview.findViewById(R.id.bt_cancel);
+        send = mview.findViewById(R.id.bt_send);
+        builder.setView(mview);
 
-
-
-        mGoToSignUp.setOnClickListener(new View.OnClickListener(){
-           @Override
-           public void onClick(View v){
-               Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
-               mGoToSignUp.startAnimation(animation);
-               startActivity(new Intent(getApplicationContext(), Register.class));
-               finish();
-           }
-        });
-
-
-        mLogin.setOnClickListener(new View.OnClickListener() {
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
-                mLogin.startAnimation(animation);
-                String email = mEmail.getText().toString().trim();
-                String pass = mPass.getText().toString().trim();
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
+                cancel.startAnimation(animation);
+                alertDialog.dismiss();
+            }
+        });
 
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
+                send.startAnimation(animation);
 
-                if (TextUtils.isEmpty(email)) {
-                    mEmail.setError("Please enter an Email address!");
-                }
+                String email = Email.getText().toString().trim();
 
-                if (TextUtils.isEmpty(pass)) {
-                    mPass.setError("Please enter a valid Password");
-                }
-                // password length restriction can go here
-
-                mStatus.setVisibility(View.VISIBLE);
-
-                //try and catch statement if user did not enter password and email
-                try{fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Logged In", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Register.class));
-                        } else {
-
-                            Toast.makeText(Login.this, "The Email / Password is incorrect.", Toast.LENGTH_SHORT).show();
-
+                // email textfiled can not be null, otherwise popup relate message
+                if (email.equals("")) {
+                    Toast.makeText(mview.getContext(), "All fileds are required", Toast.LENGTH_SHORT).show();
+                } else {
+                    fAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            // if the email was correct,send a link to users email to reset password
+                            //the dialog closed, user will be back to login page
+                            if (task.isSuccessful()) {
+                                Toast.makeText(mview.getContext(), "Please check your email", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(mview.getContext(), Login.class));
+                            } else {
+                                //otherwise an error exception catched
+                                String error = task.getException().getMessage();
+                                Toast.makeText(mview.getContext(), error, Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
-
-                }catch (Exception e){
-                    System.out.println("yoo this user did not enter the required fields");
-                    Toast.makeText(Login.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+                    });
                 }
 
             }
         });
-    }
+        alertDialog.show();
 
+    }
 
 }
