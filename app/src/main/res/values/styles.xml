@@ -10,6 +10,7 @@
     </style>
 
 
+    //customize text style
     //body text
     <style name="BodyTextView" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="fontFamily">@font/rubik</item>
