@@ -117,7 +117,7 @@ public class StartingScreenActivity extends AppCompatActivity {
                     buttonStartQuiz4.setVisibility(View.GONE);
                     buttonStartQuiz5.setVisibility(View.GONE);
                     root.setBackgroundResource(R.drawable.chapter1);
-                    textViewTitle.setText("Journey to the Mars");
+                    textViewTitle.setText("Journey to Mars");
                     textViewEncourage.setText( "Ready to launch the rocket? ");
 
                 }
@@ -147,7 +147,7 @@ public class StartingScreenActivity extends AppCompatActivity {
                     buttonStartQuiz5.setVisibility(View.GONE);
                     root.setBackgroundResource(R.drawable.chapter4);
                     //change the display again
-                    textViewEncourage.setText( "Few more step to the Mars!");
+                    textViewEncourage.setText( "Few more step to Mars!");
                 } else if (score >=20.0 && score < 25) {
                     buttonStartQuiz1.setVisibility(View.GONE);
                     buttonStartQuiz2.setVisibility(View.GONE);
