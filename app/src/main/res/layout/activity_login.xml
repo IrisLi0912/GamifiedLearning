@@ -97,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="center"
+            android:onClick="MyClick"
             android:text="Forgot you password?"
             android:textColor="#0C0C0C"
             android:textSize="12sp"
@@ -146,6 +147,7 @@
         android:textColorHint="#F8070707"
         app:backgroundTint="#7E171616"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 

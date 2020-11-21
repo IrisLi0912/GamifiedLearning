@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/rubik"
+                android:fontFamily="@font/kalam"
                 android:gravity="center"
                 android:text="Astronomy Picture of the Day:"
                 android:textAllCaps="false"
@@ -110,9 +110,10 @@
                 android:layout_width="372dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/kalam"
                 android:textColor="#000000"
                 android:textSize="18sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvAuthor" />
@@ -137,6 +138,18 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:stateListAnimator="@animator/animation"
                 android:text="I want to learn more!"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_result" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="35dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toTopOf="@+id/btLearnMore"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_result" />

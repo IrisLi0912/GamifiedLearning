@@ -11,7 +11,7 @@
         android:id="@+id/tvTitleJourney"
         android:layout_width="0dp"
         android:layout_height="93dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/kalam_bold"
         android:text="Journey to the Mars"
         android:textAlignment="center"
@@ -134,26 +134,28 @@
 
     <Button
         android:id="@+id/btBadges"
-        android:layout_width="70dp"
-        android:layout_height="69dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="51dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="272dp"
         android:background="@drawable/badge"
         android:tooltipText="My Badges"
-        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/btInstruction"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btInstruction"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="56dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/help"
-        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
+        android:tooltipText="Instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
-        android:tooltipText="Instruction"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvScoreServer"
@@ -173,7 +175,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="225dp"
         android:text="TextView"
-        android:fontFamily="@font/rubik"
+        android:fontFamily="@font/kalam_bold"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"

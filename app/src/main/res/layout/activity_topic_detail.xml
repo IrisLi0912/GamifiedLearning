@@ -39,14 +39,11 @@
                     android:layout_margin="3dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/button"
-                    android:drawableStart="30dp"
                     android:elevation="3dp"
                     android:fontFamily="@font/rubik_bold"
                     android:gravity="center"
                     android:tooltipText="Learn More"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-
-
                     app:drawableStartCompat="@drawable/link" />
 
             </LinearLayout>
@@ -170,12 +167,11 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:text="Back"
-                android:onClick="gotoMainTopicMain"
                 android:layout_marginTop="8dp"/>
 
         </LinearLayout>
