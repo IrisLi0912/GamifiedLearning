@@ -46,6 +46,8 @@ public class Login extends AppCompatActivity {
         forgotpassword = findViewById(R.id.tv_forgetpass);
 
 
+        //forgot password textview in the login page
+        //when it was pressed, forgot password dialog will pupop.
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +58,7 @@ public class Login extends AppCompatActivity {
         );
 
 
+        // Sign up, go to sign up (register) page
         mGoToSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +70,7 @@ public class Login extends AppCompatActivity {
         });
 
 
+        //log in, go to login page
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,26 +80,30 @@ public class Login extends AppCompatActivity {
                 String pass = mPass.getText().toString().trim();
 
 
+                //If email is null
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Please enter an Email address!");
                 }
 
+                //if password is null
                 if (TextUtils.isEmpty(pass)) {
                     mPass.setError("Please enter a valid Password");
                 }
-                // password length restriction can go here
+
 
                 mStatus.setVisibility(View.VISIBLE);
                 fAuth = FirebaseAuth.getInstance();
+
                 //try and catch statement if user did not enter password and email;
                 try {
                     fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            //email and password correct, do to App's MainPage
                             if (task.isSuccessful()) {
                                 Toast.makeText(Login.this, "Logged In", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), Register.class));
+                                startActivity(new Intent(getApplicationContext(), MainPage.class));
                             } else {
 
                                 Toast.makeText(Login.this, "The Email / Password is incorrect.", Toast.LENGTH_SHORT).show();
@@ -104,6 +112,7 @@ public class Login extends AppCompatActivity {
                         }
                     });
 
+                    //the exception catch the erro,when login pressed with both fields are empty
                 } catch (Exception e) {
                     System.out.println("yoo this user did not enter the required fields");
                     Toast.makeText(Login.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
@@ -112,6 +121,8 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+    //open the dialog
 
     public void openDialog() {
         ForgotPassword forgotPassword = new ForgotPassword();

@@ -20,9 +20,8 @@ package au.edu.unsw.infs3634.gamifiedlearning;
         import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatDialogFragment {
-    private EditText Email;
-    FirebaseAuth firebaseAuth;
-    EditText send_email;
+    private FirebaseAuth firebaseAuth;
+    private EditText send_email;
 
 
 
@@ -42,7 +41,7 @@ public class ForgotPassword extends AppCompatDialogFragment {
 
 
         // modify the dialog
-        //set title and two buttons
+        //set two buttons's action when it was pressed
         builder.setView(view);
         builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -77,6 +76,7 @@ public class ForgotPassword extends AppCompatDialogFragment {
                                 }
                             }
                         });
+                        //catch eceeption when there is nothing entered
                     } catch (Exception e) {
                         System.out.println("yoo this user did not enter the required fields");
                         Toast.makeText(view.getContext(), "Please enter all the fields.", Toast.LENGTH_SHORT).show();
