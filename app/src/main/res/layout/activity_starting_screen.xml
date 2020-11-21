@@ -11,8 +11,8 @@
         android:id="@+id/tvTitleJourney"
         android:layout_width="0dp"
         android:layout_height="93dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="casual"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/kalam_bold"
         android:text="Journey to the Mars"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:fontFamily="@font/rubik"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
@@ -50,7 +51,7 @@
         android:id="@+id/bnBottomBar"
         android:layout_width="match_parent"
         android:layout_height="53dp"
-        app:itemBackground="@color/purple_200"
+        app:itemBackground="@color/navgation"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,34 +134,40 @@
 
     <Button
         android:id="@+id/btBadges"
-        android:layout_width="102dp"
+        android:layout_width="51dp"
         android:layout_height="47dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button"
-        android:text="My Badges"
-        app:layout_constraintBottom_toTopOf="@+id/btInstruction"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="272dp"
+        android:background="@drawable/badge"
+        android:tooltipText="My Badges"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/btInstruction"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btInstruction"
-        android:layout_width="102dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/button"
-        android:text="Instruction"
-        app:layout_constraintBottom_toTopOf="@+id/bnBottomBar"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="56dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/help"
+        android:tooltipText="Instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvScoreServer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:fontFamily="@font/rubik"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="18dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tvTitleJourney"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvEncourage"
@@ -168,6 +175,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="225dp"
         android:text="TextView"
+        android:fontFamily="@font/kalam_bold"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"

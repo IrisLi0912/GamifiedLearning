@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,20 +42,49 @@ public class Setting extends AppCompatActivity {
         changepass = findViewById(R.id.bt_change_password);
 
 
+        //initialise and assign variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bnBottomBar);
+
+        //set home selected, later change to set whatever page selected
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        //Perform ItemSelectListener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.topic:
+                        startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), User.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainPage.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.journey:
+                        startActivity(new Intent(getApplicationContext(), StartingScreenActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+
+
         changepass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                changepass.startAnimation(animation);
                 changePassword();
             }
 
         });
 
-    }
-
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), Login.class));
-        finish();
     }
 
 
@@ -62,6 +93,7 @@ public class Setting extends AppCompatActivity {
         String cpass = currentpass.getText().toString().trim();
         String npass = newpass.getText().toString().trim();
         String conpass = confirmpass.getText().toString().trim();
+        Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
 
         //all the fields can not be null
         if (!TextUtils.isEmpty(cpass) && !TextUtils.isEmpty(npass) && !TextUtils.isEmpty(conpass)) {
@@ -75,12 +107,14 @@ public class Setting extends AppCompatActivity {
                 //make sure there is a current user and correct email
                 if (user != null && user.getEmail() != null) {
 
+
                     //give authenticate to user update their password
 
                     AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), cpass);
                     user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+
 
                             if (task.isSuccessful()) {
                                 Toast.makeText(Setting.this, "Re-Authentication success. ", Toast.LENGTH_SHORT).show();
@@ -89,6 +123,7 @@ public class Setting extends AppCompatActivity {
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
+
                                                 // successfully change password
                                                 // back to login
                                                 if (task.isSuccessful()) {
@@ -96,24 +131,40 @@ public class Setting extends AppCompatActivity {
                                                     fAuth.signOut();
                                                     startActivity(new Intent(getApplicationContext(), Login.class));
                                                     finish();
+
                                                 }
                                             }
                                         });
                             } else {
+
                                 //otherwise re authentication failed
                                 Toast.makeText(Setting.this, "Re-Authentication failed. ", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
+
+
                 } else {
                     startActivity(new Intent(this, Login.class));
                     finish();
+
                 }
+
+
             } else {
                 Toast.makeText(Setting.this, "Password mismatching.", Toast.LENGTH_SHORT).show();
+
             }
+
+
         } else {
+
             Toast.makeText(Setting.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+
+
         }
     }
+
+
+
 }

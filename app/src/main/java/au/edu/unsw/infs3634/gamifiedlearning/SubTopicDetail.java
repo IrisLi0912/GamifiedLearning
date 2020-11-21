@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +40,8 @@ public class SubTopicDetail extends AppCompatActivity {
         TextView tv_formulaDes1 = findViewById(R.id.tv_formulaDes1);
         ImageView iv_formulaImage1 = findViewById(R.id.iv_formulaImage1);
         TextView tv_learnMore = findViewById(R.id.tv_learnMore);
+        Button back = findViewById(R.id.back);
+
 
         iv_formulaImage.setImageResource(subTopic.getFormulaImage());
         tv_topicTitle.setText(subTopic.getTopicTitle() + "");
@@ -48,6 +53,9 @@ public class SubTopicDetail extends AppCompatActivity {
         tv_formulaDes1.setText(subTopic.getFormulaDes1() + "");
         iv_formulaImage1.setImageResource(subTopic.getFormulaImage1());
 
+        //add animation for button learn more
+
+
         //monitor learn more button
         tv_learnMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +63,19 @@ public class SubTopicDetail extends AppCompatActivity {
                 Uri uri = Uri.parse(subTopic.getLearnMore());
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
+                tv_learnMore.startAnimation(animation);
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
+                back.startAnimation(animation);
+                startActivity(new Intent(getApplicationContext(), MainTopicMain.class));
+                finish();
             }
         });
 
@@ -89,6 +110,7 @@ public class SubTopicDetail extends AppCompatActivity {
         //show the image
         return images;
     }
+
 }
 
 

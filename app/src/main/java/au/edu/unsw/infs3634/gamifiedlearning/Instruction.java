@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +34,10 @@ public class Instruction extends AppCompatActivity {
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //button animation
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                nextPage.startAnimation(animation);
+
                 //as the user click through, the page content changes
                 if (clickCount == 1) {
                     mainDisplay.setText(R.string.instruction_2);
