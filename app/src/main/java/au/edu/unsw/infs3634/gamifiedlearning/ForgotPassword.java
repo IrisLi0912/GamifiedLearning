@@ -70,7 +70,10 @@ public class ForgotPassword extends AppCompatDialogFragment {
                                 //the dialog closed, user will be back to login page
                                 if (task.isSuccessful()) {
                                     Toast.makeText(view.getContext(), "Please check your email", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(view.getContext(), Login.class));
+                                    try{startActivity(new Intent(view.getContext(), Login.class));}
+                                    catch (Exception e) {
+                                        System.out.println("Exception captured");
+                                    }
                                 } else {
                                     //otherwise an error exception catched
                                     Toast.makeText(view.getContext(), "Email is incorrect,please try again", Toast.LENGTH_SHORT).show();
