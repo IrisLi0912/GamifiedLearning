@@ -16,9 +16,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Badges extends AppCompatActivity {
-    String userID;
-    FirebaseAuth fAuth;
-    FirebaseFirestore fStore;
+    private String userID;
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
     private ImageView imageBadge0;
     private ImageView imageBadge1;
     private ImageView imageBadge2;

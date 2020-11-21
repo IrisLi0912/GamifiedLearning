@@ -44,7 +44,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        //was activity main but changed
+
 
         mName = findViewById(R.id.etName);
         mEmail = findViewById(R.id.etEmail);
@@ -56,6 +56,7 @@ public class Register extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         status = findViewById(R.id.progressBar);
 
+        //login button
         mGoToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +68,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        //if there is a current user
         if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainPage.class));
             finish();
@@ -74,6 +76,7 @@ public class Register extends AppCompatActivity {
         }
 
 
+        //Sign up
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

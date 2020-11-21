@@ -31,6 +31,7 @@ public class MissionWebActivity extends AppCompatActivity {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
 
+
         //launch to the uri, display future mission in a webview
         webview.loadUrl("https://mars.nasa.gov/mars-exploration/missions/?page=0&per_page=99&order=date+desc&search=");
     }
