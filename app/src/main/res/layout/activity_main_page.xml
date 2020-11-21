@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainPage"
-    android:background="@drawable/marsbg">
+    android:background="@drawable/marsbg_blur">
     <!--checked-->
     <!--there were 2 main page file in iris's branch. the proper one is saved.-->
     <!--no adview is added-->
@@ -123,7 +123,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
                 android:text="Copyright"
+                android:textColor="#1B1B1B"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivMarsCondition" />
 
