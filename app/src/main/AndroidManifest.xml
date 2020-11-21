@@ -28,6 +28,7 @@
         <activity android:name=".SubTopicMain" />
         <activity android:name=".MainTopicMain" />
         <activity android:name=".QuizActivity" />
+        <activity android:name=".ForgotPassword"/>
         <activity android:name=".Login" />
         <activity android:name=".Register">
             <intent-filter>
