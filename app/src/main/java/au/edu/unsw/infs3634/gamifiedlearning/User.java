@@ -57,7 +57,7 @@ public class User extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        mName =findViewById(R.id.tvName);
+        mName = findViewById(R.id.tvName);
         mUserName = findViewById(R.id.tvUserName);
         mEmail = findViewById(R.id.tvProfileEmail);
         mScore = findViewById(R.id.tvCoinNumber);
@@ -72,6 +72,12 @@ public class User extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+
+        try {
+            userID = fAuth.getCurrentUser().getUid();
+        } catch (Exception e) {
+            System.out.println("Exception captured");
+        }
         userID = fAuth.getCurrentUser().getUid();
 
         //adview implementation
@@ -91,7 +97,7 @@ public class User extends AppCompatActivity {
         mResetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
                 mResetpass.startAnimation(animation);
                 startActivity(new Intent(User.this, Setting.class));
             }
@@ -103,7 +109,7 @@ public class User extends AppCompatActivity {
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
                 mLogout.startAnimation(animation);
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(User.this, Login.class));
@@ -115,19 +121,29 @@ public class User extends AppCompatActivity {
 //        CollectionReference collectionRef = fStore.collection("users");
 //        Query query = collectionRef.orderBy("score", Direction.DESCENDING).limit(1);
         DocumentReference dR = fStore.collection("users").document(userID);
+        try {
+
+        } catch (Exception e) {
+
+        }
         dR.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                mName.setText(value.getString("name"));
-                mEmail.setText(value.getString("email"));
-                mUserName.setText(value.getString("userName"));
-                mScore.setText(value.getDouble("score") + " Points");
+                try {
+                    mName.setText(value.getString("name"));
+                    mEmail.setText(value.getString("email"));
+                    mUserName.setText(value.getString("userName"));
+                    mScore.setText(value.getDouble("score") + " Points");
+                } catch (Exception e) {
+                    System.out.println("Exception captured");
+                }
+
             }
 
         });
 
         CollectionReference Ref = fStore.collection("users");
-        Query query = Ref.orderBy("score",Query.Direction.DESCENDING).limit(1);
+        Query query = Ref.orderBy("score", Query.Direction.DESCENDING).limit(1);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -140,7 +156,7 @@ public class User extends AppCompatActivity {
             }
         });
 
-        Query query2 = Ref.orderBy("score",Query.Direction.DESCENDING).limit(2);
+        Query query2 = Ref.orderBy("score", Query.Direction.DESCENDING).limit(2);
         query2.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -153,7 +169,7 @@ public class User extends AppCompatActivity {
             }
         });
 
-        Query query3 = Ref.orderBy("score",Query.Direction.DESCENDING).limit(3);
+        Query query3 = Ref.orderBy("score", Query.Direction.DESCENDING).limit(3);
         query3.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
