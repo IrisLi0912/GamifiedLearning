@@ -105,7 +105,9 @@ public class User extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
                 mLogout.startAnimation(animation);
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(User.this, Login.class));
+                finish();
             }
 
         });

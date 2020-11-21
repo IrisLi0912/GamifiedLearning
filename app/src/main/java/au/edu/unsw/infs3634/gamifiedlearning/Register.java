@@ -59,15 +59,15 @@ public class Register extends AppCompatActivity {
         mGoToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
                 mGoToLogin.startAnimation(animation);
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
 
             }
         });
 
-        if(fAuth.getCurrentUser() !=null){
+        if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainPage.class));
             finish();
             //redirect user to main page
@@ -77,14 +77,13 @@ public class Register extends AppCompatActivity {
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
+                Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.shake);
                 mSignUp.startAnimation(animation);
 
                 String email = mEmail.getText().toString().trim();
                 String pass = mPass.getText().toString().trim();
                 String name = mName.getText().toString();
                 String userName = mUserName.getText().toString();
-
 
 
                 if (TextUtils.isEmpty(email)) {
@@ -103,10 +102,11 @@ public class Register extends AppCompatActivity {
 
                 status.setVisibility(View.VISIBLE);
 
-                fAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                //try anc catch when user did not enter the required fields
+                try {fAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+                        if (task.isSuccessful()) {
                             Toast.makeText(Register.this, "Registered", Toast.LENGTH_SHORT).show();
 
                             // Stores User Data to FireStore
@@ -126,14 +126,18 @@ public class Register extends AppCompatActivity {
                             });
                             startActivity(new Intent(getApplicationContext(), MainPage.class));
                             //Currently redirects to setting screen to test logout functionality
-                        }else{
+                        } else {
 
-                            Toast.makeText(Register.this, "Error!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "Please re-check your Email address, \n or enter a longer password", Toast.LENGTH_LONG).show();
                             status.setVisibility(View.GONE);
 
                         }
                     }
                 });
+                } catch (Exception e) {
+                    System.out.println("yoo this user did not enter the required fields");
+                    Toast.makeText(Register.this, "Please enter all the fields.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
