@@ -19,7 +19,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.25"
@@ -127,7 +127,7 @@
         android:id="@+id/bt_logout"
         android:layout_width="73dp"
         android:layout_height="38dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:scaleType="centerInside"
         android:src="@drawable/logout"
@@ -137,8 +137,8 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="412dp"
-        android:layout_height="44dp"
+        android:layout_width="397dp"
+        android:layout_height="43dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintBottom_toTopOf="@+id/ivAvatar"
@@ -160,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
 
     <LinearLayout
-        android:layout_width="374dp"
+        android:layout_width="match_parent"
         android:layout_height="277dp"
         android:layout_margin="15dp"
         android:orientation="vertical"
