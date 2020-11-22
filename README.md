@@ -10,7 +10,7 @@ Our final project objective is to deliver an Android-based application (with .ap
 
 ## Installation
 Use the .apk file to install the application to your Android device<br />
-[aMazing Mars v0.2](https://unsw-my.sharepoint.com/:u:/g/personal/z5260345_ad_unsw_edu_au/Edld5Q2h3MZFqlOfi6ioyHwBunYm6NeGTbhhEaUdgDKhvg?e=GGIkNG)
+[aMazing Mars v0.3](https://unsw-my.sharepoint.com/:u:/g/personal/z5260345_ad_unsw_edu_au/EZIxhIPSc5pCoMd6W2kYmQ8B3YNV7eRIW_NxYi_3vzXmlw?e=MqS6pD)
 
 
 ## Contributing
