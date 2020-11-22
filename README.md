@@ -15,8 +15,8 @@ Use the .apk file to install the application to your Android device
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Authors
-Wenrui Li
-Oscar Tozer
+Wenrui Li <br />
+Oscar Tozer<br />
 Sirui Chen 
 
 ## License 
