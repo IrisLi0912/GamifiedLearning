@@ -10,6 +10,8 @@ Our final project objective is to deliver an Android-based application (with .ap
 
 ## Installation
 Use the .apk file to install the application to your Android device
+[aMazing Mars v0.1](https://unsw-my.sharepoint.com/:u:/g/personal/z5260345_ad_unsw_edu_au/EdAgj3c2j9tFgZ2NnrOpVCwB5Q_b8lmUj7TTkdNaNcvT0A?e=JwVyRh)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
